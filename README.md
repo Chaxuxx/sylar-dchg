@@ -1,7 +1,7 @@
 # sylar-dchg
 copy and try to add sth on sylar 
 
-wsl和windows分开导致github同步很难受，等闲了也给wsl安个ssh key吧
+在sylar网络框架的基础上尝试添加一些无伤大雅的功能。
+当然，首先是copy并且理解sylar。
 
-还得用powershell pull push 
-
+按照视频顺序逐步进行代码迁移和单元测试。
