@@ -1,6 +1,6 @@
 #ifndef __SYLAR_LOG_H__
 #define __SYLAR_LOG_H__
-
+// 这样做的目的是防止同一个头文件被多次包含，导致重复定义变量和函数等问题。通过使用条件编译，在编译时会自动排除已经定义过的头文件，确保每个文件只被编译一次，避免编译错误和资源浪费。
 #include <string>
 #include <stdint.h>
 #include <memory>
@@ -10,18 +10,19 @@
 #include <vector>
 #include <stdarg.h>
 #include <map>
-#include "util.h"
+// #include "util.h"
 #include "singleton.h"
-#include "thread.h"
+// #include "thread.h"
 
 /**
  * @brief 使用流式方式将日志级别level的日志写入到logger
  */
-#define SYLAR_LOG_LEVEL(logger, level) \
+#define SYLAR_LOG_LEVEL(logger, level) \  
     if(logger->getLevel() <= level) \
         sylar::LogEventWrap(sylar::LogEvent::ptr(new sylar::LogEvent(logger, level, \
                         __FILE__, __LINE__, 0, sylar::GetThreadId(),\
                 sylar::GetFiberId(), time(0), sylar::Thread::GetName()))).getSS()
+//宏定义中的换行是 \ 这样宏定义简化了调用功能函数的文本
 
 /**
  * @brief 使用流式方式将日志级别debug的日志写入到logger
@@ -92,7 +93,9 @@
  */
 #define SYLAR_LOG_NAME(name) sylar::LoggerMgr::GetInstance()->getLogger(name)
 
+
 namespace sylar {
+    //为什么要用命名空间：避免重名
 
 class Logger;
 class LoggerManager;
@@ -119,6 +122,8 @@ public:
         /// FATAL 级别
         FATAL = 5
     };
+
+//Doxygen风格的注释 用于生成Doxygen api说明文档
 
     /**
      * @brief 将日志级别转成文本输出
@@ -215,6 +220,8 @@ public:
      * @brief 格式化写入日志内容
      */
     void format(const char* fmt, ...);
+    // 不定长参数列表
+
 
     /**
      * @brief 格式化写入日志内容
@@ -281,6 +288,7 @@ private:
  */
 class LogFormatter {
 public:
+    //每个class里的ptr还不一样
     typedef std::shared_ptr<LogFormatter> ptr;
     /**
      * @brief 构造函数
@@ -311,6 +319,9 @@ public:
      */
     std::string format(std::shared_ptr<Logger> logger, LogLevel::Level level, LogEvent::ptr event);
     std::ostream& format(std::ostream& ofs, std::shared_ptr<Logger> logger, LogLevel::Level level, LogEvent::ptr event);
+    
+    // format重载
+
 public:
 
     /**
@@ -361,10 +372,10 @@ private:
  * @brief 日志输出目标
  */
 class LogAppender {
-friend class Logger;
+friend class Logger; //友元函数in c++？
 public:
     typedef std::shared_ptr<LogAppender> ptr;
-    typedef Spinlock MutexType;
+    //typedef Spinlock MutexType;
 
     /**
      * @brief 析构函数
@@ -409,7 +420,7 @@ protected:
     /// 是否有自己的日志格式器
     bool m_hasFormatter = false;
     /// Mutex
-    MutexType m_mutex;
+    // MutexType m_mutex;
     /// 日志格式器
     LogFormatter::ptr m_formatter;
 };
@@ -421,7 +432,7 @@ class Logger : public std::enable_shared_from_this<Logger> {
 friend class LoggerManager;
 public:
     typedef std::shared_ptr<Logger> ptr;
-    typedef Spinlock MutexType;
+    // typedef Spinlock MutexType;
 
     /**
      * @brief 构造函数
@@ -523,7 +534,7 @@ private:
     /// 日志级别
     LogLevel::Level m_level;
     /// Mutex
-    MutexType m_mutex;
+    // MutexType m_mutex;
     /// 日志目标集合
     std::list<LogAppender::ptr> m_appenders;
     /// 日志格式器
@@ -571,7 +582,7 @@ private:
  */
 class LoggerManager {
 public:
-    typedef Spinlock MutexType;
+    // typedef Spinlock MutexType;
     /**
      * @brief 构造函数
      */
@@ -599,7 +610,7 @@ public:
     std::string toYamlString();
 private:
     /// Mutex
-    MutexType m_mutex;
+    //MutexType m_mutex;
     /// 日志器容器
     std::map<std::string, Logger::ptr> m_loggers;
     /// 主日志器

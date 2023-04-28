@@ -4,15 +4,16 @@
 #include <functional>
 #include <time.h>
 #include <string.h>
-#include "config.h"
-#include "util.h"
-#include "macro.h"
-#include "env.h"
+// #include "config.h"
+// #include "util.h"
+// #include "macro.h"
+// #include "env.h"
 
 namespace sylar {
 
 const char* LogLevel::ToString(LogLevel::Level level) {
     switch(level) {
+        //宏定义函数 name是形参 这个枚举case的处理避免了重复的代码 return #name就返回字符串了
 #define XX(name) \
     case LogLevel::name: \
         return #name; \
@@ -57,22 +58,26 @@ LogEventWrap::LogEventWrap(LogEvent::ptr e)
 LogEventWrap::~LogEventWrap() {
     m_event->getLogger()->log(m_event->getLevel(), m_event);
 }
+// 上述两个函数实现了一个简单的 RAII（Resource Acquisition Is Initialization）技术封装，将一个 LogEvent 对象包裹在一个对象中，当该对象超出作用域时自动触发析构函数。在析构函数中，将该 LogEvent 对象传递给其所属的 Logger 对象进行日志输出。
+// 资源获取即初始化
+
 
 void LogEvent::format(const char* fmt, ...) {
     va_list al;
-    va_start(al, fmt);
+    va_start(al, fmt);//初始化可变参数表
     format(fmt, al);
-    va_end(al);
+    va_end(al);//结束可变参数表使用
 }
 
 void LogEvent::format(const char* fmt, va_list al) {
     char* buf = nullptr;
     int len = vasprintf(&buf, fmt, al);
     if(len != -1) {
-        m_ss << std::string(buf, len);
+        m_ss << std::string(buf, len);//转换成string
         free(buf);
     }
 }
+// vasprintf() 将格式化字符串和可变参数表转换为一个动态分配的缓冲区 buf，并返回转换后字符串的长度 len
 
 std::stringstream& LogEventWrap::getSS() {
     return m_event->getSS();
@@ -80,7 +85,7 @@ std::stringstream& LogEventWrap::getSS() {
 
 
 void LogAppender::setFormatter(LogFormatter::ptr val) {
-    MutexType::Lock lock(m_mutex);
+    // MutexType::Lock lock(m_mutex);
     m_formatter = val;
     if(m_formatter) {
         m_hasFormatter = true;
