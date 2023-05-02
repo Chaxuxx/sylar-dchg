@@ -4,15 +4,21 @@ copy and try to add sth on sylar
 在sylar网络框架的基础上尝试添加一些无伤大雅的功能。
 当然，首先是copy并且理解sylar。
 一些理解的笔记，就写在obsidian\findwork\sylar-dchg里了
+参考[这个博客](https://www.midlane.top/wiki/pages/viewpage.action?pageId=10060952)，写自己的理解笔记，并且填充注释。
 
 - 按照sylar视频顺序逐步进行代码迁移和单元测试。
 - 利用sylar搭建tinywebserver
 - 添加线程池？（虽然有协程了）
 - 添加时间轮
 
-首先，整理大体的代码框架。复制一些博客中的内容过来。
-
+## 参考：
 [sylar的博客](http://www.sylar.top/blog/?p=94)
+
+https://github.com/sylar-yin/sylar
+
+[zhongluqiang的博客](https://www.midlane.top/wiki/pages/viewpage.action?pageId=10060952)
+
+https://github.com/zhongluqiang/sylar-from-scratch
 
 ## 项目路径安排
 ```

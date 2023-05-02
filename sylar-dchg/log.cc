@@ -5,9 +5,9 @@
 #include <time.h>
 #include <string.h>
 // #include "config.h"
-// #include "util.h"
+#include "util.h"
 // #include "macro.h"
-// #include "env.h"
+#include "env.h"
 
 namespace sylar {
 
@@ -95,7 +95,7 @@ void LogAppender::setFormatter(LogFormatter::ptr val) {
 }
 
 LogFormatter::ptr LogAppender::getFormatter() {
-    MutexType::Lock lock(m_mutex);
+   // MutexType::Lock lock(m_mutex);
     return m_formatter;
 }
 
@@ -241,22 +241,22 @@ LogEvent::LogEvent(std::shared_ptr<Logger> logger, LogLevel::Level level
 Logger::Logger(const std::string& name)
     :m_name(name)
     ,m_level(LogLevel::DEBUG) {
-    m_formatter.reset(new LogFormatter("%d{%Y-%m-%d %H:%M:%S}%T%t%T%N%T%F%T[%p]%T[%c]%T%f:%l%T%m%n"));
+    m_formatter.reset(new LogFormatter("%d{%Y-%m-%d %H:%M:%S}%T%t%T%N%T%F%T[%p]%T[%c]%T%f:%l%T%m%n"));//pattern
 }
 
 void Logger::setFormatter(LogFormatter::ptr val) {
-    MutexType::Lock lock(m_mutex);
+    // MutexType::Lock lock(m_mutex);
     m_formatter = val;
 
     for(auto& i : m_appenders) {
-        MutexType::Lock ll(i->m_mutex);
+        // MutexType::Lock ll(i->m_mutex);
         if(!i->m_hasFormatter) {
             i->m_formatter = m_formatter;
         }
     }
 }
 
-void Logger::setFormatter(const std::string& val) {
+void Logger::setFormatter(const std::string& val) {//新的格式化模板
     std::cout << "---" << val << std::endl;
     sylar::LogFormatter::ptr new_val(new sylar::LogFormatter(val));
     if(new_val->isError()) {
@@ -265,12 +265,12 @@ void Logger::setFormatter(const std::string& val) {
                   << std::endl;
         return;
     }
-    //m_formatter = new_val;
+    //m_formatter = new_val; 本来就有//
     setFormatter(new_val);
 }
 
 std::string Logger::toYamlString() {
-    MutexType::Lock lock(m_mutex);
+    // MutexType::Lock lock(m_mutex);
     YAML::Node node;
     node["name"] = m_name;
     if(m_level != LogLevel::UNKNOW) {
@@ -290,21 +290,21 @@ std::string Logger::toYamlString() {
 
 
 LogFormatter::ptr Logger::getFormatter() {
-    MutexType::Lock lock(m_mutex);
+    //MutexType::Lock lock(m_mutex);
     return m_formatter;
 }
 
 void Logger::addAppender(LogAppender::ptr appender) {
-    MutexType::Lock lock(m_mutex);
+    //MutexType::Lock lock(m_mutex);
     if(!appender->getFormatter()) {
-        MutexType::Lock ll(appender->m_mutex);
+        //MutexType::Lock ll(appender->m_mutex);
         appender->m_formatter = m_formatter;
     }
     m_appenders.push_back(appender);
 }
 
 void Logger::delAppender(LogAppender::ptr appender) {
-    MutexType::Lock lock(m_mutex);
+    //MutexType::Lock lock(m_mutex);
     for(auto it = m_appenders.begin();
             it != m_appenders.end(); ++it) {
         if(*it == appender) {
@@ -315,20 +315,20 @@ void Logger::delAppender(LogAppender::ptr appender) {
 }
 
 void Logger::clearAppenders() {
-    MutexType::Lock lock(m_mutex);
+    //MutexType::Lock lock(m_mutex);
     m_appenders.clear();
 }
 
 void Logger::log(LogLevel::Level level, LogEvent::ptr event) {
     if(level >= m_level) {
         auto self = shared_from_this();
-        MutexType::Lock lock(m_mutex);
+        //MutexType::Lock lock(m_mutex);
         if(!m_appenders.empty()) {
             for(auto& i : m_appenders) {
-                i->log(self, level, event);
+                i->log(self, level, event); //起到输出不同级别log的作用
             }
         } else if(m_root) {
-            m_root->log(level, event);
+            m_root->log(level, event);//保证日志记录器最后能够达到输出器
         }
     }
 }
