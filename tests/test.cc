@@ -14,8 +14,9 @@ int main(int argc, char** argv) {
     // logger->addAppender(file_appender);
 
     // sylar_dchg::LogEvent::ptr event(new sylar_dchg::LogEvent(__FILE__, __LINE__, 0, sylar_dchg::GetThreadId(), sylar_dchg::GetFiberId(), time(0)));
+    sylar_dchg::LogEvent::ptr event(new sylar_dchg::LogEvent(logger,logger->getLevel(),__FILE__, __LINE__, 0, 1, 2, time(0),"hello"));
     // //event->getSS() << "hello sylar_dchg log";
-    // logger->log(sylar_dchg::LogLevel::DEBUG, event);
+    logger->log(sylar_dchg::LogLevel::DEBUG, event);
     std::cout << "hello sylar_dchg log" << std::endl;
 
     // SYLAR_dchg_LOG_INFO(logger) << "test macro";
