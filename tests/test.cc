@@ -1,6 +1,6 @@
 #include <iostream>
-#include "sylar/log.h"
-#include "sylar/util.h"
+#include "sylar_dchg/log.h"
+#include "sylar_dchg/util.h"
 
 int main(int argc, char** argv) {
     sylar::Logger::ptr logger(new sylar::Logger);

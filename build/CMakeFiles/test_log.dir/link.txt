@@ -1,0 +1,1 @@
+/usr/bin/g++  -g  -rdynamic CMakeFiles/test_log.dir/tests/test.cc.o  -o test_log  -Wl,-rpath,/mnt/e/code/server/sylar_dchg/build libsylar_dchg.so 
