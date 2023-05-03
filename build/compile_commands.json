@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build",
+  "command": "/usr/bin/g++   -I/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg -I/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/.  -g   -o CMakeFiles/test_log.dir/tests/test.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/tests/test.cc",
+  "file": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/tests/test.cc"
+},
+{
+  "directory": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build",
+  "command": "/usr/bin/g++  -Dsylar_dchg_EXPORTS -I/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg -I/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/.  -g -fPIC   -o CMakeFiles/sylar_dchg.dir/sylar_dchg/thread.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/thread.cc",
+  "file": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/thread.cc"
+},
+{
+  "directory": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build",
+  "command": "/usr/bin/g++  -Dsylar_dchg_EXPORTS -I/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg -I/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/.  -g -fPIC   -o CMakeFiles/sylar_dchg.dir/sylar_dchg/log.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/log.cc",
+  "file": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/log.cc"
+},
+{
+  "directory": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build",
+  "command": "/usr/bin/g++  -Dsylar_dchg_EXPORTS -I/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg -I/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/.  -g -fPIC   -o CMakeFiles/sylar_dchg.dir/sylar_dchg/util.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/util.cc",
+  "file": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/util.cc"
+}
+]

@@ -8,6 +8,7 @@
 #include <sstream>
 #include <fstream>
 #include <vector>
+
 #include <stdarg.h>
 #include <map>
 #include "util.h"
@@ -309,7 +310,9 @@ public:
      *
      *  默认格式 "%d{%Y-%m-%d %H:%M:%S}%T%t%T%N%T%F%T[%p]%T[%c]%T%f:%l%T%m%n"
      */
-    LogFormatter(const std::string& pattern);
+    LogFormatter(const std::string& pattern);//构造函数输入一个string作为pattern 上面的默认格式是常见的日志格式模板（c风格的）
+    // 只有构造函数，在没有虚函数的情况下可以没有析构函数，编译器会自动给出默认析构函数
+    //pattern是个string 默认格式在logger的构造函数里
 
     /**
      * @brief 返回格式化日志文本
@@ -318,6 +321,8 @@ public:
      * @param[in] event 日志事件
      */
     std::string format(std::shared_ptr<Logger> logger, LogLevel::Level level, LogEvent::ptr event);
+    // 把一个event以一个format进行格式化成string 进而输出成标准格式  下面的重载是流式的
+
     std::ostream& format(std::ostream& ofs, std::shared_ptr<Logger> logger, LogLevel::Level level, LogEvent::ptr event);
     
     // format重载
@@ -342,10 +347,12 @@ public:
          * @param[in] event 日志事件
          */
         virtual void format(std::ostream& os, std::shared_ptr<Logger> logger, LogLevel::Level level, LogEvent::ptr event) = 0;
+        //这里也是算作重载，多态吗？这几个format意义何在呢？  这里的虚函数是方便继承多态 重新看下多态吧
+        //上述的formatter的format和内置类的作用域不同，不可混为一谈
     };
 
     /**
-     * @brief 初始化,解析日志模板
+     * @brief 初始化,解析日志模板pattern
      */
     void init();
 
@@ -361,7 +368,7 @@ public:
 private:
     /// 日志格式模板
     std::string m_pattern;
-    /// 日志格式解析后格式
+    /// 日志格式解析后格式 用这个pattern去解析日志 
     std::vector<FormatItem::ptr> m_items;
     /// 是否有错误
     bool m_error = false;
@@ -388,7 +395,7 @@ public:
      * @param[in] level 日志级别
      * @param[in] event 日志事件
      */
-    virtual void log(std::shared_ptr<Logger> logger, LogLevel::Level level, LogEvent::ptr event) = 0;
+    virtual void log(std::shared_ptr<Logger> logger, LogLevel::Level level, LogEvent::ptr event) = 0;//TODO和logger里的log的区别在于？
 
     /**
      * @brief 将日志输出目标的配置转成YAML String
@@ -447,6 +454,8 @@ public:
      */
     void log(LogLevel::Level level, LogEvent::ptr event);
 
+
+
     /**
      * @brief 写debug级别日志
      * @param[in] event 日志事件
@@ -476,6 +485,8 @@ public:
      * @param[in] event 日志事件
      */
     void fatal(LogEvent::ptr event);
+
+
 
     /**
      * @brief 添加日志目标
@@ -568,6 +579,7 @@ public:
      * @return 成功返回true
      */
     bool reopen();
+
 private:
     /// 文件路径
     std::string m_filename;

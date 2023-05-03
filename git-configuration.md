@@ -22,3 +22,5 @@ git push
 
 不过在win文件夹中点击执行倒也不是不可以接受。
 还可以powershell里 `gitpush.sh` 执行
+
+在swift3上设置ssh公钥到github后，直接使用vscode内置的图形化push方式也很方便。

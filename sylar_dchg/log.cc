@@ -99,6 +99,8 @@ LogFormatter::ptr LogAppender::getFormatter() {
     return m_formatter;
 }
 
+
+// 接下来各种formatitem的是实现
 class MessageFormatItem : public LogFormatter::FormatItem {
 public:
     MessageFormatItem(const std::string& str = "") {}
@@ -241,7 +243,7 @@ LogEvent::LogEvent(std::shared_ptr<Logger> logger, LogLevel::Level level
 Logger::Logger(const std::string& name)
     :m_name(name)
     ,m_level(LogLevel::DEBUG) {
-    m_formatter.reset(new LogFormatter("%d{%Y-%m-%d %H:%M:%S}%T%t%T%N%T%F%T[%p]%T[%c]%T%f:%l%T%m%n"));//pattern
+    m_formatter.reset(new LogFormatter("%d{%Y-%m-%d %H:%M:%S}%T%t%T%N%T%F%T[%p]%T[%c]%T%f:%l%T%m%n"));//默认pattern 在logformatter里init解析
 }
 
 void Logger::setFormatter(LogFormatter::ptr val) {
@@ -256,10 +258,10 @@ void Logger::setFormatter(LogFormatter::ptr val) {
     }
 }
 
-void Logger::setFormatter(const std::string& val) {//新的格式化模板
+void Logger::setFormatter(const std::string& val) {//设置格式化模板
     std::cout << "---" << val << std::endl;
     sylar::LogFormatter::ptr new_val(new sylar::LogFormatter(val));
-    if(new_val->isError()) {
+    if(new_val->isError()) {//如果error的话就创建一个新的formatter
         std::cout << "Logger setFormatter name=" << m_name
                   << " value=" << val << " invalid formatter"
                   << std::endl;
@@ -325,7 +327,7 @@ void Logger::log(LogLevel::Level level, LogEvent::ptr event) {
         //MutexType::Lock lock(m_mutex);
         if(!m_appenders.empty()) {
             for(auto& i : m_appenders) {
-                i->log(self, level, event); //起到输出不同级别log的作用
+                i->log(self, level, event); //遍历appender list 起到输出不同级别log的作用
             }
         } else if(m_root) {
             m_root->log(level, event);//保证日志记录器最后能够达到输出器
@@ -394,7 +396,7 @@ std::string FileLogAppender::toYamlString() {
 //     if(m_filestream) {
 //         m_filestream.close();
 //     }
-//     return FSUtil::OpenForWrite(m_filestream, m_filename, std::ios::app);
+//     return FSUtil::OpenForWrite(m_filestream, m_filename, std::ios::app);//一开始实现不一样 没有用FSUtil p3 10：14
 // }
 
 void StdoutLogAppender::log(std::shared_ptr<Logger> logger, LogLevel::Level level, LogEvent::ptr event) {
@@ -421,7 +423,7 @@ std::string StdoutLogAppender::toYamlString() {
 
 LogFormatter::LogFormatter(const std::string& pattern)
     :m_pattern(pattern) {
-    init();
+    init();//那为什么init不直接写在这个构造函数中呢？ #TODO
 }
 
 std::string LogFormatter::format(std::shared_ptr<Logger> logger, LogLevel::Level level, LogEvent::ptr event) {
@@ -439,20 +441,20 @@ std::ostream& LogFormatter::format(std::ostream& ofs, std::shared_ptr<Logger> lo
     return ofs;
 }
 
-//%xxx %xxx{xxx} %%
+//%xxx %xxx{xxx} %%转义 参考log4cpp的格式 初始化pattern
 void LogFormatter::init() {
     //str, format, type
-    std::vector<std::tuple<std::string, std::string, int> > vec;
+    std::vector<std::tuple<std::string, std::string, int> > vec;//存储format 解析后的pattern字符串
     std::string nstr;
-    for(size_t i = 0; i < m_pattern.size(); ++i) {
+    for(size_t i = 0; i < m_pattern.size(); ++i) {//string处理 字符串解析
         if(m_pattern[i] != '%') {
-            nstr.append(1, m_pattern[i]);
+            nstr.append(1, m_pattern[i]);//不是百分号就放到nstr中
             continue;
         }
 
         if((i + 1) < m_pattern.size()) {
             if(m_pattern[i + 1] == '%') {
-                nstr.append(1, '%');
+                nstr.append(1, '%');//如果当前字符是%的话考虑是否是转义
                 continue;
             }
         }
@@ -462,7 +464,7 @@ void LogFormatter::init() {
         size_t fmt_begin = 0;
 
         std::string str;
-        std::string fmt;
+        std::string fmt;//format fmt
         while(n < m_pattern.size()) {
             if(!fmt_status && (!isalpha(m_pattern[n]) && m_pattern[n] != '{'
                     && m_pattern[n] != '}')) {
@@ -497,14 +499,14 @@ void LogFormatter::init() {
 
         if(fmt_status == 0) {
             if(!nstr.empty()) {
-                vec.push_back(std::make_tuple(nstr, std::string(), 0));
+                vec.push_back(std::make_tuple(nstr, std::string(), 0));//构造一个空string
                 nstr.clear();
             }
             vec.push_back(std::make_tuple(str, fmt, 1));
             i = n - 1;
         } else if(fmt_status == 1) {
-            std::cout << "pattern parse error: " << m_pattern << " - " << m_pattern.substr(i) << std::endl;
-            m_error = true;
+            std::cout << "pattern parse error: " << m_pattern << " - " << m_pattern.substr(i) << std::endl;//需要判断字符串是否合规
+            m_error = true;//默认是false
             vec.push_back(std::make_tuple("<<pattern_error>>", fmt, 0));
         }
     }
@@ -529,19 +531,19 @@ void LogFormatter::init() {
         XX(F, FiberIdFormatItem),           //F:协程id
         XX(N, ThreadNameFormatItem),        //N:线程名称
 #undef XX
-    };
+    };//C是formatitem的子类实现 map里是相应字母和对应的函数指针
 
-    for(auto& i : vec) {
+    for(auto& i : vec) {//
         if(std::get<2>(i) == 0) {
             m_items.push_back(FormatItem::ptr(new StringFormatItem(std::get<0>(i))));
         } else {
             auto it = s_format_items.find(std::get<0>(i));
-            if(it == s_format_items.end()) {
+            if(it == s_format_items.end()) {//在map里没有找到
                 m_items.push_back(FormatItem::ptr(new StringFormatItem("<<error_format %" + std::get<0>(i) + ">>")));
                 m_error = true;
             } else {
-                m_items.push_back(it->second(std::get<1>(i)));
-            }
+                m_items.push_back(it->second(std::get<1>(i)));//将相应的formatitem放入item vector中（解析完成了）所谓解析的过程就是把pattern string转化成确实能获取到的值的集合的过程
+            }//item子类完成的就是对不同类型的字符进行不同值获取的过程 类指针传入一个初始化fmt 用get获取tuple的元素
         }
 
         //std::cout << "(" << std::get<0>(i) << ") - (" << std::get<1>(i) << ") - (" << std::get<2>(i) << ")" << std::endl;
