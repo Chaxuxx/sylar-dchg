@@ -23,6 +23,9 @@ SUFFIXES =
 .SUFFIXES: .hpux_make_needs_suffix_list
 
 
+# Produce verbose output by default.
+VERBOSE = 1
+
 # Suppress display of executed commands.
 $(VERBOSE).SILENT:
 
@@ -111,17 +114,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named test_log
+# Target rules for targets named test
 
 # Build rule for target.
-test_log: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_log
-.PHONY : test_log
+test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test
+.PHONY : test
 
 # fast build rule for target.
-test_log/fast:
-	$(MAKE) -f CMakeFiles/test_log.dir/build.make CMakeFiles/test_log.dir/build
-.PHONY : test_log/fast
+test/fast:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
+.PHONY : test/fast
 
 #=============================================================================
 # Target rules for targets named sylar_dchg
@@ -163,67 +166,13 @@ sylar_dchg/log.cc.s:
 	$(MAKE) -f CMakeFiles/sylar_dchg.dir/build.make CMakeFiles/sylar_dchg.dir/sylar_dchg/log.cc.s
 .PHONY : sylar_dchg/log.cc.s
 
-sylar_dchg/thread.o: sylar_dchg/thread.cc.o
-
-.PHONY : sylar_dchg/thread.o
-
-# target to build an object file
-sylar_dchg/thread.cc.o:
-	$(MAKE) -f CMakeFiles/sylar_dchg.dir/build.make CMakeFiles/sylar_dchg.dir/sylar_dchg/thread.cc.o
-.PHONY : sylar_dchg/thread.cc.o
-
-sylar_dchg/thread.i: sylar_dchg/thread.cc.i
-
-.PHONY : sylar_dchg/thread.i
-
-# target to preprocess a source file
-sylar_dchg/thread.cc.i:
-	$(MAKE) -f CMakeFiles/sylar_dchg.dir/build.make CMakeFiles/sylar_dchg.dir/sylar_dchg/thread.cc.i
-.PHONY : sylar_dchg/thread.cc.i
-
-sylar_dchg/thread.s: sylar_dchg/thread.cc.s
-
-.PHONY : sylar_dchg/thread.s
-
-# target to generate assembly for a file
-sylar_dchg/thread.cc.s:
-	$(MAKE) -f CMakeFiles/sylar_dchg.dir/build.make CMakeFiles/sylar_dchg.dir/sylar_dchg/thread.cc.s
-.PHONY : sylar_dchg/thread.cc.s
-
-sylar_dchg/util.o: sylar_dchg/util.cc.o
-
-.PHONY : sylar_dchg/util.o
-
-# target to build an object file
-sylar_dchg/util.cc.o:
-	$(MAKE) -f CMakeFiles/sylar_dchg.dir/build.make CMakeFiles/sylar_dchg.dir/sylar_dchg/util.cc.o
-.PHONY : sylar_dchg/util.cc.o
-
-sylar_dchg/util.i: sylar_dchg/util.cc.i
-
-.PHONY : sylar_dchg/util.i
-
-# target to preprocess a source file
-sylar_dchg/util.cc.i:
-	$(MAKE) -f CMakeFiles/sylar_dchg.dir/build.make CMakeFiles/sylar_dchg.dir/sylar_dchg/util.cc.i
-.PHONY : sylar_dchg/util.cc.i
-
-sylar_dchg/util.s: sylar_dchg/util.cc.s
-
-.PHONY : sylar_dchg/util.s
-
-# target to generate assembly for a file
-sylar_dchg/util.cc.s:
-	$(MAKE) -f CMakeFiles/sylar_dchg.dir/build.make CMakeFiles/sylar_dchg.dir/sylar_dchg/util.cc.s
-.PHONY : sylar_dchg/util.cc.s
-
 tests/test.o: tests/test.cc.o
 
 .PHONY : tests/test.o
 
 # target to build an object file
 tests/test.cc.o:
-	$(MAKE) -f CMakeFiles/test_log.dir/build.make CMakeFiles/test_log.dir/tests/test.cc.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/tests/test.cc.o
 .PHONY : tests/test.cc.o
 
 tests/test.i: tests/test.cc.i
@@ -232,7 +181,7 @@ tests/test.i: tests/test.cc.i
 
 # target to preprocess a source file
 tests/test.cc.i:
-	$(MAKE) -f CMakeFiles/test_log.dir/build.make CMakeFiles/test_log.dir/tests/test.cc.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/tests/test.cc.i
 .PHONY : tests/test.cc.i
 
 tests/test.s: tests/test.cc.s
@@ -241,7 +190,7 @@ tests/test.s: tests/test.cc.s
 
 # target to generate assembly for a file
 tests/test.cc.s:
-	$(MAKE) -f CMakeFiles/test_log.dir/build.make CMakeFiles/test_log.dir/tests/test.cc.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/tests/test.cc.s
 .PHONY : tests/test.cc.s
 
 # Help Target
@@ -252,17 +201,11 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... test_log"
+	@echo "... test"
 	@echo "... sylar_dchg"
 	@echo "... sylar_dchg/log.o"
 	@echo "... sylar_dchg/log.i"
 	@echo "... sylar_dchg/log.s"
-	@echo "... sylar_dchg/thread.o"
-	@echo "... sylar_dchg/thread.i"
-	@echo "... sylar_dchg/thread.s"
-	@echo "... sylar_dchg/util.o"
-	@echo "... sylar_dchg/util.i"
-	@echo "... sylar_dchg/util.s"
 	@echo "... tests/test.o"
 	@echo "... tests/test.i"
 	@echo "... tests/test.s"

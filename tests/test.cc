@@ -1,29 +1,29 @@
 #include <iostream>
-#include "sylar_dchg/log.h"
-#include "sylar_dchg/util.h"
+#include "../sylar_dchg/log.h"
+// #include "../sylar_dchg/util.h"
 
 int main(int argc, char** argv) {
-    sylar::Logger::ptr logger(new sylar::Logger);
-    logger->addAppender(sylar::LogAppender::ptr(new sylar::StdoutLogAppender));
+    sylar_dchg::Logger::ptr logger(new sylar_dchg::Logger);
+    logger->addAppender(sylar_dchg::LogAppender::ptr(new sylar_dchg::StdoutLogAppender));
 
-    sylar::FileLogAppender::ptr file_appender(new sylar::FileLogAppender("./log.txt"));
-    sylar::LogFormatter::ptr fmt(new sylar::LogFormatter("%d%T%p%T%m%n"));
-    file_appender->setFormatter(fmt);
-    file_appender->setLevel(sylar::LogLevel::ERROR);
+    // sylar_dchg::FileLogAppender::ptr file_appender(new sylar_dchg::FileLogAppender("./log.txt"));
+    // sylar_dchg::LogFormatter::ptr fmt(new sylar_dchg::LogFormatter("%d%T%p%T%m%n"));
+    // file_appender->setFormatter(fmt);
+    // file_appender->setLevel(sylar_dchg::LogLevel::ERROR);
 
-    logger->addAppender(file_appender);
+    // logger->addAppender(file_appender);
 
-    //sylar::LogEvent::ptr event(new sylar::LogEvent(__FILE__, __LINE__, 0, sylar::GetThreadId(), sylar::GetFiberId(), time(0)));
-    //event->getSS() << "hello sylar log";
-    //logger->log(sylar::LogLevel::DEBUG, event);
-    std::cout << "hello sylar log" << std::endl;
+    // sylar_dchg::LogEvent::ptr event(new sylar_dchg::LogEvent(__FILE__, __LINE__, 0, sylar_dchg::GetThreadId(), sylar_dchg::GetFiberId(), time(0)));
+    // //event->getSS() << "hello sylar_dchg log";
+    // logger->log(sylar_dchg::LogLevel::DEBUG, event);
+    std::cout << "hello sylar_dchg log" << std::endl;
 
-    SYLAR_LOG_INFO(logger) << "test macro";
-    SYLAR_LOG_ERROR(logger) << "test macro error";
+    // SYLAR_dchg_LOG_INFO(logger) << "test macro";
+    // SYLAR_dchg_LOG_ERROR(logger) << "test macro error";
 
-    SYLAR_LOG_FMT_ERROR(logger, "test macro fmt error %s", "aa");
+    // SYLAR_dchg_LOG_FMT_ERROR(logger, "test macro fmt error %s", "aa");
 
-    auto l = sylar::LoggerMgr::GetInstance()->getLogger("xx");
-    SYLAR_LOG_INFO(l) << "xxx";
+    // auto l = sylar_dchg::LoggerMgr::GetInstance()->getLogger("xx");
+    // SYLAR_dchg_LOG_INFO(l) << "xxx";
     return 0;
 }

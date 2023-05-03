@@ -1,1 +1,1 @@
-/usr/bin/g++  -g  -rdynamic CMakeFiles/test_log.dir/tests/test.cc.o  -o test_log  -Wl,-rpath,/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build libsylar_dchg.so 
+/usr/bin/g++   -rdynamic -O3 -fPIC -ggdb -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -Wno-builtin-macro-redefined -Wno-deprecated-declarations -g  -rdynamic CMakeFiles/test_log.dir/tests/test.cc.o  -o test_log  -Wl,-rpath,/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build libsylar_dchg.so 
