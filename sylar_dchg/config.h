@@ -1,18 +1,19 @@
 /**
  * @file config.h
  * @brief 配置模块
- * @author sylar.yin
+ * @author sylar_dchg.yin
  * @email 564628276@qq.com
  * @date 2019-05-22
- * @copyright Copyright (c) 2019年 sylar.yin All rights reserved (www.sylar.top)
+ * @copyright Copyright (c) 2019年 sylar_dchg.yin All rights reserved (www.sylar_dchg.top)
  */
-#ifndef __SYLAR_CONFIG_H__
-#define __SYLAR_CONFIG_H__
+#ifndef __SYLAR_DCHG_CONFIG_H__
+#define __SYLAR_DCHG_CONFIG_H__
 
 #include <memory>
 #include <string>
 #include <sstream>
 #include <boost/lexical_cast.hpp>
+
 #include <yaml-cpp/yaml.h>
 #include <vector>
 #include <list>
@@ -22,11 +23,11 @@
 #include <unordered_set>
 #include <functional>
 
-#include "thread.h"
+// #include "thread.h"
 #include "log.h"
 #include "util.h"
 
-namespace sylar {
+namespace sylar_dchg {
 
 /**
  * @brief 配置变量的基类
@@ -42,7 +43,7 @@ public:
     ConfigVarBase(const std::string& name, const std::string& description = "")
         :m_name(name)
         ,m_description(description) {
-        std::transform(m_name.begin(), m_name.end(), m_name.begin(), ::tolower);
+        std::transform(m_name.begin(), m_name.end(), m_name.begin(), ::tolower);//这里有一个大小写转换transform
     }
 
     /**
@@ -109,7 +110,7 @@ public:
         typename std::vector<T> vec;
         std::stringstream ss;
         for(size_t i = 0; i < node.size(); ++i) {
-            ss.str("");
+            ss.str("");//清空
             ss << node[i];
             vec.push_back(LexicalCast<std::string, T>()(ss.str()));
         }
@@ -330,9 +331,9 @@ template<class T, class FromStr = LexicalCast<std::string, T>
                 ,class ToStr = LexicalCast<T, std::string> >
 class ConfigVar : public ConfigVarBase {
 public:
-    typedef RWMutex RWMutexType;
+    // typedef RWMutex RWMutexType;
     typedef std::shared_ptr<ConfigVar> ptr;
-    typedef std::function<void (const T& old_value, const T& new_value)> on_change_cb;
+    typedef std::function<void (const T& old_value, const T& new_value)> on_change_cb;//事件机制 回调函数组
 
     /**
      * @brief 通过参数名,参数值,描述构造ConfigVar
@@ -354,10 +355,10 @@ public:
     std::string toString() override {
         try {
             //return boost::lexical_cast<std::string>(m_val);
-            RWMutexType::ReadLock lock(m_mutex);
+            // RWMutexType::ReadLock lock(m_mutex);
             return ToStr()(m_val);
         } catch (std::exception& e) {
-            SYLAR_LOG_ERROR(SYLAR_LOG_ROOT()) << "ConfigVar::toString exception "
+            SYLAR_DCHG_LOG_ERROR(SYLAR_DCHG_LOG_ROOT()) << "ConfigVar::toString exception "
                 << e.what() << " convert: " << TypeToName<T>() << " to string"
                 << " name=" << m_name;
         }
@@ -372,7 +373,7 @@ public:
         try {
             setValue(FromStr()(val));
         } catch (std::exception& e) {
-            SYLAR_LOG_ERROR(SYLAR_LOG_ROOT()) << "ConfigVar::fromString exception "
+            SYLAR_DCHG_LOG_ERROR(SYLAR_DCHG_LOG_ROOT()) << "ConfigVar::fromString exception "
                 << e.what() << " convert: string to " << TypeToName<T>()
                 << " name=" << m_name
                 << " - " << val;
@@ -384,7 +385,7 @@ public:
      * @brief 获取当前参数的值
      */
     const T getValue() {
-        RWMutexType::ReadLock lock(m_mutex);
+        // RWMutexType::ReadLock lock(m_mutex);
         return m_val;
     }
 
@@ -394,7 +395,7 @@ public:
      */
     void setValue(const T& v) {
         {
-            RWMutexType::ReadLock lock(m_mutex);
+            // RWMutexType::ReadLock lock(m_mutex);
             if(v == m_val) {
                 return;
             }
@@ -402,7 +403,7 @@ public:
                 i.second(m_val, v);
             }
         }
-        RWMutexType::WriteLock lock(m_mutex);
+        // RWMutexType::WriteLock lock(m_mutex);
         m_val = v;
     }
 
@@ -417,7 +418,7 @@ public:
      */
     uint64_t addListener(on_change_cb cb) {
         static uint64_t s_fun_id = 0;
-        RWMutexType::WriteLock lock(m_mutex);
+        // RWMutexType::WriteLock lock(m_mutex);
         ++s_fun_id;
         m_cbs[s_fun_id] = cb;
         return s_fun_id;
@@ -428,7 +429,7 @@ public:
      * @param[in] key 回调函数的唯一id
      */
     void delListener(uint64_t key) {
-        RWMutexType::WriteLock lock(m_mutex);
+        // RWMutexType::WriteLock lock(m_mutex);
         m_cbs.erase(key);
     }
 
@@ -438,7 +439,7 @@ public:
      * @return 如果存在返回对应的回调函数,否则返回nullptr
      */
     on_change_cb getListener(uint64_t key) {
-        RWMutexType::ReadLock lock(m_mutex);
+        // RWMutexType::ReadLock lock(m_mutex);
         auto it = m_cbs.find(key);
         return it == m_cbs.end() ? nullptr : it->second;
     }
@@ -447,11 +448,11 @@ public:
      * @brief 清理所有的回调函数
      */
     void clearListener() {
-        RWMutexType::WriteLock lock(m_mutex);
+        // RWMutexType::WriteLock lock(m_mutex);
         m_cbs.clear();
     }
 private:
-    RWMutexType m_mutex;
+    // RWMutexType m_mutex;
     T m_val;
     //变更回调函数组, uint64_t key,要求唯一，一般可以用hash
     std::map<uint64_t, on_change_cb> m_cbs;
@@ -461,10 +462,10 @@ private:
  * @brief ConfigVar的管理类
  * @details 提供便捷的方法创建/访问ConfigVar
  */
-class Config {
+class Config {//log的管理类是logmanager 管理类的存在都是为了方便使用 
 public:
-    typedef std::unordered_map<std::string, ConfigVarBase::ptr> ConfigVarMap;
-    typedef RWMutex RWMutexType;
+    typedef std::unordered_map<std::string, ConfigVarBase::ptr> ConfigVarMap;//和logmanager一样使用map进行管理
+    // typedef RWMutex RWMutexType;
 
     /**
      * @brief 获取/创建对应参数名的配置参数
@@ -479,24 +480,24 @@ public:
     template<class T>
     static typename ConfigVar<T>::ptr Lookup(const std::string& name,
             const T& default_value, const std::string& description = "") {
-        RWMutexType::WriteLock lock(GetMutex());
+        // RWMutexType::WriteLock lock(GetMutex());
         auto it = GetDatas().find(name);
         if(it != GetDatas().end()) {
             auto tmp = std::dynamic_pointer_cast<ConfigVar<T> >(it->second);
             if(tmp) {
-                SYLAR_LOG_INFO(SYLAR_LOG_ROOT()) << "Lookup name=" << name << " exists";
+                SYLAR_DCHG_LOG_INFO(SYLAR_DCHG_LOG_ROOT()) << "Lookup name=" << name << " exists";
                 return tmp;
             } else {
-                SYLAR_LOG_ERROR(SYLAR_LOG_ROOT()) << "Lookup name=" << name << " exists but type not "
+                SYLAR_DCHG_LOG_ERROR(SYLAR_DCHG_LOG_ROOT()) << "Lookup name=" << name << " exists but type not "
                         << TypeToName<T>() << " real_type=" << it->second->getTypeName()
                         << " " << it->second->toString();
                 return nullptr;
             }
         }
 
-        if(name.find_first_not_of("abcdefghikjlmnopqrstuvwxyz._012345678")
+        if(name.find_first_not_of("abcdefghikjlmnopqrstuvwxyz._012345678")//合法字符
                 != std::string::npos) {
-            SYLAR_LOG_ERROR(SYLAR_LOG_ROOT()) << "Lookup name invalid " << name;
+            SYLAR_DCHG_LOG_ERROR(SYLAR_DCHG_LOG_ROOT()) << "Lookup name invalid " << name;
             throw std::invalid_argument(name);
         }
 
@@ -512,7 +513,7 @@ public:
      */
     template<class T>
     static typename ConfigVar<T>::ptr Lookup(const std::string& name) {
-        RWMutexType::ReadLock lock(GetMutex());
+        // RWMutexType::ReadLock lock(GetMutex());
         auto it = GetDatas().find(name);
         if(it == GetDatas().end()) {
             return nullptr;
@@ -528,7 +529,7 @@ public:
     /**
      * @brief 加载path文件夹里面的配置文件
      */
-    static void LoadFromConfDir(const std::string& path, bool force = false);
+    // static void LoadFromConfDir(const std::string& path, bool force = false);
 
     /**
      * @brief 查找配置参数,返回配置参数的基类
@@ -554,10 +555,10 @@ private:
     /**
      * @brief 配置项的RWMutex
      */
-    static RWMutexType& GetMutex() {
-        static RWMutexType s_mutex;
-        return s_mutex;
-    }
+    // static RWMutexType& GetMutex() {
+    //     static RWMutexType s_mutex;
+    //     return s_mutex;
+    // }
 };
 
 }

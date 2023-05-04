@@ -114,6 +114,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named test_config
+
+# Build rule for target.
+test_config: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_config
+.PHONY : test_config
+
+# fast build rule for target.
+test_config/fast:
+	$(MAKE) -f CMakeFiles/test_config.dir/build.make CMakeFiles/test_config.dir/build
+.PHONY : test_config/fast
+
+#=============================================================================
 # Target rules for targets named test
 
 # Build rule for target.
@@ -138,6 +151,33 @@ sylar_dchg: cmake_check_build_system
 sylar_dchg/fast:
 	$(MAKE) -f CMakeFiles/sylar_dchg.dir/build.make CMakeFiles/sylar_dchg.dir/build
 .PHONY : sylar_dchg/fast
+
+sylar_dchg/config.o: sylar_dchg/config.cc.o
+
+.PHONY : sylar_dchg/config.o
+
+# target to build an object file
+sylar_dchg/config.cc.o:
+	$(MAKE) -f CMakeFiles/sylar_dchg.dir/build.make CMakeFiles/sylar_dchg.dir/sylar_dchg/config.cc.o
+.PHONY : sylar_dchg/config.cc.o
+
+sylar_dchg/config.i: sylar_dchg/config.cc.i
+
+.PHONY : sylar_dchg/config.i
+
+# target to preprocess a source file
+sylar_dchg/config.cc.i:
+	$(MAKE) -f CMakeFiles/sylar_dchg.dir/build.make CMakeFiles/sylar_dchg.dir/sylar_dchg/config.cc.i
+.PHONY : sylar_dchg/config.cc.i
+
+sylar_dchg/config.s: sylar_dchg/config.cc.s
+
+.PHONY : sylar_dchg/config.s
+
+# target to generate assembly for a file
+sylar_dchg/config.cc.s:
+	$(MAKE) -f CMakeFiles/sylar_dchg.dir/build.make CMakeFiles/sylar_dchg.dir/sylar_dchg/config.cc.s
+.PHONY : sylar_dchg/config.cc.s
 
 sylar_dchg/log.o: sylar_dchg/log.cc.o
 
@@ -166,6 +206,33 @@ sylar_dchg/log.cc.s:
 	$(MAKE) -f CMakeFiles/sylar_dchg.dir/build.make CMakeFiles/sylar_dchg.dir/sylar_dchg/log.cc.s
 .PHONY : sylar_dchg/log.cc.s
 
+sylar_dchg/util.o: sylar_dchg/util.cc.o
+
+.PHONY : sylar_dchg/util.o
+
+# target to build an object file
+sylar_dchg/util.cc.o:
+	$(MAKE) -f CMakeFiles/sylar_dchg.dir/build.make CMakeFiles/sylar_dchg.dir/sylar_dchg/util.cc.o
+.PHONY : sylar_dchg/util.cc.o
+
+sylar_dchg/util.i: sylar_dchg/util.cc.i
+
+.PHONY : sylar_dchg/util.i
+
+# target to preprocess a source file
+sylar_dchg/util.cc.i:
+	$(MAKE) -f CMakeFiles/sylar_dchg.dir/build.make CMakeFiles/sylar_dchg.dir/sylar_dchg/util.cc.i
+.PHONY : sylar_dchg/util.cc.i
+
+sylar_dchg/util.s: sylar_dchg/util.cc.s
+
+.PHONY : sylar_dchg/util.s
+
+# target to generate assembly for a file
+sylar_dchg/util.cc.s:
+	$(MAKE) -f CMakeFiles/sylar_dchg.dir/build.make CMakeFiles/sylar_dchg.dir/sylar_dchg/util.cc.s
+.PHONY : sylar_dchg/util.cc.s
+
 tests/test.o: tests/test.cc.o
 
 .PHONY : tests/test.o
@@ -193,6 +260,33 @@ tests/test.cc.s:
 	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/tests/test.cc.s
 .PHONY : tests/test.cc.s
 
+tests/test_config.o: tests/test_config.cc.o
+
+.PHONY : tests/test_config.o
+
+# target to build an object file
+tests/test_config.cc.o:
+	$(MAKE) -f CMakeFiles/test_config.dir/build.make CMakeFiles/test_config.dir/tests/test_config.cc.o
+.PHONY : tests/test_config.cc.o
+
+tests/test_config.i: tests/test_config.cc.i
+
+.PHONY : tests/test_config.i
+
+# target to preprocess a source file
+tests/test_config.cc.i:
+	$(MAKE) -f CMakeFiles/test_config.dir/build.make CMakeFiles/test_config.dir/tests/test_config.cc.i
+.PHONY : tests/test_config.cc.i
+
+tests/test_config.s: tests/test_config.cc.s
+
+.PHONY : tests/test_config.s
+
+# target to generate assembly for a file
+tests/test_config.cc.s:
+	$(MAKE) -f CMakeFiles/test_config.dir/build.make CMakeFiles/test_config.dir/tests/test_config.cc.s
+.PHONY : tests/test_config.cc.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -200,15 +294,25 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... test_config"
 	@echo "... edit_cache"
 	@echo "... test"
 	@echo "... sylar_dchg"
+	@echo "... sylar_dchg/config.o"
+	@echo "... sylar_dchg/config.i"
+	@echo "... sylar_dchg/config.s"
 	@echo "... sylar_dchg/log.o"
 	@echo "... sylar_dchg/log.i"
 	@echo "... sylar_dchg/log.s"
+	@echo "... sylar_dchg/util.o"
+	@echo "... sylar_dchg/util.i"
+	@echo "... sylar_dchg/util.s"
 	@echo "... tests/test.o"
 	@echo "... tests/test.i"
 	@echo "... tests/test.s"
+	@echo "... tests/test_config.o"
+	@echo "... tests/test_config.i"
+	@echo "... tests/test_config.s"
 .PHONY : help
 
 

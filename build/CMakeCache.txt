@@ -217,6 +217,9 @@ sylar_dchg_BINARY_DIR:STATIC=/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build
 //Value Computed by CMake
 sylar_dchg_SOURCE_DIR:STATIC=/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg
 
+//Path to a library.
+yamlcpp:FILEPATH=yamlcpp-NOTFOUND
+
 
 ########################
 # INTERNAL cache entries

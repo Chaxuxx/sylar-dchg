@@ -6,12 +6,12 @@
  * @date 2019-05-18
  * @copyright Copyright (c) 2019年 sylar.yin All rights reserved (www.sylar.top)
  */
-#ifndef __SYLAR_SINGLETON_H__
-#define __SYLAR_SINGLETON_H__
+#ifndef __SYLAR_DCHG_SINGLETON_H__
+#define __SYLAR_DCHG_SINGLETON_H__
 
 #include <memory>
 
-namespace sylar {
+namespace sylar_dchg {
 
 namespace {
 

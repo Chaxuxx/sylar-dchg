@@ -6,14 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/fiber.h
-memory
--
-functional
--
-ucontext.h
--
-
 /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/log.h
 string
 -
@@ -37,40 +29,10 @@ util.h
 /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/util.h
 singleton.h
 /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/singleton.h
-thread.h
-/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/thread.h
-
-/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/mutex.h
-thread
--
-functional
--
-memory
--
-pthread.h
--
-semaphore.h
--
-stdint.h
--
-atomic
--
-list
--
-noncopyable.h
-/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/noncopyable.h
-fiber.h
-/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/fiber.h
-
-/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/noncopyable.h
 
 /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/singleton.h
 memory
 -
-
-/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/thread.h
-mutex.h
-/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/mutex.h
 
 /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/util.h
 cxxabi.h
@@ -109,4 +71,6 @@ iostream
 -
 ../sylar_dchg/log.h
 /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/log.h
+../sylar_dchg/util.h
+/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/util.h
 

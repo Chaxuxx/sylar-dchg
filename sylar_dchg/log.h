@@ -13,86 +13,93 @@
 #include <map>
 #include "util.h"
 #include "singleton.h"
-#include "thread.h"
+// #include "thread.h"
 
 /**
  * @brief 使用流式方式将日志级别level的日志写入到logger
  */
-#define SYLAR_dchg_LOG_LEVEL(logger, level) if(logger->getLevel() <= level) \
-        sylar_dchg::LogEventWrap(sylar_dchg::LogEvent::ptr(new sylar_dchg::LogEvent(logger, level, \
-                        __FILE__, __LINE__, 0, sylar_dchg::GetThreadId(),\
-                sylar_dchg::GetFiberId(), time(0), sylar_dchg::Thread::GetName()))).getSS()
+//sylar_dchg::GetFiberId(), time(0), sylar_dchg::Thread::GetName()))).getSS()
 //宏定义中的换行是 \ 这样宏定义简化了调用功能函数的文本 
 //这里调用了其他模块的函数
+
+#define SYLAR_DCHG_LOG_LEVEL(logger, level) if(logger->getLevel() <= level) \
+        sylar_dchg::LogEventWrap(sylar_dchg::LogEvent::ptr(new sylar_dchg::LogEvent(logger, level, \
+                        __FILE__, __LINE__, 0, sylar_dchg::GetThreadId(),\
+                sylar_dchg::GetFiberId(), time(0), "dchghere"))).getSS()
+
+//流式调用getss
+//格式化调用format
 
 /**
  * @brief 使用流式方式将日志级别debug的日志写入到logger
  */
-#define SYLAR_dchg_LOG_DEBUG(logger) SYLAR_dchg_LOG_LEVEL(logger, sylar_dchg::LogLevel::DEBUG)
+#define SYLAR_DCHG_LOG_DEBUG(logger) SYLAR_DCHG_LOG_LEVEL(logger, sylar_dchg::LogLevel::DEBUG)
 
 /**
  * @brief 使用流式方式将日志级别info的日志写入到logger
  */
-#define SYLAR_dchg_LOG_INFO(logger) SYLAR_dchg_LOG_LEVEL(logger, sylar_dchg::LogLevel::INFO)
+#define SYLAR_DCHG_LOG_INFO(logger) SYLAR_DCHG_LOG_LEVEL(logger, sylar_dchg::LogLevel::INFO)
 
 /**
  * @brief 使用流式方式将日志级别warn的日志写入到logger
  */
-#define SYLAR_dchg_LOG_WARN(logger) SYLAR_dchg_LOG_LEVEL(logger, sylar_dchg::LogLevel::WARN)
+#define SYLAR_DCHG_LOG_WARN(logger) SYLAR_DCHG_LOG_LEVEL(logger, sylar_dchg::LogLevel::WARN)
 
 /**
  * @brief 使用流式方式将日志级别error的日志写入到logger
  */
-#define SYLAR_dchg_LOG_ERROR(logger) SYLAR_dchg_LOG_LEVEL(logger, sylar_dchg::LogLevel::ERROR)
+#define SYLAR_DCHG_LOG_ERROR(logger) SYLAR_DCHG_LOG_LEVEL(logger, sylar_dchg::LogLevel::ERROR)
 
 /**
  * @brief 使用流式方式将日志级别fatal的日志写入到logger
  */
-#define SYLAR_dchg_LOG_FATAL(logger) SYLAR_dchg_LOG_LEVEL(logger, sylar_dchg::LogLevel::FATAL)
+#define SYLAR_DCHG_LOG_FATAL(logger) SYLAR_DCHG_LOG_LEVEL(logger, sylar_dchg::LogLevel::FATAL)
 
 /**
  * @brief 使用格式化方式将日志级别level的日志写入到logger
  */
-#define SYLAR_dchg_LOG_FMT_LEVEL(logger, level, fmt, ...) \
+#define SYLAR_DCHG_LOG_FMT_LEVEL(logger, level, fmt, ...) \
     if(logger->getLevel() <= level) \
         sylar_dchg::LogEventWrap(sylar_dchg::LogEvent::ptr(new sylar_dchg::LogEvent(logger, level, \
                         __FILE__, __LINE__, 0, sylar_dchg::GetThreadId(),\
-                sylar_dchg::GetFiberId(), time(0), sylar_dchg::Thread::GetName()))).getEvent()->format(fmt, __VA_ARGS__)
+                sylar_dchg::GetFiberId(), time(0), "Thread::GetName()"))).getEvent()->format(fmt, __VA_ARGS__)
+//sylar_dchg::Thread::GetName()#TODO
+
 
 /**
  * @brief 使用格式化方式将日志级别debug的日志写入到logger
  */
-#define SYLAR_dchg_LOG_FMT_DEBUG(logger, fmt, ...) SYLAR_dchg_LOG_FMT_LEVEL(logger, sylar_dchg::LogLevel::DEBUG, fmt, __VA_ARGS__)
+#define SYLAR_DCHG_LOG_FMT_DEBUG(logger, fmt, ...) SYLAR_DCHG_LOG_FMT_LEVEL(logger, sylar_dchg::LogLevel::DEBUG, fmt, __VA_ARGS__)
 
 /**
  * @brief 使用格式化方式将日志级别info的日志写入到logger
  */
-#define SYLAR_dchg_LOG_FMT_INFO(logger, fmt, ...)  SYLAR_dchg_LOG_FMT_LEVEL(logger, sylar_dchg::LogLevel::INFO, fmt, __VA_ARGS__)
+#define SYLAR_DCHG_LOG_FMT_INFO(logger, fmt, ...)  SYLAR_DCHG_LOG_FMT_LEVEL(logger, sylar_dchg::LogLevel::INFO, fmt, __VA_ARGS__)
 
 /**
  * @brief 使用格式化方式将日志级别warn的日志写入到logger
  */
-#define SYLAR_dchg_LOG_FMT_WARN(logger, fmt, ...)  SYLAR_dchg_LOG_FMT_LEVEL(logger, sylar_dchg::LogLevel::WARN, fmt, __VA_ARGS__)
+#define SYLAR_DCHG_LOG_FMT_WARN(logger, fmt, ...)  SYLAR_DCHG_LOG_FMT_LEVEL(logger, sylar_dchg::LogLevel::WARN, fmt, __VA_ARGS__)
 
 /**
  * @brief 使用格式化方式将日志级别error的日志写入到logger
  */
-#define SYLAR_dchg_LOG_FMT_ERROR(logger, fmt, ...) SYLAR_dchg_LOG_FMT_LEVEL(logger, sylar_dchg::LogLevel::ERROR, fmt, __VA_ARGS__)
+#define SYLAR_DCHG_LOG_FMT_ERROR(logger, fmt, ...) SYLAR_DCHG_LOG_FMT_LEVEL(logger, sylar_dchg::LogLevel::ERROR, fmt, __VA_ARGS__)
 
 /**
  * @brief 使用格式化方式将日志级别fatal的日志写入到logger
  */
-#define SYLAR_dchg_LOG_FMT_FATAL(logger, fmt, ...) SYLAR_dchg_LOG_FMT_LEVEL(logger, sylar_dchg::LogLevel::FATAL, fmt, __VA_ARGS__)
+#define SYLAR_DCHG_LOG_FMT_FATAL(logger, fmt, ...) SYLAR_DCHG_LOG_FMT_LEVEL(logger, sylar_dchg::LogLevel::FATAL, fmt, __VA_ARGS__)
 
 /**
  * @brief 获取主日志器
  */
-#define SYLAR_dchg_LOG_ROOT() sylar_dchg::LoggerMgr::GetInstance()->getRoot()
+#define SYLAR_DCHG_LOG_ROOT() sylar_dchg::LoggerMgr::GetInstance()->getRoot()
 
 /**
  * @brief 获取name的日志器
  */
-#define SYLAR_dchg_LOG_NAME(name) sylar_dchg::LoggerMgr::GetInstance()->getLogger(name)
+#define SYLAR_DCHG_LOG_NAME(name) sylar_dchg::LoggerMgr::GetInstance()->getLogger(name)
 
 
 namespace sylar_dchg {
@@ -246,7 +253,7 @@ private:
     /// 日志内容流
     std::stringstream m_ss;
     /// 日志器
-    std::shared_ptr<Logger> m_logger;
+    std::shared_ptr<Logger> m_logger;//产生事件后
     /// 日志等级
     LogLevel::Level m_level;
 };
@@ -395,7 +402,8 @@ public:
      * @param[in] level 日志级别
      * @param[in] event 日志事件
      */
-    virtual void log(std::shared_ptr<Logger> logger, LogLevel::Level level, LogEvent::ptr event) = 0;//TODO和logger里的log的区别在于？
+    virtual void log(std::shared_ptr<Logger> logger, LogLevel::Level level, LogEvent::ptr event) = 0;//logger里的log调用每个appender的log进行输出
+    //每个appender有自己的格式化器 appender是输出到不同的地点 logger则起到记录等级的作用 地点也有等级level
 
     /**
      * @brief 将日志输出目标的配置转成YAML String
@@ -435,7 +443,7 @@ protected:
 /**
  * @brief 日志器
  */
-class Logger : public std::enable_shared_from_this<Logger> {
+class  Logger : public std::enable_shared_from_this<Logger> {
 friend class LoggerManager;
 public:
     typedef std::shared_ptr<Logger> ptr;
@@ -630,7 +638,7 @@ private:
 };
 
 /// 日志器管理类单例模式
-// typedef sylar_dchg::Singleton<LoggerManager> LoggerMgr;
+typedef sylar_dchg::Singleton<LoggerManager> LoggerMgr;
 
 }
 

@@ -1,13 +1,13 @@
 /**
  * @file util.h
  * @brief 常用的工具函数
- * @author sylar.yin
+ * @author sylar_dchg.yin
  * @email 564628276@qq.com
  * @date 2019-05-27
- * @copyright Copyright (c) 2019年 sylar.yin All rights reserved (www.sylar.top)
+ * @copyright Copyright (c) 2019年 sylar_dchg.yin All rights reserved (www.sylar_dchg.top)
  */
-#ifndef __SYLAR_UTIL_H__
-#define __SYLAR_UTIL_H__
+#ifndef __SYLAR_DCHG_UTIL_H__
+#define __SYLAR_DCHG_UTIL_H__
 
 #include <cxxabi.h>
 #include <pthread.h>
@@ -24,11 +24,11 @@
 #include <iostream>
 #include <boost/lexical_cast.hpp>
 #include <google/protobuf/message.h>
-// #include "sylar/util/hash_util.h"
-// #include "sylar/util/json_util.h"
-// #include "sylar/util/crypto_util.h" PBToJsonString
+// #include "sylar_dchg/util/hash_util.h"
+// #include "sylar_dchg/util/json_util.h"
+// #include "sylar_dchg/util/crypto_util.h" PBToJsonString
 
-namespace sylar {
+namespace sylar_dchg {
 
 /**
  * @brief 返回当前线程的ID

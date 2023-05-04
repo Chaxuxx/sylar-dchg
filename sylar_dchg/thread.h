@@ -1,17 +1,17 @@
 /**
  * @file thread.h
  * @brief 线程相关的封装 基本头文件
- * @author sylar.yin
+ * @author sylar_dchg.yin
  * @email 564628276@qq.com
  * @date 2019-05-31
- * @copyright Copyright (c) 2019年 sylar.yin All rights reserved (www.sylar.top)
+ * @copyright Copyright (c) 2019年 sylar_dchg.yin All rights reserved (www.sylar_dchg.top)
  */
-#ifndef __SYLAR_THREAD_H__
-#define __SYLAR_THREAD_H__
+#ifndef __SYLAR_DCHG_THREAD_H__
+#define __SYLAR_DCHG_THREAD_H__
 
 #include "mutex.h"
 
-namespace sylar {
+namespace sylar_dchg {
 
 /**
  * @brief 线程类

@@ -6,10 +6,10 @@
  * @date 2019-05-31
  * @copyright Copyright (c) 2019年 sylar.yin All rights reserved (www.sylar.top)
  */
-#ifndef __SYLAR_NONCOPYABLE_H__
-#define __SYLAR_NONCOPYABLE_H__
+#ifndef __SYLAR_DCHG_NONCOPYABLE_H__
+#define __SYLAR_DCHG_NONCOPYABLE_H__
 
-namespace sylar {
+namespace sylar_dchg {
 
 /**
  * @brief 对象无法拷贝,赋值

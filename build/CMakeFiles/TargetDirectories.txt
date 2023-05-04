@@ -1,4 +1,5 @@
 /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles/test_config.dir
 /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles/edit_cache.dir
 /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles/test.dir
 /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles/sylar_dchg.dir
