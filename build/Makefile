@@ -206,6 +206,60 @@ sylar_dchg/log.cc.s:
 	$(MAKE) -f CMakeFiles/sylar_dchg.dir/build.make CMakeFiles/sylar_dchg.dir/sylar_dchg/log.cc.s
 .PHONY : sylar_dchg/log.cc.s
 
+sylar_dchg/mutex.o: sylar_dchg/mutex.cc.o
+
+.PHONY : sylar_dchg/mutex.o
+
+# target to build an object file
+sylar_dchg/mutex.cc.o:
+	$(MAKE) -f CMakeFiles/sylar_dchg.dir/build.make CMakeFiles/sylar_dchg.dir/sylar_dchg/mutex.cc.o
+.PHONY : sylar_dchg/mutex.cc.o
+
+sylar_dchg/mutex.i: sylar_dchg/mutex.cc.i
+
+.PHONY : sylar_dchg/mutex.i
+
+# target to preprocess a source file
+sylar_dchg/mutex.cc.i:
+	$(MAKE) -f CMakeFiles/sylar_dchg.dir/build.make CMakeFiles/sylar_dchg.dir/sylar_dchg/mutex.cc.i
+.PHONY : sylar_dchg/mutex.cc.i
+
+sylar_dchg/mutex.s: sylar_dchg/mutex.cc.s
+
+.PHONY : sylar_dchg/mutex.s
+
+# target to generate assembly for a file
+sylar_dchg/mutex.cc.s:
+	$(MAKE) -f CMakeFiles/sylar_dchg.dir/build.make CMakeFiles/sylar_dchg.dir/sylar_dchg/mutex.cc.s
+.PHONY : sylar_dchg/mutex.cc.s
+
+sylar_dchg/thread.o: sylar_dchg/thread.cc.o
+
+.PHONY : sylar_dchg/thread.o
+
+# target to build an object file
+sylar_dchg/thread.cc.o:
+	$(MAKE) -f CMakeFiles/sylar_dchg.dir/build.make CMakeFiles/sylar_dchg.dir/sylar_dchg/thread.cc.o
+.PHONY : sylar_dchg/thread.cc.o
+
+sylar_dchg/thread.i: sylar_dchg/thread.cc.i
+
+.PHONY : sylar_dchg/thread.i
+
+# target to preprocess a source file
+sylar_dchg/thread.cc.i:
+	$(MAKE) -f CMakeFiles/sylar_dchg.dir/build.make CMakeFiles/sylar_dchg.dir/sylar_dchg/thread.cc.i
+.PHONY : sylar_dchg/thread.cc.i
+
+sylar_dchg/thread.s: sylar_dchg/thread.cc.s
+
+.PHONY : sylar_dchg/thread.s
+
+# target to generate assembly for a file
+sylar_dchg/thread.cc.s:
+	$(MAKE) -f CMakeFiles/sylar_dchg.dir/build.make CMakeFiles/sylar_dchg.dir/sylar_dchg/thread.cc.s
+.PHONY : sylar_dchg/thread.cc.s
+
 sylar_dchg/util.o: sylar_dchg/util.cc.o
 
 .PHONY : sylar_dchg/util.o
@@ -304,6 +358,12 @@ help:
 	@echo "... sylar_dchg/log.o"
 	@echo "... sylar_dchg/log.i"
 	@echo "... sylar_dchg/log.s"
+	@echo "... sylar_dchg/mutex.o"
+	@echo "... sylar_dchg/mutex.i"
+	@echo "... sylar_dchg/mutex.s"
+	@echo "... sylar_dchg/thread.o"
+	@echo "... sylar_dchg/thread.i"
+	@echo "... sylar_dchg/thread.s"
 	@echo "... sylar_dchg/util.o"
 	@echo "... sylar_dchg/util.i"
 	@echo "... sylar_dchg/util.s"

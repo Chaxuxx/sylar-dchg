@@ -31,7 +31,7 @@ const char* LogLevel::ToString(LogLevel::Level level) {
     return "UNKNOW";
 }
 
-LogLevel::Level LogLevel::FromString(const std::string& str) {
+LogLevel::Level LogLevel::FromString(const std::string& str) {//string到枚举的转换
 #define XX(level, v) \
     if(str == #v) { \
         return LogLevel::level; \
@@ -282,7 +282,7 @@ std::string Logger::toYamlString() {
         node["formatter"] = m_formatter->getPattern();
     }
 
-    for(auto& i : m_appenders) {
+    for(auto& i : m_appenders) {//对于每个appender需要toyamlstring
         node["appenders"].push_back(YAML::Load(i->toYamlString()));
     }
     std::stringstream ss;
@@ -589,7 +589,7 @@ struct LogAppenderDefine {//整合到config 需要类成员变量的定义（被
     }
 };
 
-struct LogDefine {
+struct LogDefine {//存储logger的成员变量
     std::string name;
     LogLevel::Level level = LogLevel::UNKNOW;
     std::string formatter;
@@ -612,7 +612,7 @@ struct LogDefine {
 };
 
 template<>
-class LexicalCast<std::string, LogDefine> {
+class LexicalCast<std::string, LogDefine> {//每创建一个新的自定义类型都需要做和string的偏特化 才能使用相应的config函数（基于yaml）
 public:
     LogDefine operator()(const std::string& v) {
         YAML::Node n = YAML::Load(v);
@@ -710,7 +710,7 @@ sylar_dchg::ConfigVar<std::set<LogDefine> >::ptr g_log_defines =
 
 struct LogIniter {
     LogIniter() {
-        g_log_defines->addListener([](const std::set<LogDefine>& old_value, //添加回调函数
+        g_log_defines->addListener([](const std::set<LogDefine>& old_value, //添加回调函数 下方三个事件 log新增修改删除
                     const std::set<LogDefine>& new_value){
             SYLAR_DCHG_LOG_INFO(SYLAR_DCHG_LOG_ROOT()) << "on_logger_conf_changed";
             for(auto& i : new_value) {
@@ -740,11 +740,11 @@ struct LogIniter {
                     if(a.type == 1) {
                         ap.reset(new FileLogAppender(a.file));
                     } else if(a.type == 2) {
-                        if(!sylar_dchg::EnvMgr::GetInstance()->has("d")) {
-                            ap.reset(new StdoutLogAppender);
-                        } else {
+                        // if(!sylar_dchg::EnvMgr::GetInstance()->has("d")) {
+                        //     ap.reset(new StdoutLogAppender);
+                        // } else {
                             continue;
-                        }
+                        // }
                     }
                     ap->setLevel(a.level);
                     if(!a.formatter.empty()) {
@@ -775,11 +775,11 @@ struct LogIniter {
 
 static LogIniter __log_init;//全局变量的构造函数在main函数之前执行
 
-std::string LoggerManager::toYamlString() {
+std::string LoggerManager::toYamlString() { //这玩意儿有被用到吗？
     // MutexType::Lock lock(m_mutex);
     YAML::Node node;
     for(auto& i : m_loggers) {
-        node.push_back(YAML::Load(i.second->toYamlString()));
+        node.push_back(YAML::Load(i.second->toYamlString())); //这里咯 每个logappender分别toyaml 输出到yaml文件中 和config里测试的person类类似
     }
     std::stringstream ss;
     ss << node;

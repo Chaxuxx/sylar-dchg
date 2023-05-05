@@ -8,3 +8,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = 
 
+# Custom defines: CMakeFiles/test.dir/tests/test.cc.o_DEFINES = __FILE__="tests/test.cc"
+

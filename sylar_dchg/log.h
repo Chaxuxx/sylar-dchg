@@ -13,20 +13,23 @@
 #include <map>
 #include "util.h"
 #include "singleton.h"
-// #include "thread.h"
+#include "thread.h"
 
 /**
  * @brief 使用流式方式将日志级别level的日志写入到logger
  */
-//sylar_dchg::GetFiberId(), time(0), sylar_dchg::Thread::GetName()))).getSS()
+#define SYLAR_DCHG_LOG_LEVEL(logger, level) if(logger->getLevel() <= level) \
+        sylar_dchg::LogEventWrap(sylar_dchg::LogEvent::ptr(new sylar_dchg::LogEvent(logger, level, \
+                        __FILE__, __LINE__, 0, sylar_dchg::GetThreadId(),\
+                sylar_dchg::GetFiberId(), time(0), sylar_dchg::Thread::GetName()))).getSS()
 //宏定义中的换行是 \ 这样宏定义简化了调用功能函数的文本 
 //这里调用了其他模块的函数
-
+/*
 #define SYLAR_DCHG_LOG_LEVEL(logger, level) if(logger->getLevel() <= level) \
         sylar_dchg::LogEventWrap(sylar_dchg::LogEvent::ptr(new sylar_dchg::LogEvent(logger, level, \
                         __FILE__, __LINE__, 0, sylar_dchg::GetThreadId(),\
                 sylar_dchg::GetFiberId(), time(0), "dchghere"))).getSS()
-
+*/
 //流式调用getss
 //格式化调用format
 
@@ -62,8 +65,8 @@
     if(logger->getLevel() <= level) \
         sylar_dchg::LogEventWrap(sylar_dchg::LogEvent::ptr(new sylar_dchg::LogEvent(logger, level, \
                         __FILE__, __LINE__, 0, sylar_dchg::GetThreadId(),\
-                sylar_dchg::GetFiberId(), time(0), "Thread::GetName()"))).getEvent()->format(fmt, __VA_ARGS__)
-//sylar_dchg::Thread::GetName()#TODO
+                sylar_dchg::GetFiberId(), time(0),sylar_dchg::Thread::GetName()))).getEvent()->format(fmt, __VA_ARGS__)
+
 
 
 /**
@@ -389,7 +392,7 @@ class LogAppender {
 friend class Logger; //友元函数in c++？
 public:
     typedef std::shared_ptr<LogAppender> ptr;
-    //typedef Spinlock MutexType;
+    typedef Spinlock MutexType;
 
     /**
      * @brief 析构函数
@@ -435,7 +438,7 @@ protected:
     /// 是否有自己的日志格式器
     bool m_hasFormatter = false;
     /// Mutex
-    // MutexType m_mutex;
+    MutexType m_mutex;
     /// 日志格式器
     LogFormatter::ptr m_formatter;
 };
@@ -447,7 +450,7 @@ class  Logger : public std::enable_shared_from_this<Logger> {
 friend class LoggerManager;
 public:
     typedef std::shared_ptr<Logger> ptr;
-    // typedef Spinlock MutexType;
+    typedef Spinlock MutexType;
 
     /**
      * @brief 构造函数
@@ -553,11 +556,11 @@ private:
     /// 日志级别
     LogLevel::Level m_level;
     /// Mutex
-    // MutexType m_mutex;
+    MutexType m_mutex;
     /// 日志目标集合
     std::list<LogAppender::ptr> m_appenders;
     /// 日志格式器
-    LogFormatter::ptr m_formatter;
+    LogFormatter::ptr m_formatter;//formatter是否冗余？ 起到一个默认formatter的作用 appender里面没有单独做默认formatter而是借由logger的formatter实现默认化
     /// 主日志器
     Logger::ptr m_root;
 };
@@ -602,7 +605,7 @@ private:
  */
 class LoggerManager {
 public:
-    // typedef Spinlock MutexType;
+    typedef Spinlock MutexType;
     /**
      * @brief 构造函数
      */
@@ -630,7 +633,7 @@ public:
     std::string toYamlString();
 private:
     /// Mutex
-    //MutexType m_mutex;
+    MutexType m_mutex;
     /// 日志器容器
     std::map<std::string, Logger::ptr> m_loggers;
     /// 主日志器

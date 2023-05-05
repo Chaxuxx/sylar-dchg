@@ -1,5 +1,5 @@
-#ifndef __SYLAR_MUTEX_H__
-#define __SYLAR_MUTEX_H__
+#ifndef __SYLAR_DCHG_MUTEX_H__
+#define __SYLAR_DCHG_MUTEX_H__
 
 #include <thread>
 #include <functional>
@@ -13,7 +13,7 @@
 #include "noncopyable.h"
 #include "fiber.h" //协程控制器scheduler删了点
 
-namespace sylar {
+namespace sylar_dchg {
 
 /**
  * @brief 信号量

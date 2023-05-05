@@ -23,7 +23,7 @@
 #include <unordered_set>
 #include <functional>
 
-// #include "thread.h"
+#include "thread.h"
 #include "log.h"
 #include "util.h"
 
@@ -331,7 +331,7 @@ template<class T, class FromStr = LexicalCast<std::string, T>
                 ,class ToStr = LexicalCast<T, std::string> >
 class ConfigVar : public ConfigVarBase {
 public:
-    // typedef RWMutex RWMutexType;
+    typedef RWMutex RWMutexType;
     typedef std::shared_ptr<ConfigVar> ptr;
     typedef std::function<void (const T& old_value, const T& new_value)> on_change_cb;//事件机制 回调函数组
 
@@ -355,7 +355,7 @@ public:
     std::string toString() override {
         try {
             //return boost::lexical_cast<std::string>(m_val);
-            // RWMutexType::ReadLock lock(m_mutex);
+            RWMutexType::ReadLock lock(m_mutex);
             return ToStr()(m_val);
         } catch (std::exception& e) {
             SYLAR_DCHG_LOG_ERROR(SYLAR_DCHG_LOG_ROOT()) << "ConfigVar::toString exception "
@@ -385,7 +385,7 @@ public:
      * @brief 获取当前参数的值
      */
     const T getValue() {
-        // RWMutexType::ReadLock lock(m_mutex);
+        RWMutexType::ReadLock lock(m_mutex);
         return m_val;
     }
 
@@ -395,7 +395,7 @@ public:
      */
     void setValue(const T& v) {
         {
-            // RWMutexType::ReadLock lock(m_mutex);
+            RWMutexType::ReadLock lock(m_mutex);
             if(v == m_val) {
                 return;
             }
@@ -403,7 +403,7 @@ public:
                 i.second(m_val, v);
             }
         }
-        // RWMutexType::WriteLock lock(m_mutex);
+        RWMutexType::WriteLock lock(m_mutex);
         m_val = v;
     }
 
@@ -418,7 +418,7 @@ public:
      */
     uint64_t addListener(on_change_cb cb) {
         static uint64_t s_fun_id = 0;
-        // RWMutexType::WriteLock lock(m_mutex);
+        RWMutexType::WriteLock lock(m_mutex);
         ++s_fun_id;
         m_cbs[s_fun_id] = cb;
         return s_fun_id;
@@ -429,7 +429,7 @@ public:
      * @param[in] key 回调函数的唯一id
      */
     void delListener(uint64_t key) {
-        // RWMutexType::WriteLock lock(m_mutex);
+        RWMutexType::WriteLock lock(m_mutex);
         m_cbs.erase(key);
     }
 
@@ -439,7 +439,7 @@ public:
      * @return 如果存在返回对应的回调函数,否则返回nullptr
      */
     on_change_cb getListener(uint64_t key) {
-        // RWMutexType::ReadLock lock(m_mutex);
+        RWMutexType::ReadLock lock(m_mutex);
         auto it = m_cbs.find(key);
         return it == m_cbs.end() ? nullptr : it->second;
     }
@@ -448,11 +448,11 @@ public:
      * @brief 清理所有的回调函数
      */
     void clearListener() {
-        // RWMutexType::WriteLock lock(m_mutex);
+        RWMutexType::WriteLock lock(m_mutex);
         m_cbs.clear();
     }
 private:
-    // RWMutexType m_mutex;
+    RWMutexType m_mutex;
     T m_val;
     //变更回调函数组, uint64_t key,要求唯一，一般可以用hash
     std::map<uint64_t, on_change_cb> m_cbs;
@@ -465,7 +465,7 @@ private:
 class Config {//log的管理类是logmanager 管理类的存在都是为了方便使用 
 public:
     typedef std::unordered_map<std::string, ConfigVarBase::ptr> ConfigVarMap;//和logmanager一样使用map进行管理
-    // typedef RWMutex RWMutexType;
+    typedef RWMutex RWMutexType;
 
     /**
      * @brief 获取/创建对应参数名的配置参数
@@ -480,7 +480,7 @@ public:
     template<class T>
     static typename ConfigVar<T>::ptr Lookup(const std::string& name,
             const T& default_value, const std::string& description = "") {
-        // RWMutexType::WriteLock lock(GetMutex());
+        RWMutexType::WriteLock lock(GetMutex());
         auto it = GetDatas().find(name);
         if(it != GetDatas().end()) {
             auto tmp = std::dynamic_pointer_cast<ConfigVar<T> >(it->second);
@@ -513,7 +513,7 @@ public:
      */
     template<class T>
     static typename ConfigVar<T>::ptr Lookup(const std::string& name) {
-        // RWMutexType::ReadLock lock(GetMutex());
+        RWMutexType::ReadLock lock(GetMutex());
         auto it = GetDatas().find(name);
         if(it == GetDatas().end()) {
             return nullptr;
@@ -550,15 +550,15 @@ private:
     static ConfigVarMap& GetDatas() {
         static ConfigVarMap s_datas;
         return s_datas;
-    }
+    }//这里有一个静态成员初始化顺序的问题 所以要改成这样的静态函数获取静态变量 effectivec++有讲
 
     /**
      * @brief 配置项的RWMutex
      */
-    // static RWMutexType& GetMutex() {
-    //     static RWMutexType s_mutex;
-    //     return s_mutex;
-    // }
+    static RWMutexType& GetMutex() {
+        static RWMutexType s_mutex;
+        return s_mutex;
+    }
 };
 
 }

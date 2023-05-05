@@ -28,7 +28,7 @@ cmake            — cmake函数文件夹
 CMakeLists.txt
 lib              — 库的输出路径
 Makefile
-sylar-dchg       — 源代码路径
+sylar_dchg       — 源代码路径
 tests            — 测试代码
 ```
 

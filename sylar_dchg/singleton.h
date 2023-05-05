@@ -43,7 +43,7 @@ public:
      * @brief 返回单例裸指针
      */
     static T* GetInstance() {
-        static T v;
+        static T v; //static全局唯一
         return &v;
         //return &GetInstanceX<T, X, N>();
     }

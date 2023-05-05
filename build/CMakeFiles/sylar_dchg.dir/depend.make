@@ -3,17 +3,44 @@
 
 CMakeFiles/sylar_dchg.dir/sylar_dchg/config.cc.o: ../sylar_dchg/config.cc
 CMakeFiles/sylar_dchg.dir/sylar_dchg/config.cc.o: ../sylar_dchg/config.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/config.cc.o: ../sylar_dchg/fiber.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/config.cc.o: ../sylar_dchg/log.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/config.cc.o: ../sylar_dchg/mutex.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/config.cc.o: ../sylar_dchg/noncopyable.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/config.cc.o: ../sylar_dchg/singleton.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/config.cc.o: ../sylar_dchg/thread.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/config.cc.o: ../sylar_dchg/util.h
 
+CMakeFiles/sylar_dchg.dir/sylar_dchg/log.cc.o: ../sylar_dchg/config.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/log.cc.o: ../sylar_dchg/fiber.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/log.cc.o: ../sylar_dchg/log.cc
 CMakeFiles/sylar_dchg.dir/sylar_dchg/log.cc.o: ../sylar_dchg/log.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/log.cc.o: ../sylar_dchg/mutex.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/log.cc.o: ../sylar_dchg/noncopyable.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/log.cc.o: ../sylar_dchg/singleton.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/log.cc.o: ../sylar_dchg/thread.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/log.cc.o: ../sylar_dchg/util.h
 
+CMakeFiles/sylar_dchg.dir/sylar_dchg/mutex.cc.o: ../sylar_dchg/fiber.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/mutex.cc.o: ../sylar_dchg/mutex.cc
+CMakeFiles/sylar_dchg.dir/sylar_dchg/mutex.cc.o: ../sylar_dchg/mutex.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/mutex.cc.o: ../sylar_dchg/noncopyable.h
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/thread.cc.o: ../sylar_dchg/fiber.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/thread.cc.o: ../sylar_dchg/log.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/thread.cc.o: ../sylar_dchg/mutex.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/thread.cc.o: ../sylar_dchg/noncopyable.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/thread.cc.o: ../sylar_dchg/singleton.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/thread.cc.o: ../sylar_dchg/thread.cc
+CMakeFiles/sylar_dchg.dir/sylar_dchg/thread.cc.o: ../sylar_dchg/thread.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/thread.cc.o: ../sylar_dchg/util.h
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/util.cc.o: ../sylar_dchg/fiber.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/util.cc.o: ../sylar_dchg/log.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/util.cc.o: ../sylar_dchg/mutex.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/util.cc.o: ../sylar_dchg/noncopyable.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/util.cc.o: ../sylar_dchg/singleton.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/util.cc.o: ../sylar_dchg/thread.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/util.cc.o: ../sylar_dchg/util.cc
 CMakeFiles/sylar_dchg.dir/sylar_dchg/util.cc.o: ../sylar_dchg/util.h
 

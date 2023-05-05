@@ -8,3 +8,13 @@ CXX_DEFINES = -Dsylar_dchg_EXPORTS
 
 CXX_INCLUDES = 
 
+# Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/log.cc.o_DEFINES = __FILE__="sylar_dchg/log.cc"
+
+# Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/util.cc.o_DEFINES = __FILE__="sylar_dchg/util.cc"
+
+# Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/config.cc.o_DEFINES = __FILE__="sylar_dchg/config.cc"
+
+# Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/thread.cc.o_DEFINES = __FILE__="sylar_dchg/thread.cc"
+
+# Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/mutex.cc.o_DEFINES = __FILE__="sylar_dchg/mutex.cc"
+
