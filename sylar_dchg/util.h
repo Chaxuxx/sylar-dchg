@@ -46,7 +46,7 @@ uint32_t GetFiberId();
  * @param[in] size 最多返回层数
  * @param[in] skip 跳过栈顶的层数
  */
-void Backtrace(std::vector<std::string>& bt, int size = 64, int skip = 1);
+void Backtrace(std::vector<std::string>& bt, int size = 64, int skip = 1);//在报错时将报错信息输出到log里
 
 /**
  * @brief 获取当前栈信息的字符串

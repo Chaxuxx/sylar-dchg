@@ -42,10 +42,11 @@ public:
     /**
      * @brief 返回单例裸指针
      */
-    static T* GetInstance() {
-        static T v; //static全局唯一
-        return &v;
-        //return &GetInstanceX<T, X, N>();
+    static T* GetInstance() {//通过类直接调用静态成员函数 而不是对象
+        static T v; //静态变量只会被初始化一次。 仅仅是使用static的话，单写一个singleton类的意义何在呢？  几个管理类都是单例
+        return &v;//静态变量局部与否仅仅影响可见性，生命周期都是整个程序运行期间。这样声明定义局部静态变量，在调用函数时也只会初始化一次，后面不会再进行初始化。
+        //由于是main运行前就进行几个管理器的单例初始化，所以不需要考虑线程安全。
+        //return &GetInstanceX<T, X, N>();上面两个函数好像毫无意义 可删？
     }
 };
 

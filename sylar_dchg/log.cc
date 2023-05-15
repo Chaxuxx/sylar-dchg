@@ -63,7 +63,7 @@ LogEventWrap::~LogEventWrap() {
 
 
 void LogEvent::format(const char* fmt, ...) {
-    va_list al;
+    va_list al;//可以用initial_list的C++11风格重写。
     va_start(al, fmt);//初始化可变参数表
     format(fmt, al);
     va_end(al);//结束可变参数表使用
@@ -706,11 +706,11 @@ public:
 };
 
 sylar_dchg::ConfigVar<std::set<LogDefine> >::ptr g_log_defines =
-    sylar_dchg::Config::Lookup("logs", std::set<LogDefine>(), "logs config");
+    sylar_dchg::Config::Lookup("logs", std::set<LogDefine>(), "logs config");//初始化一个log配置存储器 使用logdefine作为模板的T 从而能够通过回调函数获取整个log配置的变化 考察logdefine的定义
 
 struct LogIniter {
     LogIniter() {
-        g_log_defines->addListener([](const std::set<LogDefine>& old_value, //添加回调函数 下方三个事件 log新增修改删除
+        g_log_defines->addListener([](const std::set<LogDefine>& old_value, //添加回调函数 下方三个事件 log新增修改删除。这里一整片lamda表达式的函数体 
                     const std::set<LogDefine>& new_value){
             SYLAR_DCHG_LOG_INFO(SYLAR_DCHG_LOG_ROOT()) << "on_logger_conf_changed";
             for(auto& i : new_value) {

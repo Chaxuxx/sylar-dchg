@@ -400,7 +400,7 @@ public:
                 return;
             }
             for(auto& i : m_cbs) {
-                i.second(m_val, v);
+                i.second(m_val, v);//m_cbs是个map first是key second是回调函数，这里可以看到如果logdefine变化了，就会通过回调函数赋新值
             }
         }
         RWMutexType::WriteLock lock(m_mutex);
@@ -465,7 +465,7 @@ private:
 class Config {//log的管理类是logmanager 管理类的存在都是为了方便使用 
 public:
     typedef std::unordered_map<std::string, ConfigVarBase::ptr> ConfigVarMap;//和logmanager一样使用map进行管理
-    typedef RWMutex RWMutexType;
+    typedef RWMutex RWMutexType;//这里实现直接写在头文件里了，log是写在cc中的。
 
     /**
      * @brief 获取/创建对应参数名的配置参数

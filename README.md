@@ -22,7 +22,7 @@ https://github.com/zhongluqiang/sylar-from-scratch
 
 ## 项目路径安排
 ```
-bin              — 二进制文件
+bin              — 二进制文件、配置yaml文件
 build            — 中间文件路径
 cmake            — cmake函数文件夹
 CMakeLists.txt

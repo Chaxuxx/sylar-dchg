@@ -6,8 +6,8 @@
  * @date 2019-05-24
  * @copyright Copyright (c) 2019年 sylar.yin All rights reserved (www.sylar.top)
  */
-#ifndef __SYLAR_SYLAR_H__
-#define __SYLAR_SYLAR_H__
+#ifndef __SYLAR_DCHG_SYLAR_H__
+#define __SYLAR_DCHG_SYLAR_H__
 
 #include "address.h"
 #include "application.h"
