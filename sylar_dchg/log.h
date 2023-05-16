@@ -257,7 +257,7 @@ private:
     std::stringstream m_ss;
     /// 日志器
     std::shared_ptr<Logger> m_logger;//产生事件后
-    /// 日志等级
+    /// 日志等级缺乏v
     LogLevel::Level m_level;
 };
 

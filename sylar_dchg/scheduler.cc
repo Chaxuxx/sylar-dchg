@@ -1,31 +1,31 @@
 #include "scheduler.h"
 #include "log.h"
 #include "macro.h"
-#include "hook.h"//TODO
+// #include "hook.h"//TODO
 
-namespace sylar {
+namespace sylar_dchg {
 
-static sylar::Logger::ptr g_logger = SYLAR_LOG_NAME("system");
+static sylar_dchg::Logger::ptr g_logger = SYLAR_LOG_NAME("system");
 
 static thread_local Scheduler* t_scheduler = nullptr;
 static thread_local Fiber* t_scheduler_fiber = nullptr;
 
 Scheduler::Scheduler(size_t threads, bool use_caller, const std::string& name)
     :m_name(name) {
-    SYLAR_ASSERT(threads > 0);
+    SYLAR_DCHG_ASSERT(threads > 0);
 
     if(use_caller) {
-        sylar::Fiber::GetThis();
+        sylar_dchg::Fiber::GetThis();
         --threads;
 
-        SYLAR_ASSERT(GetThis() == nullptr);
+        SYLAR_DCHG_ASSERT(GetThis() == nullptr);
         t_scheduler = this;
 
         m_rootFiber.reset(new Fiber(std::bind(&Scheduler::run, this), 0, true));
-        sylar::Thread::SetName(m_name);
+        sylar_dchg::Thread::SetName(m_name);
 
         t_scheduler_fiber = m_rootFiber.get();
-        m_rootThread = sylar::GetThreadId();
+        m_rootThread = sylar_dchg::GetThreadId();
         m_threadIds.push_back(m_rootThread);
     } else {
         m_rootThread = -1;
@@ -34,7 +34,7 @@ Scheduler::Scheduler(size_t threads, bool use_caller, const std::string& name)
 }
 
 Scheduler::~Scheduler() {
-    SYLAR_ASSERT(m_stopping);
+    SYLAR_DCHG_ASSERT(m_stopping);
     if(GetThis() == this) {
         t_scheduler = nullptr;
     }
@@ -54,7 +54,7 @@ void Scheduler::start() {
         return;
     }
     m_stopping = false;
-    SYLAR_ASSERT(m_threads.empty());
+    SYLAR_DCHG_ASSERT(m_threads.empty());
 
     m_threads.resize(m_threadCount);
     for(size_t i = 0; i < m_threadCount; ++i) {
@@ -67,7 +67,7 @@ void Scheduler::start() {
     //if(m_rootFiber) {
     //    //m_rootFiber->swapIn();
     //    m_rootFiber->call();
-    //    SYLAR_LOG_INFO(g_logger) << "call out " << m_rootFiber->getState();
+    //    SYLAR_DCHG_LOG_INFO(g_logger) << "call out " << m_rootFiber->getState();
     //}
 }
 
@@ -77,7 +77,7 @@ void Scheduler::stop() {
             && m_threadCount == 0
             && (m_rootFiber->getState() == Fiber::TERM
                 || m_rootFiber->getState() == Fiber::INIT)) {
-        SYLAR_LOG_INFO(g_logger) << this << " stopped";
+        SYLAR_DCHG_LOG_INFO(g_logger) << this << " stopped";
         m_stopping = true;
 
         if(stopping()) {
@@ -87,9 +87,9 @@ void Scheduler::stop() {
 
     //bool exit_on_this_fiber = false;
     if(m_rootThread != -1) {
-        SYLAR_ASSERT(GetThis() == this);
+        SYLAR_DCHG_ASSERT(GetThis() == this);
     } else {
-        SYLAR_ASSERT(GetThis() != this);
+        SYLAR_DCHG_ASSERT(GetThis() != this);
     }
 
     m_stopping = true;
@@ -106,7 +106,7 @@ void Scheduler::stop() {
         //    if(m_rootFiber->getState() == Fiber::TERM
         //            || m_rootFiber->getState() == Fiber::EXCEPT) {
         //        m_rootFiber.reset(new Fiber(std::bind(&Scheduler::run, this), 0, true));
-        //        SYLAR_LOG_INFO(g_logger) << " root fiber is term, reset";
+        //        SYLAR_DCHG_LOG_INFO(g_logger) << " root fiber is term, reset";
         //        t_fiber = m_rootFiber.get();
         //    }
         //    m_rootFiber->call();
@@ -134,10 +134,10 @@ void Scheduler::setThis() {
 }
 
 void Scheduler::run() {
-    SYLAR_LOG_DEBUG(g_logger) << m_name << " run";
-    set_hook_enable(true);
+    SYLAR_DCHG_LOG_DEBUG(g_logger) << m_name << " run";
+    // set_hook_enable(true);
     setThis();
-    if(sylar::GetThreadId() != m_rootThread) {
+    if(sylar_dchg::GetThreadId() != m_rootThread) {
         t_scheduler_fiber = Fiber::GetThis().get();
     }
 
@@ -153,13 +153,13 @@ void Scheduler::run() {
             MutexType::Lock lock(m_mutex);
             auto it = m_fibers.begin();
             while(it != m_fibers.end()) {
-                if(it->thread != -1 && it->thread != sylar::GetThreadId()) {
+                if(it->thread != -1 && it->thread != sylar_dchg::GetThreadId()) {
                     ++it;
                     tickle_me = true;
                     continue;
                 }
 
-                SYLAR_ASSERT(it->fiber || it->cb);
+                SYLAR_DCHG_ASSERT(it->fiber || it->cb);
                 if(it->fiber && it->fiber->getState() == Fiber::EXEC) {
                     ++it;
                     continue;
@@ -215,7 +215,7 @@ void Scheduler::run() {
                 continue;
             }
             if(idle_fiber->getState() == Fiber::TERM) {
-                SYLAR_LOG_INFO(g_logger) << "idle fiber term";
+                SYLAR_DCHG_LOG_INFO(g_logger) << "idle fiber term";
                 break;
             }
 
@@ -231,7 +231,7 @@ void Scheduler::run() {
 }
 
 void Scheduler::tickle() {
-    SYLAR_LOG_INFO(g_logger) << "tickle";
+    SYLAR_DCHG_LOG_INFO(g_logger) << "tickle";
 }
 
 bool Scheduler::stopping() {
@@ -241,16 +241,16 @@ bool Scheduler::stopping() {
 }
 
 void Scheduler::idle() {
-    SYLAR_LOG_INFO(g_logger) << "idle";
+    SYLAR_DCHG_LOG_INFO(g_logger) << "idle";
     while(!stopping()) {
-        sylar::Fiber::YieldToHold();
+        sylar_dchg::Fiber::YieldToHold();
     }
 }
 
 void Scheduler::switchTo(int thread) {
-    SYLAR_ASSERT(Scheduler::GetThis() != nullptr);
+    SYLAR_DCHG_ASSERT(Scheduler::GetThis() != nullptr);
     if(Scheduler::GetThis() == this) {
-        if(thread == -1 || thread == sylar::GetThreadId()) {
+        if(thread == -1 || thread == sylar_dchg::GetThreadId()) {
             return;
         }
     }

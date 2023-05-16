@@ -6,8 +6,8 @@
  * @date 2019-05-28
  * @copyright Copyright (c) 2019年 sylar.yin All rights reserved (www.sylar.top)
  */
-#ifndef __SYLAR_SCHEDULER_H__
-#define __SYLAR_SCHEDULER_H__
+#ifndef __SYLAR_DCHG_SCHEDULER_H__
+#define __SYLAR_DCHG_SCHEDULER_H__
 
 #include <memory>
 #include <vector>
@@ -16,7 +16,7 @@
 #include "fiber.h"
 #include "thread.h"
 
-namespace sylar {
+namespace sylar_dchg {
 
 /**
  * @brief 协程调度器
