@@ -7,14 +7,14 @@
  * @copyright Copyright (c) 2019年 sylar.yin All rights reserved (www.sylar.top)
  */
 
-#ifndef __SYLAR_HTTP_PARSER_H__
-#define __SYLAR_HTTP_PARSER_H__
+#ifndef __SYLAR_DCHG_HTTP_PARSER_H__
+#define __SYLAR_DCHG_HTTP_PARSER_H__
 
 #include "http.h"
 #include "http11_parser.h"
 #include "httpclient_parser.h"
 
-namespace sylar {
+namespace sylar_dchg {
 namespace http {
 
 /**
