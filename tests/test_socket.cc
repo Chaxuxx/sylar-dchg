@@ -15,7 +15,7 @@ void test_socket() {
     //        break;
     //    }
     //}
-    sylar::IPAddress::ptr addr = sylar::Address::LookupAnyIPAddress("www.baidu.com");
+    sylar::IPAddress::ptr addr = sylar::Address::LookupAnyIPAddress("www.baidu.com");//测试TCP链接
     if(addr) {
         SYLAR_LOG_INFO(g_looger) << "get address: " << addr->toString();
     } else {
@@ -50,7 +50,7 @@ void test_socket() {
     }
 
     buffs.resize(rt);
-    SYLAR_LOG_INFO(g_looger) << buffs;
+    SYLAR_LOG_INFO(g_looger) << buffs;//将获取到的内容输出
 }
 
 void test2() {
