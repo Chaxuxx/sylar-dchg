@@ -6,17 +6,17 @@
  * @date 2019-06-11
  * @copyright Copyright (c) 2019年 sylar.yin All rights reserved (www.sylar.top)
  */
-#ifndef __SYLAR_HTTP_CONNECTION_H__
-#define __SYLAR_HTTP_CONNECTION_H__
+#ifndef __SYLAR_DCHG_HTTP_CONNECTION_H__
+#define __SYLAR_DCHG_HTTP_CONNECTION_H__
 
-#include "sylar/streams/socket_stream.h"
+#include "../streams/socket_stream.h"
 #include "http.h"
-#include "sylar/uri.h"
-#include "sylar/thread.h"
+#include "../uri.h"
+#include "../thread.h"
 
 #include <list>
 
-namespace sylar {
+namespace sylar_dchg {
 namespace http {
 
 /**

@@ -6,8 +6,8 @@
  * @date 2019-06-08
  * @copyright Copyright (c) 2019年 sylar.yin All rights reserved (www.sylar.top)
  */
-#ifndef __SYLAR_HTTP_SERVLET_H__
-#define __SYLAR_HTTP_SERVLET_H__
+#ifndef __SYLAR_DCHG_HTTP_SERVLET_H__
+#define __SYLAR_DCHG_HTTP_SERVLET_H__
 
 #include <memory>
 #include <functional>
@@ -16,10 +16,10 @@
 #include <unordered_map>
 #include "http.h"
 #include "http_session.h"
-#include "sylar/thread.h"
-#include "sylar/util.h"
+#include "../thread.h"
+#include "../util.h"
 
-namespace sylar {
+namespace sylar_dchg {
 namespace http {
 
 /**
@@ -49,9 +49,9 @@ public:
      * @param[in] session HTTP连接
      * @return 是否处理成功
      */
-    virtual int32_t handle(sylar::http::HttpRequest::ptr request
-                   , sylar::http::HttpResponse::ptr response
-                   , sylar::http::HttpSession::ptr session) = 0;
+    virtual int32_t handle(sylar_dchg::http::HttpRequest::ptr request
+                   , sylar_dchg::http::HttpResponse::ptr response
+                   , sylar_dchg::http::HttpSession::ptr session) = 0;
                    
     /**
      * @brief 返回Servlet名称
@@ -70,9 +70,9 @@ public:
     /// 智能指针类型定义
     typedef std::shared_ptr<FunctionServlet> ptr;
     /// 函数回调类型定义
-    typedef std::function<int32_t (sylar::http::HttpRequest::ptr request
-                   , sylar::http::HttpResponse::ptr response
-                   , sylar::http::HttpSession::ptr session)> callback;
+    typedef std::function<int32_t (sylar_dchg::http::HttpRequest::ptr request
+                   , sylar_dchg::http::HttpResponse::ptr response
+                   , sylar_dchg::http::HttpSession::ptr session)> callback;
 
 
     /**
@@ -80,9 +80,9 @@ public:
      * @param[in] cb 回调函数
      */
     FunctionServlet(callback cb);
-    virtual int32_t handle(sylar::http::HttpRequest::ptr request
-                   , sylar::http::HttpResponse::ptr response
-                   , sylar::http::HttpSession::ptr session) override;
+    virtual int32_t handle(sylar_dchg::http::HttpRequest::ptr request
+                   , sylar_dchg::http::HttpResponse::ptr response
+                   , sylar_dchg::http::HttpSession::ptr session) override;
 private:
     /// 回调函数
     callback m_cb;
@@ -145,9 +145,9 @@ public:
      * @brief 构造函数
      */
     ServletDispatch();
-    virtual int32_t handle(sylar::http::HttpRequest::ptr request
-                   , sylar::http::HttpResponse::ptr response
-                   , sylar::http::HttpSession::ptr session) override;
+    virtual int32_t handle(sylar_dchg::http::HttpRequest::ptr request
+                   , sylar_dchg::http::HttpResponse::ptr response
+                   , sylar_dchg::http::HttpSession::ptr session) override;
 
     /**
      * @brief 添加servlet
@@ -261,9 +261,9 @@ public:
      * @brief 构造函数
      */
     NotFoundServlet(const std::string& name);
-    virtual int32_t handle(sylar::http::HttpRequest::ptr request
-                   , sylar::http::HttpResponse::ptr response
-                   , sylar::http::HttpSession::ptr session) override;
+    virtual int32_t handle(sylar_dchg::http::HttpRequest::ptr request
+                   , sylar_dchg::http::HttpResponse::ptr response
+                   , sylar_dchg::http::HttpSession::ptr session) override;
 
 private:
     std::string m_name;

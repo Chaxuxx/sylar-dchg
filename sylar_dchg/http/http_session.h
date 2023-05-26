@@ -7,13 +7,13 @@
  * @copyright Copyright (c) 2019年 sylar.yin All rights reserved (www.sylar.top)
  */
 
-#ifndef __SYLAR_HTTP_SESSION_H__
-#define __SYLAR_HTTP_SESSION_H__
+#ifndef __SYLAR_DCHG_HTTP_SESSION_H__
+#define __SYLAR_DCHG_HTTP_SESSION_H__
 
-#include "sylar/streams/socket_stream.h"
+#include "../streams/socket_stream.h"
 #include "http.h"
 
-namespace sylar {
+namespace sylar_dchg {
 namespace http {
 
 /**

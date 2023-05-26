@@ -1,16 +1,16 @@
 #include "config_servlet.h"
-#include "sylar/config.h"
+#include "../../config.h"
 
-namespace sylar {
+namespace sylar_dchg {
 namespace http {
 
 ConfigServlet::ConfigServlet()
     :Servlet("ConfigServlet") {
 }
 
-int32_t ConfigServlet::handle(sylar::http::HttpRequest::ptr request
-                              ,sylar::http::HttpResponse::ptr response
-                              ,sylar::http::HttpSession::ptr session) {
+int32_t ConfigServlet::handle(sylar_dchg::http::HttpRequest::ptr request
+                              ,sylar_dchg::http::HttpResponse::ptr response
+                              ,sylar_dchg::http::HttpSession::ptr session) {
     std::string type = request->getParam("type");
     if(type == "json") {
         response->setHeader("Content-Type", "text/json charset=utf-8");
@@ -18,7 +18,7 @@ int32_t ConfigServlet::handle(sylar::http::HttpRequest::ptr request
         response->setHeader("Content-Type", "text/yaml charset=utf-8");
     }
     YAML::Node node;
-    sylar::Config::Visit([&node](ConfigVarBase::ptr base) {
+    sylar_dchg::Config::Visit([&node](ConfigVarBase::ptr base) {
         YAML::Node n;
         try {
             n = YAML::Load(base->toString());

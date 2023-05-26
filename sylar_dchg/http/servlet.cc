@@ -1,7 +1,7 @@
 #include "servlet.h"
 #include <fnmatch.h>
 
-namespace sylar {
+namespace sylar_dchg {
 namespace http {
 
 FunctionServlet::FunctionServlet(callback cb)
@@ -9,9 +9,9 @@ FunctionServlet::FunctionServlet(callback cb)
     ,m_cb(cb) {
 }
 
-int32_t FunctionServlet::handle(sylar::http::HttpRequest::ptr request
-               , sylar::http::HttpResponse::ptr response
-               , sylar::http::HttpSession::ptr session) {
+int32_t FunctionServlet::handle(sylar_dchg::http::HttpRequest::ptr request
+               , sylar_dchg::http::HttpResponse::ptr response
+               , sylar_dchg::http::HttpSession::ptr session) {
     return m_cb(request, response, session);
 }
 
@@ -22,9 +22,9 @@ ServletDispatch::ServletDispatch()
     m_default.reset(new NotFoundServlet("sylar/1.0"));
 }
 
-int32_t ServletDispatch::handle(sylar::http::HttpRequest::ptr request
-               , sylar::http::HttpResponse::ptr response
-               , sylar::http::HttpSession::ptr session) {
+int32_t ServletDispatch::handle(sylar_dchg::http::HttpRequest::ptr request
+               , sylar_dchg::http::HttpResponse::ptr response
+               , sylar_dchg::http::HttpSession::ptr session) {
     auto slt = getMatchedServlet(request->getPath());
     if(slt) {
         slt->handle(request, response, session);
@@ -151,10 +151,10 @@ NotFoundServlet::NotFoundServlet(const std::string& name)
 
 }
 
-int32_t NotFoundServlet::handle(sylar::http::HttpRequest::ptr request
-                   , sylar::http::HttpResponse::ptr response
-                   , sylar::http::HttpSession::ptr session) {
-    response->setStatus(sylar::http::HttpStatus::NOT_FOUND);
+int32_t NotFoundServlet::handle(sylar_dchg::http::HttpRequest::ptr request
+                   , sylar_dchg::http::HttpResponse::ptr response
+                   , sylar_dchg::http::HttpSession::ptr session) {
+    response->setStatus(sylar_dchg::http::HttpStatus::NOT_FOUND);
     response->setHeader("Server", "sylar/1.0.0");
     response->setHeader("Content-Type", "text/html");
     response->setBody(m_content);

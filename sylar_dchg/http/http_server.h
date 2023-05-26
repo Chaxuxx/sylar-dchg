@@ -7,14 +7,14 @@
  * @copyright Copyright (c) 2019年 sylar.yin All rights reserved (www.sylar.top)
  */
 
-#ifndef __SYLAR_HTTP_HTTP_SERVER_H__
-#define __SYLAR_HTTP_HTTP_SERVER_H__
+#ifndef __SYLAR_DCHG_HTTP_HTTP_SERVER_H__
+#define __SYLAR_DCHG_HTTP_HTTP_SERVER_H__
 
-#include "sylar/tcp_server.h"
+#include "../tcp_server.h"
 #include "http_session.h"
 #include "servlet.h"
 
-namespace sylar {
+namespace sylar_dchg {
 namespace http {
 
 /**
@@ -32,9 +32,9 @@ public:
      * @param[in] accept_worker 接收连接调度器
      */
     HttpServer(bool keepalive = false
-               ,sylar::IOManager* worker = sylar::IOManager::GetThis()
-               ,sylar::IOManager* io_worker = sylar::IOManager::GetThis()
-               ,sylar::IOManager* accept_worker = sylar::IOManager::GetThis());
+               ,sylar_dchg::IOManager* worker = sylar_dchg::IOManager::GetThis()
+               ,sylar_dchg::IOManager* io_worker = sylar_dchg::IOManager::GetThis()
+               ,sylar_dchg::IOManager* accept_worker = sylar_dchg::IOManager::GetThis());
 
     /**
      * @brief 获取ServletDispatch

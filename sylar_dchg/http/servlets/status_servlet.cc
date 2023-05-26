@@ -1,7 +1,7 @@
 #include "status_servlet.h"
-#include "sylar/sylar.h"
+#include "../../sylar.h"
 
-namespace sylar {
+namespace sylar_dchg {
 namespace http {
 
 StatusServlet::StatusServlet()
@@ -34,9 +34,9 @@ std::string format_used_time(int64_t ts) {
     return ss.str();
 }
 
-int32_t StatusServlet::handle(sylar::http::HttpRequest::ptr request
-                              ,sylar::http::HttpResponse::ptr response
-                              ,sylar::http::HttpSession::ptr session) {
+int32_t StatusServlet::handle(sylar_dchg::http::HttpRequest::ptr request
+                              ,sylar_dchg::http::HttpResponse::ptr response
+                              ,sylar_dchg::http::HttpSession::ptr session) {
     response->setHeader("Content-Type", "text/text; charset=utf-8");
 #define XX(key) \
     ss << std::setw(30) << std::right << key ": "
@@ -65,16 +65,16 @@ int32_t StatusServlet::handle(sylar::http::HttpRequest::ptr request
     XX("daemon_running_time") << format_used_time(time(0) - ProcessInfoMgr::GetInstance()->parent_start_time) << std::endl;
     XX("main_running_time") << format_used_time(time(0) - ProcessInfoMgr::GetInstance()->main_start_time) << std::endl;
     ss << "===================================================" << std::endl;
-    XX("fibers") << sylar::Fiber::TotalFibers() << std::endl;
+    XX("fibers") << sylar_dchg::Fiber::TotalFibers() << std::endl;
     ss << "===================================================" << std::endl;
     ss << "<Logger>" << std::endl;
-    ss << sylar::LoggerMgr::GetInstance()->toYamlString() << std::endl;
+    ss << sylar_dchg::LoggerMgr::GetInstance()->toYamlString() << std::endl;
     ss << "===================================================" << std::endl;
     ss << "<Woker>" << std::endl;
-    sylar::WorkerMgr::GetInstance()->dump(ss) << std::endl;
+    sylar_dchg::WorkerMgr::GetInstance()->dump(ss) << std::endl;
 
     std::map<std::string, std::vector<TcpServer::ptr> > servers;
-    sylar::Application::GetInstance()->listAllServer(servers);
+    sylar_dchg::Application::GetInstance()->listAllServer(servers);
     ss << "===================================================" << std::endl;
     for(auto it = servers.begin();
             it != servers.end(); ++it) {
@@ -82,14 +82,14 @@ int32_t StatusServlet::handle(sylar::http::HttpRequest::ptr request
             ss << "***************************************************" << std::endl;
         }
         ss << "<Server." << it->first << ">" << std::endl;
-        sylar::http::HttpServer::ptr hs;
+        sylar_dchg::http::HttpServer::ptr hs;
         for(auto iit = it->second.begin();
                 iit != it->second.end(); ++iit) {
             if(iit != it->second.begin()) {
                 ss << "---------------------------------------------------" << std::endl;
             }
             if(!hs) {
-                hs = std::dynamic_pointer_cast<sylar::http::HttpServer>(*iit);
+                hs = std::dynamic_pointer_cast<sylar_dchg::http::HttpServer>(*iit);
             }
             ss << (*iit)->toString() << std::endl;
         }
