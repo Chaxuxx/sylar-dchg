@@ -464,6 +464,7 @@ void Socket::newSock() {
     }
 }
 
+// 以下是https的部分
 namespace {
 
 struct _SSLInit {

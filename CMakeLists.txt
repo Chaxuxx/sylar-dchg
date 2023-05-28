@@ -13,6 +13,11 @@ set(CMAKE_CXX_FLAGS "$ENV{CXXFLAGS} -rdynamic -O3 -fPIC -ggdb -std=c++11 -Wall -
 # set(CMAKE_CXX_STANDARD 11)
 # set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+find_package(OpenSSL REQUIRED)
+if(OPENSSL_FOUND)
+    include_directories(${OPENSSL_INCLUDE_DIR})
+endif()
+
 # set(LIB_SRC
 #     sylar_dchg/config.cc
 #     sylar_dchg/env.cc
@@ -30,19 +35,67 @@ set(LIB_SRC
     sylar_dchg/config.cc
     sylar_dchg/thread.cc
     sylar_dchg/mutex.cc
+    sylar_dchg/address.cc
+    sylar_dchg/bytearray.cc
+    sylar_dchg/fd_manager.cc
+    sylar_dchg/address.cc
+    sylar_dchg/bytearray.cc
+    sylar_dchg/fd_manager.cc
+    sylar_dchg/fiber.cc
+    sylar_dchg/hook.cc
+    sylar_dchg/iomanager.cc
+    sylar_dchg/log.cc
+    sylar_dchg/mutex.cc
+    sylar_dchg/scheduler.cc
+    sylar_dchg/socket.cc
+    sylar_dchg/stream.cc
+    sylar_dchg/tcp_server.cc
+    sylar_dchg/timer.cc
+    sylar_dchg/thread.cc
+    sylar_dchg/util.cc
     )
-add_library(sylar_dchg SHARED ${LIB_SRC}) #这是生成共享库
+
+#ragel生成高效解析http报文的源码
+ragelmaker(sylar_dchg/http/http11_parser.rl LIB_SRC ${CMAKE_CURRENT_SOURCE_DIR}/sylar_dchg/http)
+ragelmaker(sylar_dchg/http/httpclient_parser.rl LIB_SRC ${CMAKE_CURRENT_SOURCE_DIR}/sylar_dchg/http)
+ragelmaker(sylar_dchg/uri.rl LIB_SRC ${CMAKE_CURRENT_SOURCE_DIR}/sylar_dchg)
+
+add_library(sylar_dchg SHARED ${LIB_SRC}) #这是生成共享库 库名为sylar_dchg
 force_redefine_file_macro_for_sources(sylar_dchg) #这样更改__FILE__的位置为相对路径而不是绝对路径 加上上面的utils.cmake文件
 
+#设置别名 包括一系列需要链接的库 
+set(LIBS
+        sylar_dchg
+        pthread
+        yaml-cpp
+        ${OPENSSL_LIBRARIES}
+        )
+    
+# add_executable(test tests/test.cc)
+# add_dependencies(test sylar_dchg)#test是要生成的 sylar_dchg是其依赖的库
+# force_redefine_file_macro_for_sources(test)
+# target_link_libraries(test sylar_dchg -lyaml-cpp -lpthread)#链接  可以直接用参数啦
+
 add_executable(test tests/test.cc)
-add_dependencies(test sylar_dchg)#test是要生成的 sylar_dchg是其依赖的库
+add_dependencies(test sylar_dchg)
 force_redefine_file_macro_for_sources(test)
-target_link_libraries(test sylar_dchg -lyaml-cpp -lpthread)#链接  可以直接用参数啦
+target_link_libraries(test ${LIBS})#链接使用别名
 
-add_executable(test_config tests/test_config.cc)
-add_dependencies(test_config sylar_dchg)#test_config是要生成的 sylar_dchg是其依赖的库
-force_redefine_file_macro_for_sources(test_config)
-target_link_libraries(test_config sylar_dchg -lyaml-cpp)#链接
+# add_executable(test_config tests/test_config.cc)
+# add_dependencies(test_config sylar_dchg)#test_config是要生成的 sylar_dchg是其依赖的库
+# force_redefine_file_macro_for_sources(test_config)
+# target_link_libraries(test_config sylar_dchg -lyaml-cpp)#链接
 
-SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
-SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
+add_executable(test_tcpserver tests/test_tcp_server.cc)
+add_dependencies(test_tcpserver sylar_dchg)
+force_redefine_file_macro_for_sources(test_tcpserver)
+target_link_libraries(test_tcpserver ${LIBS})
+
+add_executable(echoserver examples/echo_server.cc)
+add_dependencies(echoserver sylar_dchg)
+force_redefine_file_macro_for_sources(echoserver)
+target_link_libraries(echoserver ${LIBS})
+
+
+SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)#二进制文件存放位置设置
+SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)#lib存放位置设置

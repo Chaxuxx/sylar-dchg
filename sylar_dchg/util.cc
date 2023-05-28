@@ -73,17 +73,17 @@ std::string BacktraceToString(int size, int skip, const std::string& prefix) {
     return ss.str();
 }
 
-// uint64_t GetCurrentMS() {
-//     struct timeval tv;
-//     gettimeofday(&tv, NULL);
-//     return tv.tv_sec * 1000ul  + tv.tv_usec / 1000;
-// }
+uint64_t GetCurrentMS() {
+    struct timeval tv;
+    gettimeofday(&tv, NULL);
+    return tv.tv_sec * 1000ul  + tv.tv_usec / 1000;
+}//校准时间
 
-// uint64_t GetCurrentUS() {
-//     struct timeval tv;
-//     gettimeofday(&tv, NULL);
-//     return tv.tv_sec * 1000 * 1000ul  + tv.tv_usec;
-// }
+uint64_t GetCurrentUS() {
+    struct timeval tv;
+    gettimeofday(&tv, NULL);
+    return tv.tv_sec * 1000 * 1000ul  + tv.tv_usec;
+}
 
 // std::string Time2Str(time_t ts, const std::string& format) {
 //     struct tm tm;
@@ -149,14 +149,14 @@ std::string BacktraceToString(int size, int skip, const std::string& prefix) {
 //     closedir(dir);
 // }
 
-// static int __lstat(const char* file, struct stat* st = nullptr) {
-//     struct stat lst;
-//     int ret = lstat(file, &lst);
-//     if(st) {
-//         *st = lst;
-//     }
-//     return ret;
-// }
+static int __lstat(const char* file, struct stat* st = nullptr) {
+    struct stat lst;
+    int ret = lstat(file, &lst);
+    if(st) {
+        *st = lst;
+    }
+    return ret;
+}
 
 // static int __mkdir(const char* dirname) {
 //     if(access(dirname, F_OK) == 0) {
@@ -212,12 +212,12 @@ std::string BacktraceToString(int size, int skip, const std::string& prefix) {
 //     return true;
 // }
 
-// bool FSUtil::Unlink(const std::string& filename, bool exist) {
-//     if(!exist && __lstat(filename.c_str())) {
-//         return true;
-//     }
-//     return ::unlink(filename.c_str()) == 0;
-// }
+bool FSUtil::Unlink(const std::string& filename, bool exist) {
+    if(!exist && __lstat(filename.c_str())) {
+        return true;
+    }
+    return ::unlink(filename.c_str()) == 0;
+}
 
 // bool FSUtil::Rm(const std::string& path) {
 //     struct stat st;

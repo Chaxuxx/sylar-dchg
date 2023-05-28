@@ -1,8 +1,13 @@
 [
 {
   "directory": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build",
-  "command": "/usr/bin/g++   -D__FILE__=\\\"tests/test_config.cc\\\"   -rdynamic -O3 -fPIC -ggdb -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -Wno-builtin-macro-redefined -Wno-deprecated-declarations -g   -o CMakeFiles/test_config.dir/tests/test_config.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/tests/test_config.cc",
-  "file": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/tests/test_config.cc"
+  "command": "/usr/bin/g++   -D__FILE__=\\\"examples/echo_server.cc\\\"   -rdynamic -O3 -fPIC -ggdb -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -Wno-builtin-macro-redefined -Wno-deprecated-declarations -g   -o CMakeFiles/echoserver.dir/examples/echo_server.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/examples/echo_server.cc",
+  "file": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/examples/echo_server.cc"
+},
+{
+  "directory": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build",
+  "command": "/usr/bin/g++   -D__FILE__=\\\"tests/test_tcp_server.cc\\\"   -rdynamic -O3 -fPIC -ggdb -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -Wno-builtin-macro-redefined -Wno-deprecated-declarations -g   -o CMakeFiles/test_tcpserver.dir/tests/test_tcp_server.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/tests/test_tcp_server.cc",
+  "file": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/tests/test_tcp_server.cc"
 },
 {
   "directory": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build",
@@ -33,5 +38,75 @@
   "directory": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build",
   "command": "/usr/bin/g++  -Dsylar_dchg_EXPORTS -D__FILE__=\\\"sylar_dchg/mutex.cc\\\"   -rdynamic -O3 -fPIC -ggdb -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -Wno-builtin-macro-redefined -Wno-deprecated-declarations -g -fPIC   -o CMakeFiles/sylar_dchg.dir/sylar_dchg/mutex.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/mutex.cc",
   "file": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/mutex.cc"
+},
+{
+  "directory": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build",
+  "command": "/usr/bin/g++  -Dsylar_dchg_EXPORTS -D__FILE__=\\\"sylar_dchg/address.cc\\\"   -rdynamic -O3 -fPIC -ggdb -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -Wno-builtin-macro-redefined -Wno-deprecated-declarations -g -fPIC   -o CMakeFiles/sylar_dchg.dir/sylar_dchg/address.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/address.cc",
+  "file": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/address.cc"
+},
+{
+  "directory": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build",
+  "command": "/usr/bin/g++  -Dsylar_dchg_EXPORTS -D__FILE__=\\\"sylar_dchg/bytearray.cc\\\"   -rdynamic -O3 -fPIC -ggdb -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -Wno-builtin-macro-redefined -Wno-deprecated-declarations -g -fPIC   -o CMakeFiles/sylar_dchg.dir/sylar_dchg/bytearray.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/bytearray.cc",
+  "file": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/bytearray.cc"
+},
+{
+  "directory": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build",
+  "command": "/usr/bin/g++  -Dsylar_dchg_EXPORTS -D__FILE__=\\\"sylar_dchg/fd_manager.cc\\\"   -rdynamic -O3 -fPIC -ggdb -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -Wno-builtin-macro-redefined -Wno-deprecated-declarations -g -fPIC   -o CMakeFiles/sylar_dchg.dir/sylar_dchg/fd_manager.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/fd_manager.cc",
+  "file": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/fd_manager.cc"
+},
+{
+  "directory": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build",
+  "command": "/usr/bin/g++  -Dsylar_dchg_EXPORTS -D__FILE__=\\\"sylar_dchg/fiber.cc\\\"   -rdynamic -O3 -fPIC -ggdb -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -Wno-builtin-macro-redefined -Wno-deprecated-declarations -g -fPIC   -o CMakeFiles/sylar_dchg.dir/sylar_dchg/fiber.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/fiber.cc",
+  "file": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/fiber.cc"
+},
+{
+  "directory": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build",
+  "command": "/usr/bin/g++  -Dsylar_dchg_EXPORTS -D__FILE__=\\\"sylar_dchg/hook.cc\\\"   -rdynamic -O3 -fPIC -ggdb -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -Wno-builtin-macro-redefined -Wno-deprecated-declarations -g -fPIC   -o CMakeFiles/sylar_dchg.dir/sylar_dchg/hook.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/hook.cc",
+  "file": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/hook.cc"
+},
+{
+  "directory": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build",
+  "command": "/usr/bin/g++  -Dsylar_dchg_EXPORTS -D__FILE__=\\\"sylar_dchg/iomanager.cc\\\"   -rdynamic -O3 -fPIC -ggdb -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -Wno-builtin-macro-redefined -Wno-deprecated-declarations -g -fPIC   -o CMakeFiles/sylar_dchg.dir/sylar_dchg/iomanager.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/iomanager.cc",
+  "file": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/iomanager.cc"
+},
+{
+  "directory": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build",
+  "command": "/usr/bin/g++  -Dsylar_dchg_EXPORTS -D__FILE__=\\\"sylar_dchg/scheduler.cc\\\"   -rdynamic -O3 -fPIC -ggdb -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -Wno-builtin-macro-redefined -Wno-deprecated-declarations -g -fPIC   -o CMakeFiles/sylar_dchg.dir/sylar_dchg/scheduler.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/scheduler.cc",
+  "file": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/scheduler.cc"
+},
+{
+  "directory": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build",
+  "command": "/usr/bin/g++  -Dsylar_dchg_EXPORTS -D__FILE__=\\\"sylar_dchg/socket.cc\\\"   -rdynamic -O3 -fPIC -ggdb -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -Wno-builtin-macro-redefined -Wno-deprecated-declarations -g -fPIC   -o CMakeFiles/sylar_dchg.dir/sylar_dchg/socket.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/socket.cc",
+  "file": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/socket.cc"
+},
+{
+  "directory": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build",
+  "command": "/usr/bin/g++  -Dsylar_dchg_EXPORTS -D__FILE__=\\\"sylar_dchg/stream.cc\\\"   -rdynamic -O3 -fPIC -ggdb -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -Wno-builtin-macro-redefined -Wno-deprecated-declarations -g -fPIC   -o CMakeFiles/sylar_dchg.dir/sylar_dchg/stream.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/stream.cc",
+  "file": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/stream.cc"
+},
+{
+  "directory": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build",
+  "command": "/usr/bin/g++  -Dsylar_dchg_EXPORTS -D__FILE__=\\\"sylar_dchg/tcp_server.cc\\\"   -rdynamic -O3 -fPIC -ggdb -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -Wno-builtin-macro-redefined -Wno-deprecated-declarations -g -fPIC   -o CMakeFiles/sylar_dchg.dir/sylar_dchg/tcp_server.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/tcp_server.cc",
+  "file": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/tcp_server.cc"
+},
+{
+  "directory": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build",
+  "command": "/usr/bin/g++  -Dsylar_dchg_EXPORTS -D__FILE__=\\\"sylar_dchg/timer.cc\\\"   -rdynamic -O3 -fPIC -ggdb -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -Wno-builtin-macro-redefined -Wno-deprecated-declarations -g -fPIC   -o CMakeFiles/sylar_dchg.dir/sylar_dchg/timer.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/timer.cc",
+  "file": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/timer.cc"
+},
+{
+  "directory": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build",
+  "command": "/usr/bin/g++  -Dsylar_dchg_EXPORTS -D__FILE__=\\\"sylar_dchg/http/http11_parser.rl.cc\\\"   -rdynamic -O3 -fPIC -ggdb -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -Wno-builtin-macro-redefined -Wno-deprecated-declarations -g -fPIC   -o CMakeFiles/sylar_dchg.dir/sylar_dchg/http/http11_parser.rl.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/http/http11_parser.rl.cc",
+  "file": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/http/http11_parser.rl.cc"
+},
+{
+  "directory": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build",
+  "command": "/usr/bin/g++  -Dsylar_dchg_EXPORTS -D__FILE__=\\\"sylar_dchg/http/httpclient_parser.rl.cc\\\"   -rdynamic -O3 -fPIC -ggdb -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -Wno-builtin-macro-redefined -Wno-deprecated-declarations -g -fPIC   -o CMakeFiles/sylar_dchg.dir/sylar_dchg/http/httpclient_parser.rl.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/http/httpclient_parser.rl.cc",
+  "file": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/http/httpclient_parser.rl.cc"
+},
+{
+  "directory": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build",
+  "command": "/usr/bin/g++  -Dsylar_dchg_EXPORTS -D__FILE__=\\\"sylar_dchg/uri.rl.cc\\\"   -rdynamic -O3 -fPIC -ggdb -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -Wno-builtin-macro-redefined -Wno-deprecated-declarations -g -fPIC   -o CMakeFiles/sylar_dchg.dir/sylar_dchg/uri.rl.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/uri.rl.cc",
+  "file": "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/uri.rl.cc"
 }
 ]

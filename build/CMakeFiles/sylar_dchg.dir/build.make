@@ -60,9 +60,24 @@ include CMakeFiles/sylar_dchg.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/sylar_dchg.dir/flags.make
 
+../sylar_dchg/http/http11_parser.rl.cc: ../sylar_dchg/http/http11_parser.rl
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating ../sylar_dchg/http/http11_parser.rl.cc"
+	cd /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/http
+	ragel /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/http/http11_parser.rl -o /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/http/http11_parser.rl.cc -l -C -G2 --error-format=msvc
+
+../sylar_dchg/http/httpclient_parser.rl.cc: ../sylar_dchg/http/httpclient_parser.rl
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating ../sylar_dchg/http/httpclient_parser.rl.cc"
+	cd /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/http
+	ragel /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/http/httpclient_parser.rl -o /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/http/httpclient_parser.rl.cc -l -C -G2 --error-format=msvc
+
+../sylar_dchg/uri.rl.cc: ../sylar_dchg/uri.rl
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating ../sylar_dchg/uri.rl.cc"
+	cd /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg
+	ragel /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/uri.rl -o /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/uri.rl.cc -l -C -G2 --error-format=msvc
+
 CMakeFiles/sylar_dchg.dir/sylar_dchg/log.cc.o: CMakeFiles/sylar_dchg.dir/flags.make
 CMakeFiles/sylar_dchg.dir/sylar_dchg/log.cc.o: ../sylar_dchg/log.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/sylar_dchg.dir/sylar_dchg/log.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/sylar_dchg.dir/sylar_dchg/log.cc.o"
 	/usr/bin/g++  $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/log.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sylar_dchg.dir/sylar_dchg/log.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/log.cc
 
 CMakeFiles/sylar_dchg.dir/sylar_dchg/log.cc.i: cmake_force
@@ -75,7 +90,7 @@ CMakeFiles/sylar_dchg.dir/sylar_dchg/log.cc.s: cmake_force
 
 CMakeFiles/sylar_dchg.dir/sylar_dchg/util.cc.o: CMakeFiles/sylar_dchg.dir/flags.make
 CMakeFiles/sylar_dchg.dir/sylar_dchg/util.cc.o: ../sylar_dchg/util.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/sylar_dchg.dir/sylar_dchg/util.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/sylar_dchg.dir/sylar_dchg/util.cc.o"
 	/usr/bin/g++  $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/util.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sylar_dchg.dir/sylar_dchg/util.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/util.cc
 
 CMakeFiles/sylar_dchg.dir/sylar_dchg/util.cc.i: cmake_force
@@ -88,7 +103,7 @@ CMakeFiles/sylar_dchg.dir/sylar_dchg/util.cc.s: cmake_force
 
 CMakeFiles/sylar_dchg.dir/sylar_dchg/config.cc.o: CMakeFiles/sylar_dchg.dir/flags.make
 CMakeFiles/sylar_dchg.dir/sylar_dchg/config.cc.o: ../sylar_dchg/config.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/sylar_dchg.dir/sylar_dchg/config.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/sylar_dchg.dir/sylar_dchg/config.cc.o"
 	/usr/bin/g++  $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/config.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sylar_dchg.dir/sylar_dchg/config.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/config.cc
 
 CMakeFiles/sylar_dchg.dir/sylar_dchg/config.cc.i: cmake_force
@@ -101,7 +116,7 @@ CMakeFiles/sylar_dchg.dir/sylar_dchg/config.cc.s: cmake_force
 
 CMakeFiles/sylar_dchg.dir/sylar_dchg/thread.cc.o: CMakeFiles/sylar_dchg.dir/flags.make
 CMakeFiles/sylar_dchg.dir/sylar_dchg/thread.cc.o: ../sylar_dchg/thread.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/sylar_dchg.dir/sylar_dchg/thread.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/sylar_dchg.dir/sylar_dchg/thread.cc.o"
 	/usr/bin/g++  $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/thread.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sylar_dchg.dir/sylar_dchg/thread.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/thread.cc
 
 CMakeFiles/sylar_dchg.dir/sylar_dchg/thread.cc.i: cmake_force
@@ -114,7 +129,7 @@ CMakeFiles/sylar_dchg.dir/sylar_dchg/thread.cc.s: cmake_force
 
 CMakeFiles/sylar_dchg.dir/sylar_dchg/mutex.cc.o: CMakeFiles/sylar_dchg.dir/flags.make
 CMakeFiles/sylar_dchg.dir/sylar_dchg/mutex.cc.o: ../sylar_dchg/mutex.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/sylar_dchg.dir/sylar_dchg/mutex.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/sylar_dchg.dir/sylar_dchg/mutex.cc.o"
 	/usr/bin/g++  $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/mutex.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sylar_dchg.dir/sylar_dchg/mutex.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/mutex.cc
 
 CMakeFiles/sylar_dchg.dir/sylar_dchg/mutex.cc.i: cmake_force
@@ -125,13 +140,209 @@ CMakeFiles/sylar_dchg.dir/sylar_dchg/mutex.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sylar_dchg.dir/sylar_dchg/mutex.cc.s"
 	/usr/bin/g++ $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/mutex.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/mutex.cc -o CMakeFiles/sylar_dchg.dir/sylar_dchg/mutex.cc.s
 
+CMakeFiles/sylar_dchg.dir/sylar_dchg/address.cc.o: CMakeFiles/sylar_dchg.dir/flags.make
+CMakeFiles/sylar_dchg.dir/sylar_dchg/address.cc.o: ../sylar_dchg/address.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/sylar_dchg.dir/sylar_dchg/address.cc.o"
+	/usr/bin/g++  $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/address.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sylar_dchg.dir/sylar_dchg/address.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/address.cc
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/address.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sylar_dchg.dir/sylar_dchg/address.cc.i"
+	/usr/bin/g++ $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/address.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/address.cc > CMakeFiles/sylar_dchg.dir/sylar_dchg/address.cc.i
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/address.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sylar_dchg.dir/sylar_dchg/address.cc.s"
+	/usr/bin/g++ $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/address.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/address.cc -o CMakeFiles/sylar_dchg.dir/sylar_dchg/address.cc.s
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/bytearray.cc.o: CMakeFiles/sylar_dchg.dir/flags.make
+CMakeFiles/sylar_dchg.dir/sylar_dchg/bytearray.cc.o: ../sylar_dchg/bytearray.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/sylar_dchg.dir/sylar_dchg/bytearray.cc.o"
+	/usr/bin/g++  $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/bytearray.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sylar_dchg.dir/sylar_dchg/bytearray.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/bytearray.cc
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/bytearray.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sylar_dchg.dir/sylar_dchg/bytearray.cc.i"
+	/usr/bin/g++ $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/bytearray.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/bytearray.cc > CMakeFiles/sylar_dchg.dir/sylar_dchg/bytearray.cc.i
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/bytearray.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sylar_dchg.dir/sylar_dchg/bytearray.cc.s"
+	/usr/bin/g++ $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/bytearray.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/bytearray.cc -o CMakeFiles/sylar_dchg.dir/sylar_dchg/bytearray.cc.s
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/fd_manager.cc.o: CMakeFiles/sylar_dchg.dir/flags.make
+CMakeFiles/sylar_dchg.dir/sylar_dchg/fd_manager.cc.o: ../sylar_dchg/fd_manager.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/sylar_dchg.dir/sylar_dchg/fd_manager.cc.o"
+	/usr/bin/g++  $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/fd_manager.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sylar_dchg.dir/sylar_dchg/fd_manager.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/fd_manager.cc
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/fd_manager.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sylar_dchg.dir/sylar_dchg/fd_manager.cc.i"
+	/usr/bin/g++ $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/fd_manager.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/fd_manager.cc > CMakeFiles/sylar_dchg.dir/sylar_dchg/fd_manager.cc.i
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/fd_manager.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sylar_dchg.dir/sylar_dchg/fd_manager.cc.s"
+	/usr/bin/g++ $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/fd_manager.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/fd_manager.cc -o CMakeFiles/sylar_dchg.dir/sylar_dchg/fd_manager.cc.s
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/fiber.cc.o: CMakeFiles/sylar_dchg.dir/flags.make
+CMakeFiles/sylar_dchg.dir/sylar_dchg/fiber.cc.o: ../sylar_dchg/fiber.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/sylar_dchg.dir/sylar_dchg/fiber.cc.o"
+	/usr/bin/g++  $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/fiber.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sylar_dchg.dir/sylar_dchg/fiber.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/fiber.cc
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/fiber.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sylar_dchg.dir/sylar_dchg/fiber.cc.i"
+	/usr/bin/g++ $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/fiber.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/fiber.cc > CMakeFiles/sylar_dchg.dir/sylar_dchg/fiber.cc.i
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/fiber.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sylar_dchg.dir/sylar_dchg/fiber.cc.s"
+	/usr/bin/g++ $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/fiber.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/fiber.cc -o CMakeFiles/sylar_dchg.dir/sylar_dchg/fiber.cc.s
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/hook.cc.o: CMakeFiles/sylar_dchg.dir/flags.make
+CMakeFiles/sylar_dchg.dir/sylar_dchg/hook.cc.o: ../sylar_dchg/hook.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/sylar_dchg.dir/sylar_dchg/hook.cc.o"
+	/usr/bin/g++  $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/hook.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sylar_dchg.dir/sylar_dchg/hook.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/hook.cc
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/hook.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sylar_dchg.dir/sylar_dchg/hook.cc.i"
+	/usr/bin/g++ $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/hook.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/hook.cc > CMakeFiles/sylar_dchg.dir/sylar_dchg/hook.cc.i
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/hook.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sylar_dchg.dir/sylar_dchg/hook.cc.s"
+	/usr/bin/g++ $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/hook.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/hook.cc -o CMakeFiles/sylar_dchg.dir/sylar_dchg/hook.cc.s
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/iomanager.cc.o: CMakeFiles/sylar_dchg.dir/flags.make
+CMakeFiles/sylar_dchg.dir/sylar_dchg/iomanager.cc.o: ../sylar_dchg/iomanager.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/sylar_dchg.dir/sylar_dchg/iomanager.cc.o"
+	/usr/bin/g++  $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/iomanager.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sylar_dchg.dir/sylar_dchg/iomanager.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/iomanager.cc
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/iomanager.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sylar_dchg.dir/sylar_dchg/iomanager.cc.i"
+	/usr/bin/g++ $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/iomanager.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/iomanager.cc > CMakeFiles/sylar_dchg.dir/sylar_dchg/iomanager.cc.i
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/iomanager.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sylar_dchg.dir/sylar_dchg/iomanager.cc.s"
+	/usr/bin/g++ $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/iomanager.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/iomanager.cc -o CMakeFiles/sylar_dchg.dir/sylar_dchg/iomanager.cc.s
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/scheduler.cc.o: CMakeFiles/sylar_dchg.dir/flags.make
+CMakeFiles/sylar_dchg.dir/sylar_dchg/scheduler.cc.o: ../sylar_dchg/scheduler.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/sylar_dchg.dir/sylar_dchg/scheduler.cc.o"
+	/usr/bin/g++  $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/scheduler.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sylar_dchg.dir/sylar_dchg/scheduler.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/scheduler.cc
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/scheduler.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sylar_dchg.dir/sylar_dchg/scheduler.cc.i"
+	/usr/bin/g++ $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/scheduler.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/scheduler.cc > CMakeFiles/sylar_dchg.dir/sylar_dchg/scheduler.cc.i
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/scheduler.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sylar_dchg.dir/sylar_dchg/scheduler.cc.s"
+	/usr/bin/g++ $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/scheduler.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/scheduler.cc -o CMakeFiles/sylar_dchg.dir/sylar_dchg/scheduler.cc.s
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/socket.cc.o: CMakeFiles/sylar_dchg.dir/flags.make
+CMakeFiles/sylar_dchg.dir/sylar_dchg/socket.cc.o: ../sylar_dchg/socket.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/sylar_dchg.dir/sylar_dchg/socket.cc.o"
+	/usr/bin/g++  $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/socket.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sylar_dchg.dir/sylar_dchg/socket.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/socket.cc
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/socket.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sylar_dchg.dir/sylar_dchg/socket.cc.i"
+	/usr/bin/g++ $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/socket.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/socket.cc > CMakeFiles/sylar_dchg.dir/sylar_dchg/socket.cc.i
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/socket.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sylar_dchg.dir/sylar_dchg/socket.cc.s"
+	/usr/bin/g++ $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/socket.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/socket.cc -o CMakeFiles/sylar_dchg.dir/sylar_dchg/socket.cc.s
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/stream.cc.o: CMakeFiles/sylar_dchg.dir/flags.make
+CMakeFiles/sylar_dchg.dir/sylar_dchg/stream.cc.o: ../sylar_dchg/stream.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/sylar_dchg.dir/sylar_dchg/stream.cc.o"
+	/usr/bin/g++  $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/stream.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sylar_dchg.dir/sylar_dchg/stream.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/stream.cc
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/stream.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sylar_dchg.dir/sylar_dchg/stream.cc.i"
+	/usr/bin/g++ $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/stream.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/stream.cc > CMakeFiles/sylar_dchg.dir/sylar_dchg/stream.cc.i
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/stream.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sylar_dchg.dir/sylar_dchg/stream.cc.s"
+	/usr/bin/g++ $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/stream.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/stream.cc -o CMakeFiles/sylar_dchg.dir/sylar_dchg/stream.cc.s
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/tcp_server.cc.o: CMakeFiles/sylar_dchg.dir/flags.make
+CMakeFiles/sylar_dchg.dir/sylar_dchg/tcp_server.cc.o: ../sylar_dchg/tcp_server.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/sylar_dchg.dir/sylar_dchg/tcp_server.cc.o"
+	/usr/bin/g++  $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/tcp_server.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sylar_dchg.dir/sylar_dchg/tcp_server.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/tcp_server.cc
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/tcp_server.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sylar_dchg.dir/sylar_dchg/tcp_server.cc.i"
+	/usr/bin/g++ $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/tcp_server.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/tcp_server.cc > CMakeFiles/sylar_dchg.dir/sylar_dchg/tcp_server.cc.i
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/tcp_server.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sylar_dchg.dir/sylar_dchg/tcp_server.cc.s"
+	/usr/bin/g++ $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/tcp_server.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/tcp_server.cc -o CMakeFiles/sylar_dchg.dir/sylar_dchg/tcp_server.cc.s
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/timer.cc.o: CMakeFiles/sylar_dchg.dir/flags.make
+CMakeFiles/sylar_dchg.dir/sylar_dchg/timer.cc.o: ../sylar_dchg/timer.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/sylar_dchg.dir/sylar_dchg/timer.cc.o"
+	/usr/bin/g++  $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/timer.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sylar_dchg.dir/sylar_dchg/timer.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/timer.cc
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/timer.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sylar_dchg.dir/sylar_dchg/timer.cc.i"
+	/usr/bin/g++ $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/timer.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/timer.cc > CMakeFiles/sylar_dchg.dir/sylar_dchg/timer.cc.i
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/timer.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sylar_dchg.dir/sylar_dchg/timer.cc.s"
+	/usr/bin/g++ $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/timer.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/timer.cc -o CMakeFiles/sylar_dchg.dir/sylar_dchg/timer.cc.s
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/http/http11_parser.rl.cc.o: CMakeFiles/sylar_dchg.dir/flags.make
+CMakeFiles/sylar_dchg.dir/sylar_dchg/http/http11_parser.rl.cc.o: ../sylar_dchg/http/http11_parser.rl.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/sylar_dchg.dir/sylar_dchg/http/http11_parser.rl.cc.o"
+	/usr/bin/g++  $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/http/http11_parser.rl.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sylar_dchg.dir/sylar_dchg/http/http11_parser.rl.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/http/http11_parser.rl.cc
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/http/http11_parser.rl.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sylar_dchg.dir/sylar_dchg/http/http11_parser.rl.cc.i"
+	/usr/bin/g++ $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/http/http11_parser.rl.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/http/http11_parser.rl.cc > CMakeFiles/sylar_dchg.dir/sylar_dchg/http/http11_parser.rl.cc.i
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/http/http11_parser.rl.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sylar_dchg.dir/sylar_dchg/http/http11_parser.rl.cc.s"
+	/usr/bin/g++ $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/http/http11_parser.rl.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/http/http11_parser.rl.cc -o CMakeFiles/sylar_dchg.dir/sylar_dchg/http/http11_parser.rl.cc.s
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/http/httpclient_parser.rl.cc.o: CMakeFiles/sylar_dchg.dir/flags.make
+CMakeFiles/sylar_dchg.dir/sylar_dchg/http/httpclient_parser.rl.cc.o: ../sylar_dchg/http/httpclient_parser.rl.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/sylar_dchg.dir/sylar_dchg/http/httpclient_parser.rl.cc.o"
+	/usr/bin/g++  $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/http/httpclient_parser.rl.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sylar_dchg.dir/sylar_dchg/http/httpclient_parser.rl.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/http/httpclient_parser.rl.cc
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/http/httpclient_parser.rl.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sylar_dchg.dir/sylar_dchg/http/httpclient_parser.rl.cc.i"
+	/usr/bin/g++ $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/http/httpclient_parser.rl.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/http/httpclient_parser.rl.cc > CMakeFiles/sylar_dchg.dir/sylar_dchg/http/httpclient_parser.rl.cc.i
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/http/httpclient_parser.rl.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sylar_dchg.dir/sylar_dchg/http/httpclient_parser.rl.cc.s"
+	/usr/bin/g++ $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/http/httpclient_parser.rl.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/http/httpclient_parser.rl.cc -o CMakeFiles/sylar_dchg.dir/sylar_dchg/http/httpclient_parser.rl.cc.s
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/uri.rl.cc.o: CMakeFiles/sylar_dchg.dir/flags.make
+CMakeFiles/sylar_dchg.dir/sylar_dchg/uri.rl.cc.o: ../sylar_dchg/uri.rl.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/sylar_dchg.dir/sylar_dchg/uri.rl.cc.o"
+	/usr/bin/g++  $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/uri.rl.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sylar_dchg.dir/sylar_dchg/uri.rl.cc.o -c /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/uri.rl.cc
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/uri.rl.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sylar_dchg.dir/sylar_dchg/uri.rl.cc.i"
+	/usr/bin/g++ $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/uri.rl.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/uri.rl.cc > CMakeFiles/sylar_dchg.dir/sylar_dchg/uri.rl.cc.i
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/uri.rl.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sylar_dchg.dir/sylar_dchg/uri.rl.cc.s"
+	/usr/bin/g++ $(CXX_DEFINES) -D__FILE__=\"sylar_dchg/uri.rl.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/uri.rl.cc -o CMakeFiles/sylar_dchg.dir/sylar_dchg/uri.rl.cc.s
+
 # Object files for target sylar_dchg
 sylar_dchg_OBJECTS = \
 "CMakeFiles/sylar_dchg.dir/sylar_dchg/log.cc.o" \
 "CMakeFiles/sylar_dchg.dir/sylar_dchg/util.cc.o" \
 "CMakeFiles/sylar_dchg.dir/sylar_dchg/config.cc.o" \
 "CMakeFiles/sylar_dchg.dir/sylar_dchg/thread.cc.o" \
-"CMakeFiles/sylar_dchg.dir/sylar_dchg/mutex.cc.o"
+"CMakeFiles/sylar_dchg.dir/sylar_dchg/mutex.cc.o" \
+"CMakeFiles/sylar_dchg.dir/sylar_dchg/address.cc.o" \
+"CMakeFiles/sylar_dchg.dir/sylar_dchg/bytearray.cc.o" \
+"CMakeFiles/sylar_dchg.dir/sylar_dchg/fd_manager.cc.o" \
+"CMakeFiles/sylar_dchg.dir/sylar_dchg/fiber.cc.o" \
+"CMakeFiles/sylar_dchg.dir/sylar_dchg/hook.cc.o" \
+"CMakeFiles/sylar_dchg.dir/sylar_dchg/iomanager.cc.o" \
+"CMakeFiles/sylar_dchg.dir/sylar_dchg/scheduler.cc.o" \
+"CMakeFiles/sylar_dchg.dir/sylar_dchg/socket.cc.o" \
+"CMakeFiles/sylar_dchg.dir/sylar_dchg/stream.cc.o" \
+"CMakeFiles/sylar_dchg.dir/sylar_dchg/tcp_server.cc.o" \
+"CMakeFiles/sylar_dchg.dir/sylar_dchg/timer.cc.o" \
+"CMakeFiles/sylar_dchg.dir/sylar_dchg/http/http11_parser.rl.cc.o" \
+"CMakeFiles/sylar_dchg.dir/sylar_dchg/http/httpclient_parser.rl.cc.o" \
+"CMakeFiles/sylar_dchg.dir/sylar_dchg/uri.rl.cc.o"
 
 # External object files for target sylar_dchg
 sylar_dchg_EXTERNAL_OBJECTS =
@@ -141,9 +352,23 @@ sylar_dchg_EXTERNAL_OBJECTS =
 ../lib/libsylar_dchg.so: CMakeFiles/sylar_dchg.dir/sylar_dchg/config.cc.o
 ../lib/libsylar_dchg.so: CMakeFiles/sylar_dchg.dir/sylar_dchg/thread.cc.o
 ../lib/libsylar_dchg.so: CMakeFiles/sylar_dchg.dir/sylar_dchg/mutex.cc.o
+../lib/libsylar_dchg.so: CMakeFiles/sylar_dchg.dir/sylar_dchg/address.cc.o
+../lib/libsylar_dchg.so: CMakeFiles/sylar_dchg.dir/sylar_dchg/bytearray.cc.o
+../lib/libsylar_dchg.so: CMakeFiles/sylar_dchg.dir/sylar_dchg/fd_manager.cc.o
+../lib/libsylar_dchg.so: CMakeFiles/sylar_dchg.dir/sylar_dchg/fiber.cc.o
+../lib/libsylar_dchg.so: CMakeFiles/sylar_dchg.dir/sylar_dchg/hook.cc.o
+../lib/libsylar_dchg.so: CMakeFiles/sylar_dchg.dir/sylar_dchg/iomanager.cc.o
+../lib/libsylar_dchg.so: CMakeFiles/sylar_dchg.dir/sylar_dchg/scheduler.cc.o
+../lib/libsylar_dchg.so: CMakeFiles/sylar_dchg.dir/sylar_dchg/socket.cc.o
+../lib/libsylar_dchg.so: CMakeFiles/sylar_dchg.dir/sylar_dchg/stream.cc.o
+../lib/libsylar_dchg.so: CMakeFiles/sylar_dchg.dir/sylar_dchg/tcp_server.cc.o
+../lib/libsylar_dchg.so: CMakeFiles/sylar_dchg.dir/sylar_dchg/timer.cc.o
+../lib/libsylar_dchg.so: CMakeFiles/sylar_dchg.dir/sylar_dchg/http/http11_parser.rl.cc.o
+../lib/libsylar_dchg.so: CMakeFiles/sylar_dchg.dir/sylar_dchg/http/httpclient_parser.rl.cc.o
+../lib/libsylar_dchg.so: CMakeFiles/sylar_dchg.dir/sylar_dchg/uri.rl.cc.o
 ../lib/libsylar_dchg.so: CMakeFiles/sylar_dchg.dir/build.make
 ../lib/libsylar_dchg.so: CMakeFiles/sylar_dchg.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX shared library ../lib/libsylar_dchg.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Linking CXX shared library ../lib/libsylar_dchg.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/sylar_dchg.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -155,7 +380,9 @@ CMakeFiles/sylar_dchg.dir/clean:
 	$(CMAKE_COMMAND) -P CMakeFiles/sylar_dchg.dir/cmake_clean.cmake
 .PHONY : CMakeFiles/sylar_dchg.dir/clean
 
-CMakeFiles/sylar_dchg.dir/depend:
+CMakeFiles/sylar_dchg.dir/depend: ../sylar_dchg/http/http11_parser.rl.cc
+CMakeFiles/sylar_dchg.dir/depend: ../sylar_dchg/http/httpclient_parser.rl.cc
+CMakeFiles/sylar_dchg.dir/depend: ../sylar_dchg/uri.rl.cc
 	cd /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles/sylar_dchg.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/sylar_dchg.dir/depend
 

@@ -2,7 +2,7 @@
 #include "config.h"
 #include "macro.h"
 #include "log.h"
-// #include "scheduler.h"
+#include "scheduler.h"
 #include <atomic>
 
 namespace sylar_dchg {
@@ -130,23 +130,23 @@ void Fiber::back() {
     }
 }
 
-// //切换到当前协程执行
-// void Fiber::swapIn() {
-//     SetThis(this);
-//     SYLAR_DCHG_ASSERT(m_state != EXEC);
-//     m_state = EXEC;
-//     if(swapcontext(&Scheduler::GetMainFiber()->m_ctx, &m_ctx)) {
-//         SYLAR_DCHG_ASSERT2(false, "swapcontext");
-//     }
-// }
+//切换到当前协程执行
+void Fiber::swapIn() {
+    SetThis(this);
+    SYLAR_DCHG_ASSERT(m_state != EXEC);
+    m_state = EXEC;
+    if(swapcontext(&Scheduler::GetMainFiber()->m_ctx, &m_ctx)) {
+        SYLAR_DCHG_ASSERT2(false, "swapcontext");
+    }
+}
 
-// //切换到后台执行
-// void Fiber::swapOut() {
-//     SetThis(Scheduler::GetMainFiber());
-//     if(swapcontext(&m_ctx, &Scheduler::GetMainFiber()->m_ctx)) {
-//         SYLAR_DCHG_ASSERT2(false, "swapcontext");
-//     }
-// }
+//切换到后台执行
+void Fiber::swapOut() {
+    SetThis(Scheduler::GetMainFiber());
+    if(swapcontext(&m_ctx, &Scheduler::GetMainFiber()->m_ctx)) {
+        SYLAR_DCHG_ASSERT2(false, "swapcontext");
+    }
+}
 
 //设置当前协程
 void Fiber::SetThis(Fiber* f) {

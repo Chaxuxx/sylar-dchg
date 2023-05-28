@@ -16,7 +16,8 @@
 					[
 						0,
 						1,
-						2
+						2,
+						3
 					]
 				}
 			],
@@ -33,7 +34,8 @@
 					[
 						0,
 						1,
-						2
+						2,
+						3
 					]
 				}
 			],
@@ -41,23 +43,30 @@
 			[
 				{
 					"directoryIndex" : 0,
+					"id" : "echoserver::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-echoserver-Debug-878d9460c4f9f439409a.json",
+					"name" : "echoserver",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
 					"id" : "sylar_dchg::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-sylar_dchg-Debug-48c650c7f96562f6795b.json",
+					"jsonFile" : "target-sylar_dchg-Debug-db8eb2d869bb5a426f67.json",
 					"name" : "sylar_dchg",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "test::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test-Debug-36fd8090c2ec86e7ca17.json",
+					"jsonFile" : "target-test-Debug-3070be0f5d9b8fc3936d.json",
 					"name" : "test",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
-					"id" : "test_config::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test_config-Debug-c14eabd597dcb627e6fc.json",
-					"name" : "test_config",
+					"id" : "test_tcpserver::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_tcpserver-Debug-abdf639af175331c3f7d.json",
+					"name" : "test_tcpserver",
 					"projectIndex" : 0
 				}
 			]

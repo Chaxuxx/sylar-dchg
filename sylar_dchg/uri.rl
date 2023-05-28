@@ -1,7 +1,7 @@
 #include "uri.h"
 #include <sstream>
 
-namespace sylar {
+namespace sylar_dchg {
 %%{
     # See RFC 3986: http://www.ietf.org/rfc/rfc3986.txt
 

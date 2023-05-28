@@ -8,13 +8,41 @@ CXX_DEFINES = -Dsylar_dchg_EXPORTS
 
 CXX_INCLUDES = 
 
-# Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/log.cc.o_DEFINES = __FILE__="sylar_dchg/log.cc"
+# Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/log.cc.o_DEFINES = __FILE__="sylar_dchg/log.cc";__FILE__="sylar_dchg/log.cc"
 
-# Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/util.cc.o_DEFINES = __FILE__="sylar_dchg/util.cc"
+# Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/util.cc.o_DEFINES = __FILE__="sylar_dchg/util.cc";__FILE__="sylar_dchg/util.cc"
 
 # Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/config.cc.o_DEFINES = __FILE__="sylar_dchg/config.cc"
 
-# Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/thread.cc.o_DEFINES = __FILE__="sylar_dchg/thread.cc"
+# Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/thread.cc.o_DEFINES = __FILE__="sylar_dchg/thread.cc";__FILE__="sylar_dchg/thread.cc"
 
-# Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/mutex.cc.o_DEFINES = __FILE__="sylar_dchg/mutex.cc"
+# Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/mutex.cc.o_DEFINES = __FILE__="sylar_dchg/mutex.cc";__FILE__="sylar_dchg/mutex.cc"
+
+# Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/address.cc.o_DEFINES = __FILE__="sylar_dchg/address.cc";__FILE__="sylar_dchg/address.cc"
+
+# Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/bytearray.cc.o_DEFINES = __FILE__="sylar_dchg/bytearray.cc";__FILE__="sylar_dchg/bytearray.cc"
+
+# Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/fd_manager.cc.o_DEFINES = __FILE__="sylar_dchg/fd_manager.cc";__FILE__="sylar_dchg/fd_manager.cc"
+
+# Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/fiber.cc.o_DEFINES = __FILE__="sylar_dchg/fiber.cc"
+
+# Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/hook.cc.o_DEFINES = __FILE__="sylar_dchg/hook.cc"
+
+# Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/iomanager.cc.o_DEFINES = __FILE__="sylar_dchg/iomanager.cc"
+
+# Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/scheduler.cc.o_DEFINES = __FILE__="sylar_dchg/scheduler.cc"
+
+# Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/socket.cc.o_DEFINES = __FILE__="sylar_dchg/socket.cc"
+
+# Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/stream.cc.o_DEFINES = __FILE__="sylar_dchg/stream.cc"
+
+# Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/tcp_server.cc.o_DEFINES = __FILE__="sylar_dchg/tcp_server.cc"
+
+# Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/timer.cc.o_DEFINES = __FILE__="sylar_dchg/timer.cc"
+
+# Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/http/http11_parser.rl.cc.o_DEFINES = __FILE__="sylar_dchg/http/http11_parser.rl.cc"
+
+# Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/http/httpclient_parser.rl.cc.o_DEFINES = __FILE__="sylar_dchg/http/httpclient_parser.rl.cc"
+
+# Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/uri.rl.cc.o_DEFINES = __FILE__="sylar_dchg/uri.rl.cc"
 
