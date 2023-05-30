@@ -1,0 +1,1 @@
+/usr/bin/g++   -rdynamic -O3 -fPIC -ggdb -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -Wno-builtin-macro-redefined -Wno-deprecated-declarations -g  -rdynamic CMakeFiles/httpserver.dir/samples/my_http_server.cc.o  -o ../bin/httpserver  -Wl,-rpath,/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/lib ../lib/libsylar_dchg.so -lpthread -lyaml-cpp -lz -lssl -lcrypto 

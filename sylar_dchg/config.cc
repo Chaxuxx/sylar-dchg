@@ -2,10 +2,10 @@
 // #include "sylar_dchg/env.h"
 // #include "sylar_dchg/util.h"
 #include "config.h"
-// #include "env.h"
-// #include "util.h"
-// #include <sys/types.h>
-// #include <sys/stat.h>
+#include "env.h"
+#include "util.h"
+#include <sys/types.h>
+#include <sys/stat.h>
 #include <unistd.h>
 
 namespace sylar_dchg {
@@ -69,32 +69,32 @@ void Config::LoadFromYaml(const YAML::Node& root) {
 static std::map<std::string, uint64_t> s_file2modifytime;
 static sylar_dchg::Mutex s_mutex;
 
-// void Config::LoadFromConfDir(const std::string& path, bool force) {
-//     std::string absoulte_path = sylar_dchg::EnvMgr::GetInstance()->getAbsolutePath(path);
-//     std::vector<std::string> files;
-//     FSUtil::ListAllFile(files, absoulte_path, ".yml");
+void Config::LoadFromConfDir(const std::string& path, bool force) {
+    std::string absoulte_path = sylar_dchg::EnvMgr::GetInstance()->getAbsolutePath(path);
+    std::vector<std::string> files;
+    FSUtil::ListAllFile(files, absoulte_path, ".yml");
 
-//     for(auto& i : files) {
-//         {
-//             struct stat st;
-//             lstat(i.c_str(), &st);
-//             sylar_dchg::Mutex::Lock lock(s_mutex);
-//             if(!force && s_file2modifytime[i] == (uint64_t)st.st_mtime) {
-//                 continue;
-//             }
-//             s_file2modifytime[i] = st.st_mtime;
-//         }
-//         try {
-//             YAML::Node root = YAML::LoadFile(i);
-//             LoadFromYaml(root);
-//             SYLAR_dchg_LOG_INFO(g_logger) << "LoadConfFile file="
-//                 << i << " ok";
-//         } catch (...) {
-//             SYLAR_dchg_LOG_ERROR(g_logger) << "LoadConfFile file="
-//                 << i << " failed";
-//         }
-//     }
-// }
+    for(auto& i : files) {
+        {
+            struct stat st;
+            lstat(i.c_str(), &st);
+            sylar_dchg::Mutex::Lock lock(s_mutex);
+            if(!force && s_file2modifytime[i] == (uint64_t)st.st_mtime) {
+                continue;
+            }
+            s_file2modifytime[i] = st.st_mtime;
+        }
+        try {
+            YAML::Node root = YAML::LoadFile(i);
+            LoadFromYaml(root);
+            SYLAR_DCHG_LOG_INFO(g_logger) << "LoadConfFile file="
+                << i << " ok";
+        } catch (...) {
+            SYLAR_DCHG_LOG_ERROR(g_logger) << "LoadConfFile file="
+                << i << " failed";
+        }
+    }
+}
 
 void Config::Visit(std::function<void(ConfigVarBase::ptr)> cb) {
     RWMutexType::ReadLock lock(GetMutex());

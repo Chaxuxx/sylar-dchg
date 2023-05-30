@@ -1,14 +1,15 @@
-#ifndef __SYLAR_ENV_H__
-#define __SYLAR_ENV_H__
+#ifndef __SYLAR_DCHG_ENV_H__
+#define __SYLAR_DCHG_ENV_H__
 
 // #include "sylar_dchg/singleton.h"
 // #include "sylar_dchg/thread.h"
 #include "singleton.h"
 #include "thread.h"
+// #include "mutex.h"
 #include <map>
 #include <vector>
 
-namespace sylar {
+namespace sylar_dchg {
 
 class Env {
 public:
@@ -43,7 +44,7 @@ private:
     std::string m_cwd;
 };
 
-typedef sylar::Singleton<Env> EnvMgr;
+typedef sylar_dchg::Singleton<Env> EnvMgr;
 
 }
 

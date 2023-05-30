@@ -40,6 +40,28 @@ CXX_INCLUDES =
 
 # Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/timer.cc.o_DEFINES = __FILE__="sylar_dchg/timer.cc"
 
+# Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/env.cc.o_DEFINES = __FILE__="sylar_dchg/env.cc"
+
+# Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/http/http.cc.o_DEFINES = __FILE__="sylar_dchg/http/http.cc"
+
+# Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/http/http_connection.cc.o_DEFINES = __FILE__="sylar_dchg/http/http_connection.cc"
+
+# Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/http/http_parser.cc.o_DEFINES = __FILE__="sylar_dchg/http/http_parser.cc"
+
+# Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/http/http_session.cc.o_DEFINES = __FILE__="sylar_dchg/http/http_session.cc"
+
+# Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/http/http_server.cc.o_DEFINES = __FILE__="sylar_dchg/http/http_server.cc"
+
+# Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlet.cc.o_DEFINES = __FILE__="sylar_dchg/http/servlet.cc"
+
+# Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/config_servlet.cc.o_DEFINES = __FILE__="sylar_dchg/http/servlets/config_servlet.cc"
+
+# Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o_DEFINES = __FILE__="sylar_dchg/http/servlets/status_servlet.cc"
+
+# Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/streams/socket_stream.cc.o_DEFINES = __FILE__="sylar_dchg/streams/socket_stream.cc"
+
+# Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/streams/zlib_stream.cc.o_DEFINES = __FILE__="sylar_dchg/streams/zlib_stream.cc"
+
 # Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/http/http11_parser.rl.cc.o_DEFINES = __FILE__="sylar_dchg/http/http11_parser.rl.cc"
 
 # Custom defines: CMakeFiles/sylar_dchg.dir/sylar_dchg/http/httpclient_parser.rl.cc.o_DEFINES = __FILE__="sylar_dchg/http/httpclient_parser.rl.cc"

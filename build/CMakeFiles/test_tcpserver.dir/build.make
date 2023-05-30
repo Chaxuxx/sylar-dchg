@@ -83,6 +83,7 @@ test_tcpserver_EXTERNAL_OBJECTS =
 ../bin/test_tcpserver: CMakeFiles/test_tcpserver.dir/tests/test_tcp_server.cc.o
 ../bin/test_tcpserver: CMakeFiles/test_tcpserver.dir/build.make
 ../bin/test_tcpserver: ../lib/libsylar_dchg.so
+../bin/test_tcpserver: /usr/lib/x86_64-linux-gnu/libz.so
 ../bin/test_tcpserver: /usr/lib/x86_64-linux-gnu/libssl.so
 ../bin/test_tcpserver: /usr/lib/x86_64-linux-gnu/libcrypto.so
 ../bin/test_tcpserver: CMakeFiles/test_tcpserver.dir/link.txt

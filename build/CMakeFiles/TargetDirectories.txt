@@ -1,4 +1,6 @@
 /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles/httpserver.dir
+/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles/test_httpserver.dir
 /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles/echoserver.dir
 /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles/test_tcpserver.dir
 /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build/CMakeFiles/edit_cache.dir

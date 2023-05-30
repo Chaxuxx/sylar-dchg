@@ -28,13 +28,13 @@ int32_t ConfigServlet::handle(sylar_dchg::http::HttpRequest::ptr request
         node[base->getName()] = n;
         node[base->getName() + "$description"] = base->getDescription();
     });
-    if(type == "json") {
-        Json::Value jvalue;
-        if(YamlToJson(node, jvalue)) {
-            response->setBody(JsonUtil::ToString(jvalue));
-            return 0;
-        }
-    }
+    // if(type == "json") {
+    //     Json::Value jvalue;
+    //     if(YamlToJson(node, jvalue)) {
+    //         response->setBody(JsonUtil::ToString(jvalue));
+    //         return 0;
+    //     }
+    // }
     std::stringstream ss;
     ss << node;
     response->setBody(ss.str());

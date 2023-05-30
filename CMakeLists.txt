@@ -18,6 +18,11 @@ if(OPENSSL_FOUND)
     include_directories(${OPENSSL_INCLUDE_DIR})
 endif()
 
+find_package(ZLIB REQUIRED)
+if(ZLIB_FOUND)
+    include_directories(${ZLIB_INCLUDE_DIR})
+endif()
+
 # set(LIB_SRC
 #     sylar_dchg/config.cc
 #     sylar_dchg/env.cc
@@ -53,6 +58,19 @@ set(LIB_SRC
     sylar_dchg/timer.cc
     sylar_dchg/thread.cc
     sylar_dchg/util.cc
+    sylar_dchg/env.cc
+
+    sylar_dchg/http/http.cc
+    sylar_dchg/http/http_connection.cc
+    sylar_dchg/http/http_parser.cc
+    sylar_dchg/http/http_session.cc
+    sylar_dchg/http/http_server.cc
+    sylar_dchg/http/servlet.cc
+    sylar_dchg/http/servlets/config_servlet.cc
+    sylar_dchg/http/servlets/status_servlet.cc
+
+    sylar_dchg/streams/socket_stream.cc
+    sylar_dchg/streams/zlib_stream.cc
     )
 
 #ragel生成高效解析http报文的源码
@@ -68,7 +86,9 @@ set(LIBS
         sylar_dchg
         pthread
         yaml-cpp
+        ${ZLIB_LIBRARIES}
         ${OPENSSL_LIBRARIES}
+        
         )
     
 # add_executable(test tests/test.cc)
@@ -96,6 +116,15 @@ add_dependencies(echoserver sylar_dchg)
 force_redefine_file_macro_for_sources(echoserver)
 target_link_libraries(echoserver ${LIBS})
 
+add_executable(test_httpserver tests/test_http_server.cc)
+add_dependencies(test_httpserver sylar_dchg)
+force_redefine_file_macro_for_sources(test_httpserver)
+target_link_libraries(test_httpserver ${LIBS})
+
+add_executable(httpserver samples/my_http_server.cc)
+add_dependencies(httpserver sylar_dchg)
+force_redefine_file_macro_for_sources(httpserver)
+target_link_libraries(httpserver ${LIBS})
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)#二进制文件存放位置设置
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)#lib存放位置设置

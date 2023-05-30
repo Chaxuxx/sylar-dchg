@@ -8,9 +8,9 @@
 #include <stdlib.h>
 #include "config.h"
 
-namespace sylar {
+namespace sylar_dchg {
 
-static sylar::Logger::ptr g_logger = SYLAR_LOG_NAME("system");
+static sylar_dchg::Logger::ptr g_logger = SYLAR_DCHG_LOG_NAME("system");
 
 bool Env::init(int argc, char** argv) {
     char link[1024] = {0};
@@ -34,7 +34,7 @@ bool Env::init(int argc, char** argv) {
                 }
                 now_key = argv[i] + 1;
             } else {
-                SYLAR_LOG_ERROR(g_logger) << "invalid arg idx=" << i
+                SYLAR_DCHG_LOG_ERROR(g_logger) << "invalid arg idx=" << i
                     << " val=" << argv[i];
                 return false;
             }
@@ -43,7 +43,7 @@ bool Env::init(int argc, char** argv) {
                 add(now_key, argv[i]);
                 now_key = nullptr;
             } else {
-                SYLAR_LOG_ERROR(g_logger) << "invalid arg idx=" << i
+                SYLAR_DCHG_LOG_ERROR(g_logger) << "invalid arg idx=" << i
                     << " val=" << argv[i];
                 return false;
             }
@@ -132,8 +132,8 @@ std::string Env::getAbsoluteWorkPath(const std::string& path) const {
     if(path[0] == '/') {
         return path;
     }
-    static sylar::ConfigVar<std::string>::ptr g_server_work_path =
-        sylar::Config::Lookup<std::string>("server.work_path");
+    static sylar_dchg::ConfigVar<std::string>::ptr g_server_work_path =
+        sylar_dchg::Config::Lookup<std::string>("server.work_path");
     return g_server_work_path->getValue() + "/" + path;
 }
 

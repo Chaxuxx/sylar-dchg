@@ -83,6 +83,7 @@ echoserver_EXTERNAL_OBJECTS =
 ../bin/echoserver: CMakeFiles/echoserver.dir/examples/echo_server.cc.o
 ../bin/echoserver: CMakeFiles/echoserver.dir/build.make
 ../bin/echoserver: ../lib/libsylar_dchg.so
+../bin/echoserver: /usr/lib/x86_64-linux-gnu/libz.so
 ../bin/echoserver: /usr/lib/x86_64-linux-gnu/libssl.so
 ../bin/echoserver: /usr/lib/x86_64-linux-gnu/libcrypto.so
 ../bin/echoserver: CMakeFiles/echoserver.dir/link.txt

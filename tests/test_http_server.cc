@@ -1,38 +1,38 @@
-#include "sylar/http/http_server.h"
-#include "sylar/log.h"
+#include "../sylar_dchg/http/http_server.h"
+#include "../sylar_dchg/log.h"
 
-static sylar::Logger::ptr g_logger = SYLAR_LOG_ROOT();
+static sylar_dchg::Logger::ptr g_logger = SYLAR_DCHG_LOG_ROOT();
 
 #define XX(...) #__VA_ARGS__
 
 
-sylar::IOManager::ptr worker;
+sylar_dchg::IOManager::ptr worker;
 void run() {
-    g_logger->setLevel(sylar::LogLevel::INFO);
-    //sylar::http::HttpServer::ptr server(new sylar::http::HttpServer(true, worker.get(), sylar::IOManager::GetThis()));
-    sylar::http::HttpServer::ptr server(new sylar::http::HttpServer(true));
-    sylar::Address::ptr addr = sylar::Address::LookupAnyIPAddress("0.0.0.0:8020");
+    g_logger->setLevel(sylar_dchg::LogLevel::INFO);
+    //sylar_dchg::http::HttpServer::ptr server(new sylar_dchg::http::HttpServer(true, worker.get(), sylar_dchg::IOManager::GetThis()));
+    sylar_dchg::http::HttpServer::ptr server(new sylar_dchg::http::HttpServer(true));
+    sylar_dchg::Address::ptr addr = sylar_dchg::Address::LookupAnyIPAddress("0.0.0.0:8020");
     while(!server->bind(addr)) {
         sleep(2);
     }
     auto sd = server->getServletDispatch();
-    sd->addServlet("/sylar/xx", [](sylar::http::HttpRequest::ptr req
-                ,sylar::http::HttpResponse::ptr rsp
-                ,sylar::http::HttpSession::ptr session) {
+    sd->addServlet("/sylar/xx", [](sylar_dchg::http::HttpRequest::ptr req
+                ,sylar_dchg::http::HttpResponse::ptr rsp
+                ,sylar_dchg::http::HttpSession::ptr session) {
             rsp->setBody(req->toString());
             return 0;
     });
 
-    sd->addGlobServlet("/sylar/*", [](sylar::http::HttpRequest::ptr req
-                ,sylar::http::HttpResponse::ptr rsp
-                ,sylar::http::HttpSession::ptr session) {
+    sd->addGlobServlet("/sylar/*", [](sylar_dchg::http::HttpRequest::ptr req
+                ,sylar_dchg::http::HttpResponse::ptr rsp
+                ,sylar_dchg::http::HttpSession::ptr session) {
             rsp->setBody("Glob:\r\n" + req->toString());
             return 0;
     });
 
-    sd->addGlobServlet("/sylarx/*", [](sylar::http::HttpRequest::ptr req
-                ,sylar::http::HttpResponse::ptr rsp
-                ,sylar::http::HttpSession::ptr session) {
+    sd->addGlobServlet("/sylarx/*", [](sylar_dchg::http::HttpRequest::ptr req
+                ,sylar_dchg::http::HttpResponse::ptr rsp
+                ,sylar_dchg::http::HttpSession::ptr session) {
             rsp->setBody(XX(<html>
 <head><title>404 Not Found</title></head>
 <body>
@@ -54,8 +54,8 @@ void run() {
 }
 
 int main(int argc, char** argv) {
-    sylar::IOManager iom(1, true, "main");
-    worker.reset(new sylar::IOManager(3, false, "worker"));
+    sylar_dchg::IOManager iom(1, true, "main");
+    worker.reset(new sylar_dchg::IOManager(3, false, "worker"));
     iom.schedule(run);
     return 0;
 }
