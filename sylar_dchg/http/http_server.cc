@@ -1,7 +1,7 @@
 #include "http_server.h"
 #include "../log.h"
-#include "../http/servlets/config_servlet.h"
-#include "../http/servlets/status_servlet.h"
+// #include "../http/servlets/config_servlet.h"
+// #include "../http/servlets/status_servlet.h"
 
 namespace sylar_dchg {
 namespace http {
@@ -17,8 +17,8 @@ HttpServer::HttpServer(bool keepalive
     m_dispatch.reset(new ServletDispatch);
 
     m_type = "http";
-    m_dispatch->addServlet("/_/status", Servlet::ptr(new StatusServlet));
-    m_dispatch->addServlet("/_/config", Servlet::ptr(new ConfigServlet));
+    // m_dispatch->addServlet("/_/status", Servlet::ptr(new StatusServlet));
+    // m_dispatch->addServlet("/_/config", Servlet::ptr(new ConfigServlet));
 }
 
 void HttpServer::setName(const std::string& v) {
@@ -34,7 +34,7 @@ void HttpServer::handleClient(Socket::ptr client) {
         if(!req) {
             SYLAR_DCHG_LOG_DEBUG(g_logger) << "recv http request fail, errno="
                 << errno << " errstr=" << strerror(errno)
-                << " cliet:" << *client << " keep_alive=" << m_isKeepalive;
+                << " client:" << *client << " keep_alive=" << m_isKeepalive;
             break;
         }
 

@@ -1,94 +1,94 @@
 #include <iostream>
-#include "sylar/http/http_connection.h"
-#include "sylar/log.h"
-#include "sylar/iomanager.h"
-#include "sylar/http/http_parser.h"
-#include "sylar/streams/zlib_stream.h"
+#include "../sylar_dchg/http/http_connection.h"
+#include "../sylar_dchg/log.h"
+#include "../sylar_dchg/iomanager.h"
+#include "../sylar_dchg/http/http_parser.h"
+#include "../sylar_dchg/streams/zlib_stream.h"
 #include <fstream>
 
-static sylar::Logger::ptr g_logger = SYLAR_LOG_ROOT();
+static sylar_dchg::Logger::ptr g_logger = SYLAR_DCHG_LOG_ROOT();
 
 void test_pool() {
-    sylar::http::HttpConnectionPool::ptr pool(new sylar::http::HttpConnectionPool(
-                "www.sylar.top", "", 80, false, 10, 1000 * 30, 5));
+    sylar_dchg::http::HttpConnectionPool::ptr pool(new sylar_dchg::http::HttpConnectionPool(
+                "www.sylar_dchg.top", "", 80, false, 10, 1000 * 30, 5));
 
-    sylar::IOManager::GetThis()->addTimer(1000, [pool](){
+    sylar_dchg::IOManager::GetThis()->addTimer(1000, [pool](){
             auto r = pool->doGet("/", 300);
-            SYLAR_LOG_INFO(g_logger) << r->toString();
+            SYLAR_DCHG_LOG_INFO(g_logger) << r->toString();
     }, true);
 }
 
 void run() {
-    sylar::Address::ptr addr = sylar::Address::LookupAnyIPAddress("www.sylar.top:80");
+    sylar_dchg::Address::ptr addr = sylar_dchg::Address::LookupAnyIPAddress("www.sylar_dchg.top:80");
     if(!addr) {
-        SYLAR_LOG_INFO(g_logger) << "get addr error";
+        SYLAR_DCHG_LOG_INFO(g_logger) << "get addr error";
         return;
     }
 
-    sylar::Socket::ptr sock = sylar::Socket::CreateTCP(addr);
+    sylar_dchg::Socket::ptr sock = sylar_dchg::Socket::CreateTCP(addr);
     bool rt = sock->connect(addr);
     if(!rt) {
-        SYLAR_LOG_INFO(g_logger) << "connect " << *addr << " failed";
+        SYLAR_DCHG_LOG_INFO(g_logger) << "connect " << *addr << " failed";
         return;
     }
 
-    sylar::http::HttpConnection::ptr conn(new sylar::http::HttpConnection(sock));
-    sylar::http::HttpRequest::ptr req(new sylar::http::HttpRequest);
+    sylar_dchg::http::HttpConnection::ptr conn(new sylar_dchg::http::HttpConnection(sock));
+    sylar_dchg::http::HttpRequest::ptr req(new sylar_dchg::http::HttpRequest);
     req->setPath("/blog/");
-    req->setHeader("host", "www.sylar.top");
-    SYLAR_LOG_INFO(g_logger) << "req:" << std::endl
+    req->setHeader("host", "www.sylar_dchg.top");
+    SYLAR_DCHG_LOG_INFO(g_logger) << "req:" << std::endl
         << *req;
 
     conn->sendRequest(req);
     auto rsp = conn->recvResponse();
 
     if(!rsp) {
-        SYLAR_LOG_INFO(g_logger) << "recv response error";
+        SYLAR_DCHG_LOG_INFO(g_logger) << "recv response error";
         return;
     }
-    SYLAR_LOG_INFO(g_logger) << "rsp:" << std::endl
+    SYLAR_DCHG_LOG_INFO(g_logger) << "rsp:" << std::endl
         << *rsp;
 
     std::ofstream ofs("rsp.dat");
     ofs << *rsp;
 
-    SYLAR_LOG_INFO(g_logger) << "=========================";
+    SYLAR_DCHG_LOG_INFO(g_logger) << "=========================";
 
-    auto r = sylar::http::HttpConnection::DoGet("http://www.sylar.top/blog/", 300);
-    SYLAR_LOG_INFO(g_logger) << "result=" << r->result
+    auto r = sylar_dchg::http::HttpConnection::DoGet("http://www.sylar_dchg.top/blog/", 300);
+    SYLAR_DCHG_LOG_INFO(g_logger) << "result=" << r->result
         << " error=" << r->error
         << " rsp=" << (r->response ? r->response->toString() : "");
 
-    SYLAR_LOG_INFO(g_logger) << "=========================";
+    SYLAR_DCHG_LOG_INFO(g_logger) << "=========================";
     test_pool();
 }
 
 void test_https() {
-    auto r = sylar::http::HttpConnection::DoGet("http://www.baidu.com/", 300, {
+    auto r = sylar_dchg::http::HttpConnection::DoGet("http://www.baidu.com/", 300, {
                         {"Accept-Encoding", "gzip, deflate, br"},
                         {"Connection", "keep-alive"},
                         {"User-Agent", "curl/7.29.0"}
             });
-    SYLAR_LOG_INFO(g_logger) << "result=" << r->result
+    SYLAR_DCHG_LOG_INFO(g_logger) << "result=" << r->result
         << " error=" << r->error
         << " rsp=" << (r->response ? r->response->toString() : "");
 
-    //sylar::http::HttpConnectionPool::ptr pool(new sylar::http::HttpConnectionPool(
+    //sylar_dchg::http::HttpConnectionPool::ptr pool(new sylar_dchg::http::HttpConnectionPool(
     //            "www.baidu.com", "", 80, false, 10, 1000 * 30, 5));
-    auto pool = sylar::http::HttpConnectionPool::Create(
+    auto pool = sylar_dchg::http::HttpConnectionPool::Create(
                     "https://www.baidu.com", "", 10, 1000 * 30, 5);
-    sylar::IOManager::GetThis()->addTimer(1000, [pool](){
+    sylar_dchg::IOManager::GetThis()->addTimer(1000, [pool](){
             auto r = pool->doGet("/", 3000, {
                         {"Accept-Encoding", "gzip, deflate, br"},
                         {"User-Agent", "curl/7.29.0"}
                     });
-            SYLAR_LOG_INFO(g_logger) << r->toString();
+            SYLAR_DCHG_LOG_INFO(g_logger) << r->toString();
     }, true);
 }
 
 void test_data() {
-    sylar::Address::ptr addr = sylar::Address::LookupAny("www.baidu.com:80");
-    auto sock = sylar::Socket::CreateTCP(addr);
+    sylar_dchg::Address::ptr addr = sylar_dchg::Address::LookupAny("www.baidu.com:80");
+    auto sock = sylar_dchg::Socket::CreateTCP(addr);
 
     sock->connect(addr);
     const char buff[] = "GET / HTTP/1.1\r\n"
@@ -125,7 +125,7 @@ void test_parser() {
     }
 
     std::cout << "length: " << content.size() << " total: " << total << std::endl;
-    sylar::http::HttpResponseParser parser;
+    sylar_dchg::http::HttpResponseParser parser;
     size_t nparse = parser.execute(&content[0], content.size(), false);
     std::cout << "finish: " << parser.isFinished() << std::endl;
     content.resize(content.size() - nparse);
@@ -147,7 +147,7 @@ void test_parser() {
 
     std::cout << "total: " << body.size() << " content:" << cl << std::endl;
 
-    sylar::ZlibStream::ptr stream = sylar::ZlibStream::CreateGzip(false);
+    sylar_dchg::ZlibStream::ptr stream = sylar_dchg::ZlibStream::CreateGzip(false);
     stream->write(body.c_str(), body.size());
     stream->flush();
 
@@ -158,7 +158,7 @@ void test_parser() {
 }
 
 int main(int argc, char** argv) {
-    sylar::IOManager iom(2);
+    sylar_dchg::IOManager iom(2);
     //iom.schedule(run);
     iom.schedule(test_https);
     return 0;

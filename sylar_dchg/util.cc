@@ -158,59 +158,59 @@ static int __lstat(const char* file, struct stat* st = nullptr) {
     return ret;
 }
 
-// static int __mkdir(const char* dirname) {
-//     if(access(dirname, F_OK) == 0) {
-//         return 0;
-//     }
-//     return mkdir(dirname, S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
-// }
+static int __mkdir(const char* dirname) {
+    if(access(dirname, F_OK) == 0) {
+        return 0;
+    }
+    return mkdir(dirname, S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
+}
 
-// bool FSUtil::Mkdir(const std::string& dirname) {
-//     if(__lstat(dirname.c_str()) == 0) {
-//         return true;
-//     }
-//     char* path = strdup(dirname.c_str());
-//     char* ptr = strchr(path + 1, '/');
-//     do {
-//         for(; ptr; *ptr = '/', ptr = strchr(ptr + 1, '/')) {
-//             *ptr = '\0';
-//             if(__mkdir(path) != 0) {
-//                 break;
-//             }
-//         }
-//         if(ptr != nullptr) {
-//             break;
-//         } else if(__mkdir(path) != 0) {
-//             break;
-//         }
-//         free(path);
-//         return true;
-//     } while(0);
-//     free(path);
-//     return false;
-// }
+bool FSUtil::Mkdir(const std::string& dirname) {
+    if(__lstat(dirname.c_str()) == 0) {
+        return true;
+    }
+    char* path = strdup(dirname.c_str());
+    char* ptr = strchr(path + 1, '/');
+    do {
+        for(; ptr; *ptr = '/', ptr = strchr(ptr + 1, '/')) {
+            *ptr = '\0';
+            if(__mkdir(path) != 0) {
+                break;
+            }
+        }
+        if(ptr != nullptr) {
+            break;
+        } else if(__mkdir(path) != 0) {
+            break;
+        }
+        free(path);
+        return true;
+    } while(0);
+    free(path);
+    return false;
+}
 
-// bool FSUtil::IsRunningPidfile(const std::string& pidfile) {
-//     if(__lstat(pidfile.c_str()) != 0) {
-//         return false;
-//     }
-//     std::ifstream ifs(pidfile);
-//     std::string line;
-//     if(!ifs || !std::getline(ifs, line)) {
-//         return false;
-//     }
-//     if(line.empty()) {
-//         return false;
-//     }
-//     pid_t pid = atoi(line.c_str());
-//     if(pid <= 1) {
-//         return false;
-//     }
-//     if(kill(pid, 0) != 0) {
-//         return false;
-//     }
-//     return true;
-// }
+bool FSUtil::IsRunningPidfile(const std::string& pidfile) {
+    if(__lstat(pidfile.c_str()) != 0) {
+        return false;
+    }
+    std::ifstream ifs(pidfile);
+    std::string line;
+    if(!ifs || !std::getline(ifs, line)) {
+        return false;
+    }
+    if(line.empty()) {
+        return false;
+    }
+    pid_t pid = atoi(line.c_str());
+    if(pid <= 1) {
+        return false;
+    }
+    if(kill(pid, 0) != 0) {
+        return false;
+    }
+    return true;
+}
 
 bool FSUtil::Unlink(const std::string& filename, bool exist) {
     if(!exist && __lstat(filename.c_str())) {
@@ -542,56 +542,56 @@ std::wstring StringUtil::StringToWString(const std::string& s) {
     return wstr_result;
 }
 
-// std::string GetHostName() {
-//     std::shared_ptr<char> host(new char[512], sylar_dchg::delete_array<char>);
-//     memset(host.get(), 0, 512);
-//     gethostname(host.get(), 511);
-//     return host.get();
-// }
+std::string GetHostName() {
+    std::shared_ptr<char> host(new char[512], sylar_dchg::delete_array<char>);
+    memset(host.get(), 0, 512);
+    gethostname(host.get(), 511);
+    return host.get();
+}
 
-// in_addr_t GetIPv4Inet() {
-//     struct ifaddrs* ifas = nullptr;
-//     struct ifaddrs* ifa = nullptr;
+in_addr_t GetIPv4Inet() {
+    struct ifaddrs* ifas = nullptr;
+    struct ifaddrs* ifa = nullptr;
 
-//     in_addr_t localhost = inet_addr("127.0.0.1");
-//     if(getifaddrs(&ifas)) {
-//         SYLAR_dchg_LOG_ERROR(g_logger) << "getifaddrs errno=" << errno
-//             << " errstr=" << strerror(errno);
-//         return localhost;
-//     }
+    in_addr_t localhost = inet_addr("127.0.0.1");
+    if(getifaddrs(&ifas)) {
+        SYLAR_DCHG_LOG_ERROR(g_logger) << "getifaddrs errno=" << errno
+            << " errstr=" << strerror(errno);
+        return localhost;
+    }
 
-//     in_addr_t ipv4 = localhost;
+    in_addr_t ipv4 = localhost;
 
-//     for(ifa = ifas; ifa && ifa->ifa_addr; ifa = ifa->ifa_next) {
-//         if(ifa->ifa_addr->sa_family != AF_INET) {
-//             continue;
-//         }
-//         if(!strncasecmp(ifa->ifa_name, "lo", 2)) {
-//             continue;
-//         }
-//         ipv4 = ((struct sockaddr_in*)ifa->ifa_addr)->sin_addr.s_addr;
-//         if(ipv4 == localhost) {
-//             continue;
-//         }
-//     }
-//     if(ifas != nullptr) {
-//         freeifaddrs(ifas);
-//     }
-//     return ipv4;
-// }
+    for(ifa = ifas; ifa && ifa->ifa_addr; ifa = ifa->ifa_next) {
+        if(ifa->ifa_addr->sa_family != AF_INET) {
+            continue;
+        }
+        if(!strncasecmp(ifa->ifa_name, "lo", 2)) {
+            continue;
+        }
+        ipv4 = ((struct sockaddr_in*)ifa->ifa_addr)->sin_addr.s_addr;
+        if(ipv4 == localhost) {
+            continue;
+        }
+    }
+    if(ifas != nullptr) {
+        freeifaddrs(ifas);
+    }
+    return ipv4;
+}
 
-// std::string _GetIPv4() {
-//     std::shared_ptr<char> ipv4(new char[INET_ADDRSTRLEN], sylar_dchg::delete_array<char>);
-//     memset(ipv4.get(), 0, INET_ADDRSTRLEN);
-//     auto ia = GetIPv4Inet();
-//     inet_ntop(AF_INET, &ia, ipv4.get(), INET_ADDRSTRLEN);
-//     return ipv4.get();
-// }
+std::string _GetIPv4() {
+    std::shared_ptr<char> ipv4(new char[INET_ADDRSTRLEN], sylar_dchg::delete_array<char>);
+    memset(ipv4.get(), 0, INET_ADDRSTRLEN);
+    auto ia = GetIPv4Inet();
+    inet_ntop(AF_INET, &ia, ipv4.get(), INET_ADDRSTRLEN);
+    return ipv4.get();
+}
 
-// std::string GetIPv4() {
-//     static const std::string ip = _GetIPv4();
-//     return ip;
-// }
+std::string GetIPv4() {
+    static const std::string ip = _GetIPv4();
+    return ip;
+}
 
 // bool YamlToJson(const YAML::Node& ynode, Json::Value& jnode) {
 //     try {
@@ -600,7 +600,7 @@ std::wstring StringUtil::StringToWString(const std::string& s) {
 //             jnode.swapPayload(v);
 //             return true;
 //         }
-//         if(ynode.IsSequence()) {
+//         if(ynode.IsSequence()) {sylar::Mkdir
 //             for(size_t i = 0; i < ynode.size(); ++i) {
 //                 Json::Value v;
 //                 if(YamlToJson(ynode[i], v)) {

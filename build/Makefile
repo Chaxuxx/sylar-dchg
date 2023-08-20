@@ -114,6 +114,32 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named test_http_connection
+
+# Build rule for target.
+test_http_connection: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_http_connection
+.PHONY : test_http_connection
+
+# fast build rule for target.
+test_http_connection/fast:
+	$(MAKE) -f CMakeFiles/test_http_connection.dir/build.make CMakeFiles/test_http_connection.dir/build
+.PHONY : test_http_connection/fast
+
+#=============================================================================
+# Target rules for targets named test_http
+
+# Build rule for target.
+test_http: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_http
+.PHONY : test_http
+
+# fast build rule for target.
+test_http/fast:
+	$(MAKE) -f CMakeFiles/test_http.dir/build.make CMakeFiles/test_http.dir/build
+.PHONY : test_http/fast
+
+#=============================================================================
 # Target rules for targets named httpserver
 
 # Build rule for target.
@@ -177,6 +203,19 @@ test: cmake_check_build_system
 test/fast:
 	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
 .PHONY : test/fast
+
+#=============================================================================
+# Target rules for targets named test_http_parser
+
+# Build rule for target.
+test_http_parser: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_http_parser
+.PHONY : test_http_parser
+
+# fast build rule for target.
+test_http_parser/fast:
+	$(MAKE) -f CMakeFiles/test_http_parser.dir/build.make CMakeFiles/test_http_parser.dir/build
+.PHONY : test_http_parser/fast
 
 #=============================================================================
 # Target rules for targets named sylar_dchg
@@ -272,6 +311,33 @@ sylar_dchg/address.cc.s:
 	$(MAKE) -f CMakeFiles/sylar_dchg.dir/build.make CMakeFiles/sylar_dchg.dir/sylar_dchg/address.cc.s
 .PHONY : sylar_dchg/address.cc.s
 
+sylar_dchg/application.o: sylar_dchg/application.cc.o
+
+.PHONY : sylar_dchg/application.o
+
+# target to build an object file
+sylar_dchg/application.cc.o:
+	$(MAKE) -f CMakeFiles/sylar_dchg.dir/build.make CMakeFiles/sylar_dchg.dir/sylar_dchg/application.cc.o
+.PHONY : sylar_dchg/application.cc.o
+
+sylar_dchg/application.i: sylar_dchg/application.cc.i
+
+.PHONY : sylar_dchg/application.i
+
+# target to preprocess a source file
+sylar_dchg/application.cc.i:
+	$(MAKE) -f CMakeFiles/sylar_dchg.dir/build.make CMakeFiles/sylar_dchg.dir/sylar_dchg/application.cc.i
+.PHONY : sylar_dchg/application.cc.i
+
+sylar_dchg/application.s: sylar_dchg/application.cc.s
+
+.PHONY : sylar_dchg/application.s
+
+# target to generate assembly for a file
+sylar_dchg/application.cc.s:
+	$(MAKE) -f CMakeFiles/sylar_dchg.dir/build.make CMakeFiles/sylar_dchg.dir/sylar_dchg/application.cc.s
+.PHONY : sylar_dchg/application.cc.s
+
 sylar_dchg/bytearray.o: sylar_dchg/bytearray.cc.o
 
 .PHONY : sylar_dchg/bytearray.o
@@ -325,6 +391,33 @@ sylar_dchg/config.s: sylar_dchg/config.cc.s
 sylar_dchg/config.cc.s:
 	$(MAKE) -f CMakeFiles/sylar_dchg.dir/build.make CMakeFiles/sylar_dchg.dir/sylar_dchg/config.cc.s
 .PHONY : sylar_dchg/config.cc.s
+
+sylar_dchg/daemon.o: sylar_dchg/daemon.cc.o
+
+.PHONY : sylar_dchg/daemon.o
+
+# target to build an object file
+sylar_dchg/daemon.cc.o:
+	$(MAKE) -f CMakeFiles/sylar_dchg.dir/build.make CMakeFiles/sylar_dchg.dir/sylar_dchg/daemon.cc.o
+.PHONY : sylar_dchg/daemon.cc.o
+
+sylar_dchg/daemon.i: sylar_dchg/daemon.cc.i
+
+.PHONY : sylar_dchg/daemon.i
+
+# target to preprocess a source file
+sylar_dchg/daemon.cc.i:
+	$(MAKE) -f CMakeFiles/sylar_dchg.dir/build.make CMakeFiles/sylar_dchg.dir/sylar_dchg/daemon.cc.i
+.PHONY : sylar_dchg/daemon.cc.i
+
+sylar_dchg/daemon.s: sylar_dchg/daemon.cc.s
+
+.PHONY : sylar_dchg/daemon.s
+
+# target to generate assembly for a file
+sylar_dchg/daemon.cc.s:
+	$(MAKE) -f CMakeFiles/sylar_dchg.dir/build.make CMakeFiles/sylar_dchg.dir/sylar_dchg/daemon.cc.s
+.PHONY : sylar_dchg/daemon.cc.s
 
 sylar_dchg/env.o: sylar_dchg/env.cc.o
 
@@ -1082,6 +1175,87 @@ tests/test.cc.s:
 	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/tests/test.cc.s
 .PHONY : tests/test.cc.s
 
+tests/test_http.o: tests/test_http.cc.o
+
+.PHONY : tests/test_http.o
+
+# target to build an object file
+tests/test_http.cc.o:
+	$(MAKE) -f CMakeFiles/test_http.dir/build.make CMakeFiles/test_http.dir/tests/test_http.cc.o
+.PHONY : tests/test_http.cc.o
+
+tests/test_http.i: tests/test_http.cc.i
+
+.PHONY : tests/test_http.i
+
+# target to preprocess a source file
+tests/test_http.cc.i:
+	$(MAKE) -f CMakeFiles/test_http.dir/build.make CMakeFiles/test_http.dir/tests/test_http.cc.i
+.PHONY : tests/test_http.cc.i
+
+tests/test_http.s: tests/test_http.cc.s
+
+.PHONY : tests/test_http.s
+
+# target to generate assembly for a file
+tests/test_http.cc.s:
+	$(MAKE) -f CMakeFiles/test_http.dir/build.make CMakeFiles/test_http.dir/tests/test_http.cc.s
+.PHONY : tests/test_http.cc.s
+
+tests/test_http_connection.o: tests/test_http_connection.cc.o
+
+.PHONY : tests/test_http_connection.o
+
+# target to build an object file
+tests/test_http_connection.cc.o:
+	$(MAKE) -f CMakeFiles/test_http_connection.dir/build.make CMakeFiles/test_http_connection.dir/tests/test_http_connection.cc.o
+.PHONY : tests/test_http_connection.cc.o
+
+tests/test_http_connection.i: tests/test_http_connection.cc.i
+
+.PHONY : tests/test_http_connection.i
+
+# target to preprocess a source file
+tests/test_http_connection.cc.i:
+	$(MAKE) -f CMakeFiles/test_http_connection.dir/build.make CMakeFiles/test_http_connection.dir/tests/test_http_connection.cc.i
+.PHONY : tests/test_http_connection.cc.i
+
+tests/test_http_connection.s: tests/test_http_connection.cc.s
+
+.PHONY : tests/test_http_connection.s
+
+# target to generate assembly for a file
+tests/test_http_connection.cc.s:
+	$(MAKE) -f CMakeFiles/test_http_connection.dir/build.make CMakeFiles/test_http_connection.dir/tests/test_http_connection.cc.s
+.PHONY : tests/test_http_connection.cc.s
+
+tests/test_http_parser.o: tests/test_http_parser.cc.o
+
+.PHONY : tests/test_http_parser.o
+
+# target to build an object file
+tests/test_http_parser.cc.o:
+	$(MAKE) -f CMakeFiles/test_http_parser.dir/build.make CMakeFiles/test_http_parser.dir/tests/test_http_parser.cc.o
+.PHONY : tests/test_http_parser.cc.o
+
+tests/test_http_parser.i: tests/test_http_parser.cc.i
+
+.PHONY : tests/test_http_parser.i
+
+# target to preprocess a source file
+tests/test_http_parser.cc.i:
+	$(MAKE) -f CMakeFiles/test_http_parser.dir/build.make CMakeFiles/test_http_parser.dir/tests/test_http_parser.cc.i
+.PHONY : tests/test_http_parser.cc.i
+
+tests/test_http_parser.s: tests/test_http_parser.cc.s
+
+.PHONY : tests/test_http_parser.s
+
+# target to generate assembly for a file
+tests/test_http_parser.cc.s:
+	$(MAKE) -f CMakeFiles/test_http_parser.dir/build.make CMakeFiles/test_http_parser.dir/tests/test_http_parser.cc.s
+.PHONY : tests/test_http_parser.cc.s
+
 tests/test_http_server.o: tests/test_http_server.cc.o
 
 .PHONY : tests/test_http_server.o
@@ -1143,12 +1317,15 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... test_http_connection"
+	@echo "... test_http"
 	@echo "... httpserver"
 	@echo "... test_httpserver"
 	@echo "... echoserver"
 	@echo "... test_tcpserver"
 	@echo "... edit_cache"
 	@echo "... test"
+	@echo "... test_http_parser"
 	@echo "... sylar_dchg"
 	@echo "... examples/echo_server.o"
 	@echo "... examples/echo_server.i"
@@ -1159,12 +1336,18 @@ help:
 	@echo "... sylar_dchg/address.o"
 	@echo "... sylar_dchg/address.i"
 	@echo "... sylar_dchg/address.s"
+	@echo "... sylar_dchg/application.o"
+	@echo "... sylar_dchg/application.i"
+	@echo "... sylar_dchg/application.s"
 	@echo "... sylar_dchg/bytearray.o"
 	@echo "... sylar_dchg/bytearray.i"
 	@echo "... sylar_dchg/bytearray.s"
 	@echo "... sylar_dchg/config.o"
 	@echo "... sylar_dchg/config.i"
 	@echo "... sylar_dchg/config.s"
+	@echo "... sylar_dchg/daemon.o"
+	@echo "... sylar_dchg/daemon.i"
+	@echo "... sylar_dchg/daemon.s"
 	@echo "... sylar_dchg/env.o"
 	@echo "... sylar_dchg/env.i"
 	@echo "... sylar_dchg/env.s"
@@ -1249,6 +1432,15 @@ help:
 	@echo "... tests/test.o"
 	@echo "... tests/test.i"
 	@echo "... tests/test.s"
+	@echo "... tests/test_http.o"
+	@echo "... tests/test_http.i"
+	@echo "... tests/test_http.s"
+	@echo "... tests/test_http_connection.o"
+	@echo "... tests/test_http_connection.i"
+	@echo "... tests/test_http_connection.s"
+	@echo "... tests/test_http_parser.o"
+	@echo "... tests/test_http_parser.i"
+	@echo "... tests/test_http_parser.s"
 	@echo "... tests/test_http_server.o"
 	@echo "... tests/test_http_server.i"
 	@echo "... tests/test_http_server.s"

@@ -5,7 +5,7 @@
 // #include "sylar_dchg/thread.h"
 #include "singleton.h"
 #include "thread.h"
-// #include "mutex.h"
+#include "mutex.h"
 #include <map>
 #include <vector>
 

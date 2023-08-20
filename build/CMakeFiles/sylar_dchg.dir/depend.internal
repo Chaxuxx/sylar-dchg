@@ -12,6 +12,32 @@ CMakeFiles/sylar_dchg.dir/sylar_dchg/address.cc.o
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/singleton.h
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/thread.h
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/util.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/application.cc.o
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/address.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/application.cc
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/application.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/bytearray.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/config.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/daemon.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/env.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/fiber.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/http/http.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/http/http_server.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/http/http_session.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/http/servlet.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/iomanager.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/log.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/mutex.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/noncopyable.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/scheduler.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/singleton.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/socket.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/stream.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/streams/socket_stream.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/tcp_server.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/thread.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/timer.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/util.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/bytearray.cc.o
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/bytearray.cc
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/bytearray.h
@@ -26,6 +52,29 @@ CMakeFiles/sylar_dchg.dir/sylar_dchg/bytearray.cc.o
 CMakeFiles/sylar_dchg.dir/sylar_dchg/config.cc.o
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/config.cc
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/config.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/env.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/fiber.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/log.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/mutex.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/noncopyable.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/singleton.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/thread.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/util.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/daemon.cc.o
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/config.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/daemon.cc
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/daemon.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/fiber.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/log.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/mutex.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/noncopyable.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/singleton.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/thread.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/util.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/env.cc.o
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/config.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/env.cc
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/env.h
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/fiber.h
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/log.h
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/mutex.h
@@ -128,8 +177,6 @@ CMakeFiles/sylar_dchg.dir/sylar_dchg/http/http_server.cc.o
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/http/http_server.h
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/http/http_session.h
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/http/servlet.h
- /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/http/servlets/config_servlet.h
- /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/http/servlets/status_servlet.h
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/iomanager.h
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/log.h
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/mutex.h
@@ -209,27 +256,19 @@ CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/config_servlet.cc.o
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/util.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/address.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/application.h
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/bytearray.h
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/config.h
- /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/endian.h
- /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/env.h
- /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/fd_manager.h
+ /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/daemon.h
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/fiber.h
- /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/hook.h
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/http/http.h
- /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/http/http11_common.h
- /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/http/http11_parser.h
- /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/http/http_connection.h
- /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/http/http_parser.h
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/http/http_server.h
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/http/http_session.h
- /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/http/httpclient_parser.h
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/http/servlet.h
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/http/servlets/status_servlet.cc
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/http/servlets/status_servlet.h
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/iomanager.h
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/log.h
- /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/macro.h
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/mutex.h
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/noncopyable.h
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/scheduler.h
@@ -237,12 +276,9 @@ CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/socket.h
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/stream.h
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/streams/socket_stream.h
- /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/streams/zlib_stream.h
- /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/sylar.h
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/tcp_server.h
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/thread.h
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/timer.h
- /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/uri.h
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/util.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/iomanager.cc.o
  /mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/sylar_dchg/fiber.h

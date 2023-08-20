@@ -4,6 +4,7 @@
 CMakeFiles/test_httpserver.dir/tests/test_http_server.cc.o: ../sylar_dchg/address.h
 CMakeFiles/test_httpserver.dir/tests/test_http_server.cc.o: ../sylar_dchg/bytearray.h
 CMakeFiles/test_httpserver.dir/tests/test_http_server.cc.o: ../sylar_dchg/config.h
+CMakeFiles/test_httpserver.dir/tests/test_http_server.cc.o: ../sylar_dchg/env.h
 CMakeFiles/test_httpserver.dir/tests/test_http_server.cc.o: ../sylar_dchg/fiber.h
 CMakeFiles/test_httpserver.dir/tests/test_http_server.cc.o: ../sylar_dchg/http/http.h
 CMakeFiles/test_httpserver.dir/tests/test_http_server.cc.o: ../sylar_dchg/http/http_server.h

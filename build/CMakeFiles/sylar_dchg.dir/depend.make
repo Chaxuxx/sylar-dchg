@@ -12,6 +12,32 @@ CMakeFiles/sylar_dchg.dir/sylar_dchg/address.cc.o: ../sylar_dchg/singleton.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/address.cc.o: ../sylar_dchg/thread.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/address.cc.o: ../sylar_dchg/util.h
 
+CMakeFiles/sylar_dchg.dir/sylar_dchg/application.cc.o: ../sylar_dchg/address.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/application.cc.o: ../sylar_dchg/application.cc
+CMakeFiles/sylar_dchg.dir/sylar_dchg/application.cc.o: ../sylar_dchg/application.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/application.cc.o: ../sylar_dchg/bytearray.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/application.cc.o: ../sylar_dchg/config.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/application.cc.o: ../sylar_dchg/daemon.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/application.cc.o: ../sylar_dchg/env.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/application.cc.o: ../sylar_dchg/fiber.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/application.cc.o: ../sylar_dchg/http/http.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/application.cc.o: ../sylar_dchg/http/http_server.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/application.cc.o: ../sylar_dchg/http/http_session.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/application.cc.o: ../sylar_dchg/http/servlet.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/application.cc.o: ../sylar_dchg/iomanager.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/application.cc.o: ../sylar_dchg/log.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/application.cc.o: ../sylar_dchg/mutex.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/application.cc.o: ../sylar_dchg/noncopyable.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/application.cc.o: ../sylar_dchg/scheduler.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/application.cc.o: ../sylar_dchg/singleton.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/application.cc.o: ../sylar_dchg/socket.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/application.cc.o: ../sylar_dchg/stream.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/application.cc.o: ../sylar_dchg/streams/socket_stream.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/application.cc.o: ../sylar_dchg/tcp_server.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/application.cc.o: ../sylar_dchg/thread.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/application.cc.o: ../sylar_dchg/timer.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/application.cc.o: ../sylar_dchg/util.h
+
 CMakeFiles/sylar_dchg.dir/sylar_dchg/bytearray.cc.o: ../sylar_dchg/bytearray.cc
 CMakeFiles/sylar_dchg.dir/sylar_dchg/bytearray.cc.o: ../sylar_dchg/bytearray.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/bytearray.cc.o: ../sylar_dchg/endian.h
@@ -25,6 +51,7 @@ CMakeFiles/sylar_dchg.dir/sylar_dchg/bytearray.cc.o: ../sylar_dchg/util.h
 
 CMakeFiles/sylar_dchg.dir/sylar_dchg/config.cc.o: ../sylar_dchg/config.cc
 CMakeFiles/sylar_dchg.dir/sylar_dchg/config.cc.o: ../sylar_dchg/config.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/config.cc.o: ../sylar_dchg/env.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/config.cc.o: ../sylar_dchg/fiber.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/config.cc.o: ../sylar_dchg/log.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/config.cc.o: ../sylar_dchg/mutex.h
@@ -32,6 +59,28 @@ CMakeFiles/sylar_dchg.dir/sylar_dchg/config.cc.o: ../sylar_dchg/noncopyable.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/config.cc.o: ../sylar_dchg/singleton.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/config.cc.o: ../sylar_dchg/thread.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/config.cc.o: ../sylar_dchg/util.h
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/daemon.cc.o: ../sylar_dchg/config.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/daemon.cc.o: ../sylar_dchg/daemon.cc
+CMakeFiles/sylar_dchg.dir/sylar_dchg/daemon.cc.o: ../sylar_dchg/daemon.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/daemon.cc.o: ../sylar_dchg/fiber.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/daemon.cc.o: ../sylar_dchg/log.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/daemon.cc.o: ../sylar_dchg/mutex.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/daemon.cc.o: ../sylar_dchg/noncopyable.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/daemon.cc.o: ../sylar_dchg/singleton.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/daemon.cc.o: ../sylar_dchg/thread.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/daemon.cc.o: ../sylar_dchg/util.h
+
+CMakeFiles/sylar_dchg.dir/sylar_dchg/env.cc.o: ../sylar_dchg/config.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/env.cc.o: ../sylar_dchg/env.cc
+CMakeFiles/sylar_dchg.dir/sylar_dchg/env.cc.o: ../sylar_dchg/env.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/env.cc.o: ../sylar_dchg/fiber.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/env.cc.o: ../sylar_dchg/log.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/env.cc.o: ../sylar_dchg/mutex.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/env.cc.o: ../sylar_dchg/noncopyable.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/env.cc.o: ../sylar_dchg/singleton.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/env.cc.o: ../sylar_dchg/thread.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/env.cc.o: ../sylar_dchg/util.h
 
 CMakeFiles/sylar_dchg.dir/sylar_dchg/fd_manager.cc.o: ../sylar_dchg/fd_manager.cc
 CMakeFiles/sylar_dchg.dir/sylar_dchg/fd_manager.cc.o: ../sylar_dchg/fd_manager.h
@@ -127,8 +176,6 @@ CMakeFiles/sylar_dchg.dir/sylar_dchg/http/http_server.cc.o: ../sylar_dchg/http/h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/http/http_server.cc.o: ../sylar_dchg/http/http_server.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/http/http_server.cc.o: ../sylar_dchg/http/http_session.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/http/http_server.cc.o: ../sylar_dchg/http/servlet.h
-CMakeFiles/sylar_dchg.dir/sylar_dchg/http/http_server.cc.o: ../sylar_dchg/http/servlets/config_servlet.h
-CMakeFiles/sylar_dchg.dir/sylar_dchg/http/http_server.cc.o: ../sylar_dchg/http/servlets/status_servlet.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/http/http_server.cc.o: ../sylar_dchg/iomanager.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/http/http_server.cc.o: ../sylar_dchg/log.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/http/http_server.cc.o: ../sylar_dchg/mutex.h
@@ -208,27 +255,19 @@ CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/config_servlet.cc.o: ../sylar
 CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/config_servlet.cc.o: ../sylar_dchg/util.h
 
 CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o: ../sylar_dchg/address.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o: ../sylar_dchg/application.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o: ../sylar_dchg/bytearray.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o: ../sylar_dchg/config.h
-CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o: ../sylar_dchg/endian.h
-CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o: ../sylar_dchg/env.h
-CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o: ../sylar_dchg/fd_manager.h
+CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o: ../sylar_dchg/daemon.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o: ../sylar_dchg/fiber.h
-CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o: ../sylar_dchg/hook.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o: ../sylar_dchg/http/http.h
-CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o: ../sylar_dchg/http/http11_common.h
-CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o: ../sylar_dchg/http/http11_parser.h
-CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o: ../sylar_dchg/http/http_connection.h
-CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o: ../sylar_dchg/http/http_parser.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o: ../sylar_dchg/http/http_server.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o: ../sylar_dchg/http/http_session.h
-CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o: ../sylar_dchg/http/httpclient_parser.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o: ../sylar_dchg/http/servlet.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o: ../sylar_dchg/http/servlets/status_servlet.cc
 CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o: ../sylar_dchg/http/servlets/status_servlet.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o: ../sylar_dchg/iomanager.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o: ../sylar_dchg/log.h
-CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o: ../sylar_dchg/macro.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o: ../sylar_dchg/mutex.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o: ../sylar_dchg/noncopyable.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o: ../sylar_dchg/scheduler.h
@@ -236,12 +275,9 @@ CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o: ../sylar
 CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o: ../sylar_dchg/socket.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o: ../sylar_dchg/stream.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o: ../sylar_dchg/streams/socket_stream.h
-CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o: ../sylar_dchg/streams/zlib_stream.h
-CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o: ../sylar_dchg/sylar.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o: ../sylar_dchg/tcp_server.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o: ../sylar_dchg/thread.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o: ../sylar_dchg/timer.h
-CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o: ../sylar_dchg/uri.h
 CMakeFiles/sylar_dchg.dir/sylar_dchg/http/servlets/status_servlet.cc.o: ../sylar_dchg/util.h
 
 CMakeFiles/sylar_dchg.dir/sylar_dchg/iomanager.cc.o: ../sylar_dchg/fiber.h

@@ -1,0 +1,131 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "sylar_dchg",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "echoserver::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-echoserver-Debug-1a735778fd0933a71988.json",
+					"name" : "echoserver",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "httpserver::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-httpserver-Debug-e51c0ab55f14ee16b204.json",
+					"name" : "httpserver",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "sylar_dchg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-sylar_dchg-Debug-7bc0f0e7361961d39c43.json",
+					"name" : "sylar_dchg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test-Debug-cd434f0df821ad910a91.json",
+					"name" : "test",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_http::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_http-Debug-77e74b7741263b097220.json",
+					"name" : "test_http",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_http_connection::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_http_connection-Debug-1af76856d47ba8b766e3.json",
+					"name" : "test_http_connection",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_http_parser::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_http_parser-Debug-8c23ea4d5c96fe4cf880.json",
+					"name" : "test_http_parser",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_httpserver::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_httpserver-Debug-4e99761d6b05d58bf9c6.json",
+					"name" : "test_httpserver",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_tcpserver::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_tcpserver-Debug-96d4ad1c3c8d35987cef.json",
+					"name" : "test_tcpserver",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg/build",
+		"source" : "/mnt/c/Users/DchG/Desktop/myserver/sylar-dchg"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}

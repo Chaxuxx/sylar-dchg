@@ -2,7 +2,7 @@
 #include "../sylar_dchg/log.h"
 
 sylar_dchg::Logger::ptr g_logger = SYLAR_DCHG_LOG_ROOT();
-sylar_dchg::IOManager::ptr worker;
+// sylar_dchg::IOManager::ptr worker;
 void run() {
     g_logger->setLevel(sylar_dchg::LogLevel::INFO);
     sylar_dchg::Address::ptr addr = sylar_dchg::Address::LookupAnyIPAddress("0.0.0.0:8020");
@@ -11,8 +11,8 @@ void run() {
         return;
     }
 
-    sylar_dchg::http::HttpServer::ptr http_server(new sylar_dchg::http::HttpServer(true, worker.get()));
-    //sylar_dchg::http::HttpServer::ptr http_server(new sylar_dchg::http::HttpServer(true));
+    // sylar_dchg::http::HttpServer::ptr http_server(new sylar_dchg::http::HttpServer(true, worker.get()));
+    sylar_dchg::http::HttpServer::ptr http_server(new sylar_dchg::http::HttpServer(true));
     bool ssl = false;
     while(!http_server->bind(addr, ssl)) {
         SYLAR_DCHG_LOG_ERROR(g_logger) << "bind " << *addr << " fail";
@@ -27,8 +27,8 @@ void run() {
 }
 
 int main(int argc, char** argv) {
-    sylar_dchg::IOManager iom(1);
-    worker.reset(new sylar_dchg::IOManager(4, false));
+    sylar_dchg::IOManager iom(2);
+    // worker.reset(new sylar_dchg::IOManager(4, true));
     iom.schedule(run);
     return 0;
 }

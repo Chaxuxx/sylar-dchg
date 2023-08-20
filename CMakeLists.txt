@@ -7,8 +7,9 @@ include (cmake/utils.cmake)#这个文件是哪儿来的 未知
 
 set(CMAKE_VERBOSE_MAKEFILE ON)
 # set(CMAKE_CXX_FLAGS "$ENV{CXXFLAGS} -rdynamic -O3 -fPIC -ggdb -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -Wno-builtin-macro-redefined -Wno-deprecated-declarations")
-set(CMAKE_CXX_FLAGS "$ENV{CXXFLAGS} -rdynamic -O3 -fPIC -ggdb -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -Wno-builtin-macro-redefined -Wno-deprecated-declarations")
+set(CMAKE_CXX_FLAGS "$ENV{CXXFLAGS} -rdynamic -O3 -fPIC -ggdb -std=c++11 -Wall -Wno-deprecated -Wno-unused-function -Wno-builtin-macro-redefined -Wno-deprecated-declarations")
 # 有一个宏重定义的忽略
+# werror把所有警告视为错误并且停止编译
 
 # set(CMAKE_CXX_STANDARD 11)
 # set(CMAKE_CXX_STANDARD_REQUIRED True)
@@ -59,6 +60,9 @@ set(LIB_SRC
     sylar_dchg/thread.cc
     sylar_dchg/util.cc
     sylar_dchg/env.cc
+    sylar_dchg/application.cc
+    sylar_dchg/daemon.cc
+    
 
     sylar_dchg/http/http.cc
     sylar_dchg/http/http_connection.cc
@@ -125,6 +129,21 @@ add_executable(httpserver samples/my_http_server.cc)
 add_dependencies(httpserver sylar_dchg)
 force_redefine_file_macro_for_sources(httpserver)
 target_link_libraries(httpserver ${LIBS})
+
+add_executable(test_http tests/test_http.cc)
+add_dependencies(test_http sylar_dchg)
+force_redefine_file_macro_for_sources(test_http)
+target_link_libraries(test_http ${LIBS})
+
+add_executable(test_http_parser tests/test_http_parser.cc)
+add_dependencies(test_http_parser sylar_dchg)
+force_redefine_file_macro_for_sources(test_http_parser)
+target_link_libraries(test_http_parser ${LIBS})
+
+add_executable(test_http_connection tests/test_http_connection.cc)
+add_dependencies(test_http_connection sylar_dchg)
+force_redefine_file_macro_for_sources(test_http_connection)
+target_link_libraries(test_http_connection ${LIBS})
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)#二进制文件存放位置设置
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)#lib存放位置设置

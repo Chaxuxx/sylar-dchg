@@ -1,5 +1,8 @@
 #include "status_servlet.h"
-#include "../../sylar.h"
+// #include "../../sylar.h"
+#include "../../daemon.h"
+#include "../http_server.h"
+#include "../../application.h"
 
 namespace sylar_dchg {
 namespace http {
@@ -44,16 +47,16 @@ int32_t StatusServlet::handle(sylar_dchg::http::HttpRequest::ptr request
     ss << "===================================================" << std::endl;
     XX("server_version") << "sylar/1.0.0" << std::endl;
     
-    std::vector<Module::ptr> ms;
-    ModuleMgr::GetInstance()->listAll(ms);
+    // std::vector<Module::ptr> ms;
+    // ModuleMgr::GetInstance()->listAll(ms);
 
-    XX("modules");
-    for(size_t i = 0; i < ms.size(); ++i) {
-        if(i) {
-            ss << ";";
-        }
-        ss << ms[i]->getId();
-    }
+    // XX("modules");
+    // for(size_t i = 0; i < ms.size(); ++i) {
+    //     if(i) {
+    //         ss << ";";
+    //     }
+    //     ss << ms[i]->getId();
+    // }
     ss << std::endl;
     XX("host") << GetHostName() << std::endl;
     XX("ipv4") << GetIPv4() << std::endl;
@@ -71,7 +74,7 @@ int32_t StatusServlet::handle(sylar_dchg::http::HttpRequest::ptr request
     ss << sylar_dchg::LoggerMgr::GetInstance()->toYamlString() << std::endl;
     ss << "===================================================" << std::endl;
     ss << "<Woker>" << std::endl;
-    sylar_dchg::WorkerMgr::GetInstance()->dump(ss) << std::endl;
+    // sylar_dchg::WorkerMgr::GetInstance()->dump(ss) << std::endl;
 
     std::map<std::string, std::vector<TcpServer::ptr> > servers;
     sylar_dchg::Application::GetInstance()->listAllServer(servers);
@@ -119,12 +122,12 @@ int32_t StatusServlet::handle(sylar_dchg::http::HttpRequest::ptr request
         }
     }
     ss << "===================================================" << std::endl;
-    for(size_t i = 0; i < ms.size(); ++i) {
-        if(i) {
-            ss << "***************************************************" << std::endl;
-        }
-        ss << ms[i]->statusString() << std::endl;
-    }
+    // for(size_t i = 0; i < ms.size(); ++i) {
+    //     if(i) {
+    //         ss << "***************************************************" << std::endl;
+    //     }
+    //     ss << ms[i]->statusString() << std::endl;
+    // }
 
     response->setBody(ss.str());
     return 0;

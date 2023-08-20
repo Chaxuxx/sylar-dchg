@@ -8,14 +8,15 @@
 #include "config.h"
 #include "env.h"
 #include "log.h"
-#include "module.h"
-#include "rock/rock_stream.h"
-#include "worker.h"
-#include "http/ws_server.h"
-#include "rock/rock_server.h"
-#include "ns/name_server_module.h"
-#include "db/fox_thread.h"
-#include "db/redis.h"
+
+// #include "module.h"
+// #include "rock/rock_stream.h"
+// #include "worker.h"
+// #include "http/ws_server.h"
+// #include "rock/rock_server.h"
+// #include "ns/name_server_module.h"
+// #include "db/fox_thread.h"
+// #include "db/redis.h"
 
 namespace sylar_dchg {
 
@@ -68,23 +69,23 @@ bool Application::init(int argc, char** argv) {
     SYLAR_DCHG_LOG_INFO(g_logger) << "load conf path:" << conf_path;
     sylar_dchg::Config::LoadFromConfDir(conf_path);
 
-    ModuleMgr::GetInstance()->init();
-    std::vector<Module::ptr> modules;
-    ModuleMgr::GetInstance()->listAll(modules);
+    // ModuleMgr::GetInstance()->init();
+    // std::vector<Module::ptr> modules;
+    // ModuleMgr::GetInstance()->listAll(modules);
 
-    for(auto i : modules) {
-        i->onBeforeArgsParse(argc, argv);
-    }
+    // for(auto i : modules) {
+    //     i->onBeforeArgsParse(argc, argv);
+    // }
 
     if(is_print_help) {
         sylar_dchg::EnvMgr::GetInstance()->printHelp();
         return false;
     }
 
-    for(auto i : modules) {
-        i->onAfterArgsParse(argc, argv);
-    }
-    modules.clear();
+    // for(auto i : modules) {
+    //     i->onAfterArgsParse(argc, argv);
+    // }
+    // modules.clear();
 
     int run_type = 0;
     if(sylar_dchg::EnvMgr::GetInstance()->has("s")) {
@@ -147,25 +148,25 @@ int Application::main(int argc, char** argv) {
 }
 
 int Application::run_fiber() {
-    std::vector<Module::ptr> modules;
-    ModuleMgr::GetInstance()->listAll(modules);
+    // std::vector<Module::ptr> modules;
+    // ModuleMgr::GetInstance()->listAll(modules);
     bool has_error = false;
-    for(auto& i : modules) {
-        if(!i->onLoad()) {
-            SYLAR_DCHG_LOG_ERROR(g_logger) << "module name="
-                << i->getName() << " version=" << i->getVersion()
-                << " filename=" << i->getFilename();
-            has_error = true;
-        }
-    }
+    // for(auto& i : modules) {
+    //     if(!i->onLoad()) {
+    //         SYLAR_DCHG_LOG_ERROR(g_logger) << "module name="
+    //             << i->getName() << " version=" << i->getVersion()
+    //             << " filename=" << i->getFilename();
+    //         has_error = true;
+    //     }
+    // }
     if(has_error) {
         _exit(0);
     }
 
-    sylar_dchg::WorkerMgr::GetInstance()->init();
-    FoxThreadMgr::GetInstance()->init();
-    FoxThreadMgr::GetInstance()->start();
-    RedisMgr::GetInstance();
+    // sylar_dchg::WorkerMgr::GetInstance()->init();
+    // FoxThreadMgr::GetInstance()->init();
+    // FoxThreadMgr::GetInstance()->start();
+    // RedisMgr::GetInstance();
 
     auto http_confs = g_servers_conf->getValue();
     std::vector<TcpServer::ptr> svrs;
@@ -211,45 +212,45 @@ int Application::run_fiber() {
         IOManager* accept_worker = sylar_dchg::IOManager::GetThis();
         IOManager* io_worker = sylar_dchg::IOManager::GetThis();
         IOManager* process_worker = sylar_dchg::IOManager::GetThis();
-        if(!i.accept_worker.empty()) {
-            accept_worker = sylar_dchg::WorkerMgr::GetInstance()->getAsIOManager(i.accept_worker).get();
-            if(!accept_worker) {
-                SYLAR_DCHG_LOG_ERROR(g_logger) << "accept_worker: " << i.accept_worker
-                    << " not exists";
-                _exit(0);
-            }
-        }
-        if(!i.io_worker.empty()) {
-            io_worker = sylar_dchg::WorkerMgr::GetInstance()->getAsIOManager(i.io_worker).get();
-            if(!io_worker) {
-                SYLAR_DCHG_LOG_ERROR(g_logger) << "io_worker: " << i.io_worker
-                    << " not exists";
-                _exit(0);
-            }
-        }
-        if(!i.process_worker.empty()) {
-            process_worker = sylar_dchg::WorkerMgr::GetInstance()->getAsIOManager(i.process_worker).get();
-            if(!process_worker) {
-                SYLAR_DCHG_LOG_ERROR(g_logger) << "process_worker: " << i.process_worker
-                    << " not exists";
-                _exit(0);
-            }
-        }
+        // if(!i.accept_worker.empty()) {
+        //     accept_worker = sylar_dchg::WorkerMgr::GetInstance()->getAsIOManager(i.accept_worker).get();
+        //     if(!accept_worker) {
+        //         SYLAR_DCHG_LOG_ERROR(g_logger) << "accept_worker: " << i.accept_worker
+        //             << " not exists";
+        //         _exit(0);
+        //     }
+        // }
+        // if(!i.io_worker.empty()) {
+        //     io_worker = sylar_dchg::WorkerMgr::GetInstance()->getAsIOManager(i.io_worker).get();
+        //     if(!io_worker) {
+        //         SYLAR_DCHG_LOG_ERROR(g_logger) << "io_worker: " << i.io_worker
+        //             << " not exists";
+        //         _exit(0);
+        //     }
+        // }
+        // if(!i.process_worker.empty()) {
+        //     process_worker = sylar_dchg::WorkerMgr::GetInstance()->getAsIOManager(i.process_worker).get();
+        //     if(!process_worker) {
+        //         SYLAR_DCHG_LOG_ERROR(g_logger) << "process_worker: " << i.process_worker
+        //             << " not exists";
+        //         _exit(0);
+        //     }
+        // }
 
         TcpServer::ptr server;
         if(i.type == "http") {
             server.reset(new sylar_dchg::http::HttpServer(i.keepalive,
                             process_worker, io_worker, accept_worker));
-        } else if(i.type == "ws") {
-            server.reset(new sylar_dchg::http::WSServer(
-                            process_worker, io_worker, accept_worker));
-        } else if(i.type == "rock") {
-            server.reset(new sylar_dchg::RockServer("rock",
-                            process_worker, io_worker, accept_worker));
-        } else if(i.type == "nameserver") {
-            server.reset(new sylar_dchg::RockServer("nameserver",
-                            process_worker, io_worker, accept_worker));
-            ModuleMgr::GetInstance()->add(std::make_shared<sylar_dchg::ns::NameServerModule>());
+        // } else if(i.type == "ws") {
+        //     server.reset(new sylar_dchg::http::WSServer(
+        //                     process_worker, io_worker, accept_worker));
+        // } else if(i.type == "rock") {
+        //     server.reset(new sylar_dchg::RockServer("rock",
+        //                     process_worker, io_worker, accept_worker));
+        // } else if(i.type == "nameserver") {
+        //     server.reset(new sylar_dchg::RockServer("nameserver",
+        //                     process_worker, io_worker, accept_worker));
+        //     ModuleMgr::GetInstance()->add(std::make_shared<sylar_dchg::ns::NameServerModule>());
         } else {
             SYLAR_DCHG_LOG_ERROR(g_logger) << "invalid server type=" << i.type
                 << LexicalCast<TcpServerConf, std::string>()(i);
@@ -279,12 +280,12 @@ int Application::run_fiber() {
     }
 
     if(!g_service_discovery_zk->getValue().empty()) {
-        m_serviceDiscovery.reset(new ZKServiceDiscovery(g_service_discovery_zk->getValue()));
-        m_rockSDLoadBalance.reset(new RockSDLoadBalance(m_serviceDiscovery));
+        // m_serviceDiscovery.reset(new ZKServiceDiscovery(g_service_discovery_zk->getValue()));
+        // m_rockSDLoadBalance.reset(new RockSDLoadBalance(m_serviceDiscovery));
 
         std::vector<TcpServer::ptr> svrs;
         if(!getServer("http", svrs)) {
-            m_serviceDiscovery->setSelfInfo(sylar_dchg::GetIPv4() + ":0:" + sylar_dchg::GetHostName());
+            // m_serviceDiscovery->setSelfInfo(sylar_dchg::GetIPv4() + ":0:" + sylar_dchg::GetHostName());
         } else {
             std::string ip_and_port;
             for(auto& i : svrs) {
@@ -309,25 +310,25 @@ int Application::run_fiber() {
                     break;
                 }
             }
-            m_serviceDiscovery->setSelfInfo(ip_and_port + ":" + sylar_dchg::GetHostName());
+            // m_serviceDiscovery->setSelfInfo(ip_and_port + ":" + sylar_dchg::GetHostName());
         }
     }
 
-    for(auto& i : modules) {
-        i->onServerReady();
-    }
+    // for(auto& i : modules) {
+    //     i->onServerReady();
+    // }
 
     for(auto& i : svrs) {
         i->start();
     }
 
-    if(m_rockSDLoadBalance) {
-        m_rockSDLoadBalance->start();
-    }
+    // if(m_rockSDLoadBalance) {
+    //     m_rockSDLoadBalance->start();
+    // }
 
-    for(auto& i : modules) {
-        i->onServerUp();
-    }
+    // for(auto& i : modules) {
+    //     i->onServerUp();
+    // }
     //ZKServiceDiscovery::ptr m_serviceDiscovery;
     //RockSDLoadBalance::ptr m_rockSDLoadBalance;
     //sylar_dchg::ZKServiceDiscovery::ptr zksd(new sylar_dchg::ZKServiceDiscovery("127.0.0.1:21811"));
